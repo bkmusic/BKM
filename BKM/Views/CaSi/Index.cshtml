@@ -1,0 +1,59 @@
+﻿@model IEnumerable<BKM.Models.CaSi>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TenCaSi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GioiTinh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NgaySinh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MoTa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HinhAnh)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenCaSi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GioiTinh)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NgaySinh.Day)/
+            @Html.DisplayFor(modelItem => item.NgaySinh.Month)/
+            @Html.DisplayFor(modelItem => item.NgaySinh.Year)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MoTa)
+        </td>
+        <td>
+            <img src="~/IMAGE/@Html.DisplayFor(modelItem => item.HinhAnh)" style="height:200px;width:200px;" />
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MaCaSi }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MaCaSi }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MaCaSi })
+        </td>
+    </tr>
+}
+
+</table>

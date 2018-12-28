@@ -8,7 +8,7 @@ namespace BKM.Controllers
 {
     public class HomeController : Controller
     {
-        bkmusicEntities db = new bkmusicEntities();
+        
         public ActionResult Index()
         {
             return View();
