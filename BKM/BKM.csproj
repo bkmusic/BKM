@@ -158,15 +158,22 @@
     <Compile Include="BKM.dal\BKMContext.cs" />
     <Compile Include="BKM.dal\BKMInitializer.cs" />
     <Compile Include="Controllers\BaiHatController.cs" />
+    <Compile Include="Controllers\DetailBaiHatController.cs" />
     <Compile Include="Controllers\CaSiController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TheLoaiController.cs" />
     <Compile Include="Controllers\KhuVucController.cs" />
+    <Compile Include="Controllers\NhacSiController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\BaiHat.cs" />
+    <Compile Include="Models\DetailBaiHat.cs" />
     <Compile Include="Models\CaSi.cs" />
+    <Compile Include="Models\Enumeration.cs" />
     <Compile Include="Models\KhuVuc.cs" />
+    <Compile Include="Models\NhacSi.cs" />
+    <Compile Include="Models\TheLoai.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -387,6 +394,21 @@
     <Content Include="Views\BaiHat\Details.cshtml" />
     <Content Include="Views\BaiHat\Edit.cshtml" />
     <Content Include="Views\BaiHat\Index.cshtml" />
+    <Content Include="Views\DetailBaiHat\Create.cshtml" />
+    <Content Include="Views\DetailBaiHat\Delete.cshtml" />
+    <Content Include="Views\DetailBaiHat\Details.cshtml" />
+    <Content Include="Views\DetailBaiHat\Edit.cshtml" />
+    <Content Include="Views\DetailBaiHat\Index.cshtml" />
+    <Content Include="Views\NhacSi\Create.cshtml" />
+    <Content Include="Views\NhacSi\Delete.cshtml" />
+    <Content Include="Views\NhacSi\Details.cshtml" />
+    <Content Include="Views\NhacSi\Edit.cshtml" />
+    <Content Include="Views\NhacSi\Index.cshtml" />
+    <Content Include="Views\TheLoai\Create.cshtml" />
+    <Content Include="Views\TheLoai\Delete.cshtml" />
+    <Content Include="Views\TheLoai\Details.cshtml" />
+    <Content Include="Views\TheLoai\Edit.cshtml" />
+    <Content Include="Views\TheLoai\Index.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

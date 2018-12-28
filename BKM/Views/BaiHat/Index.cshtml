@@ -15,7 +15,7 @@
             @Html.DisplayNameFor(model => model.TenBaiHat)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.MaCaSi)
+            @Html.DisplayNameFor(model => model.MaTheLoai)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.MaKhuVuc)
@@ -27,7 +27,7 @@
             @Html.DisplayNameFor(model => model.HinhAnh)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.file)
+            @Html.DisplayNameFor(model => model.File)
         </th>
         <th></th>
     </tr>
@@ -38,7 +38,7 @@
             @Html.DisplayFor(modelItem => item.TenBaiHat)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.MaCaSi)
+            @Html.DisplayFor(modelItem => item.MaTheLoai)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.MaKhuVuc)
@@ -47,12 +47,10 @@
             @Html.DisplayFor(modelItem => item.MoTa)
         </td>
         <td>
-            <img src="~/IMAGE/@Html.DisplayFor(modelItem => item.HinhAnh)" style="height:200px;width:200px;" />
+            @Html.DisplayFor(modelItem => item.HinhAnh)
         </td>
         <td>
-            <audio controls>
-                <source src="~/App_Data/Music/@Html.DisplayFor(modelItem => item.file)" />
-            </audio>
+            @Html.DisplayFor(modelItem => item.File)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.MaBaiHat }) |

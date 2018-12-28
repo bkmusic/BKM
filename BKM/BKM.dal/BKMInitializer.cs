@@ -11,6 +11,24 @@ namespace BKM.dal
     {
         protected override void Seed(BKMContext context)
         {
+            var DetailBaiHats = new List<DetailBaiHat>
+            {
+            };
+
+            DetailBaiHats.ForEach(s => context.DetailBaiHats.Add(s));
+            context.SaveChanges();
+            var NhacSies = new List<NhacSi>
+            {
+
+            };
+            NhacSies.ForEach(s => context.NhacSies.Add(s));
+            context.SaveChanges();
+            var TheLoais = new List<TheLoai>
+            {
+            };
+
+            TheLoais.ForEach(s => context.TheLoais.Add(s));
+            context.SaveChanges();
             var BaiHats = new List<BaiHat>
             {
             };

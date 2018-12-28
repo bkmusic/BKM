@@ -4,16 +4,13 @@ using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using static BKM.Models.Enumeration;
 
 namespace BKM.Models
 {
     [Table("CaSi")]
     public class CaSi
     {
-        public enum GT
-        {
-            Nam, Nu
-        }
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
         public int MaCaSi { get; set; }

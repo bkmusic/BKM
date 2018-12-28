@@ -14,13 +14,14 @@ namespace BKM.Models
         [Key]
         public int MaBaiHat { get; set; }
         public string TenBaiHat { get; set; }
-        public int MaCaSi { get; set; }
-        public string MaKhuVuc { get; set; }
+        public int MaTheLoai { get; set; }
+        public int MaKhuVuc { get; set; }
         public string MoTa { get; set; }
         public string HinhAnh { get; set; }
-        public string file { get; set; }
+        public string File { get; set; }
 
-        public virtual ICollection<CaSi> CaSi { get; set; }
         public virtual ICollection<KhuVuc> KhuVuc { get; set; }
+        public virtual ICollection<TheLoai> TheLoai { get; set; }
+        public virtual ICollection<DetailBaiHat> DetailBaiHat { get; set; }
     }
 }

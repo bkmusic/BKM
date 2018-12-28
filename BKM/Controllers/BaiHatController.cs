@@ -28,12 +28,12 @@ namespace BKM.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            BaiHat baiHat = db.BaiHats.Find(id);
-            if (baiHat == null)
+            BaiHat BaiHat = db.BaiHats.Find(id);
+            if (BaiHat == null)
             {
                 return HttpNotFound();
             }
-            return View(baiHat);
+            return View(BaiHat);
         }
 
         // GET: BaiHat/Create
@@ -47,16 +47,16 @@ namespace BKM.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MaBaiHat,TenBaiHat,MaCaSi,MaKhuVuc,MoTa,HinhAnh,file")] BaiHat baiHat)
+        public ActionResult Create([Bind(Include = "MaBaiHat,TenBaiHat,MaTheLoai,MaKhuVuc,MoTa,HinhAnh,File")] BaiHat BaiHat)
         {
             if (ModelState.IsValid)
             {
-                db.BaiHats.Add(baiHat);
+                db.BaiHats.Add(BaiHat);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(baiHat);
+            return View(BaiHat);
         }
 
         // GET: BaiHat/Edit/5
@@ -66,12 +66,12 @@ namespace BKM.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            BaiHat baiHat = db.BaiHats.Find(id);
-            if (baiHat == null)
+            BaiHat BaiHat = db.BaiHats.Find(id);
+            if (BaiHat == null)
             {
                 return HttpNotFound();
             }
-            return View(baiHat);
+            return View(BaiHat);
         }
 
         // POST: BaiHat/Edit/5
@@ -79,15 +79,15 @@ namespace BKM.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MaBaiHat,TenBaiHat,MaCaSi,MaKhuVuc,MoTa,HinhAnh,file")] BaiHat baiHat)
+        public ActionResult Edit([Bind(Include = "MaBaiHat,TenBaiHat,MaTheLoai,MaKhuVuc,MoTa,HinhAnh,File")] BaiHat BaiHat)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(baiHat).State = EntityState.Modified;
+                db.Entry(BaiHat).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(baiHat);
+            return View(BaiHat);
         }
 
         // GET: BaiHat/Delete/5
@@ -97,12 +97,12 @@ namespace BKM.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            BaiHat baiHat = db.BaiHats.Find(id);
-            if (baiHat == null)
+            BaiHat BaiHat = db.BaiHats.Find(id);
+            if (BaiHat == null)
             {
                 return HttpNotFound();
             }
-            return View(baiHat);
+            return View(BaiHat);
         }
 
         // POST: BaiHat/Delete/5
@@ -110,8 +110,8 @@ namespace BKM.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            BaiHat baiHat = db.BaiHats.Find(id);
-            db.BaiHats.Remove(baiHat);
+            BaiHat BaiHat = db.BaiHats.Find(id);
+            db.BaiHats.Remove(BaiHat);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

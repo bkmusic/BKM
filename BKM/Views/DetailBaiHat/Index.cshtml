@@ -1,0 +1,81 @@
+﻿@model IEnumerable<BKM.Models.DetailBaiHat>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TenBaiHat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaTheLoai)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaKhuVuc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaCaSi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaNhacSi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NguoiDang)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NgayDang)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MoTa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HinhAnh)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenBaiHat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaTheLoai)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaKhuVuc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaCaSi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaNhacSi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NguoiDang)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NgayDang)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MoTa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HinhAnh)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MaBaiHat }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MaBaiHat }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MaBaiHat })
+        </td>
+    </tr>
+}
+
+</table>
