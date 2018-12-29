@@ -14,10 +14,20 @@ namespace BKM.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
         public int MaCaSi { get; set; }
+
+        [Display(Name = "Tên ca sĩ")]
         public string TenCaSi { get; set; }
+
+        [Display(Name = "Giới tính")]
         public GT GioiTinh { get; set; }
+
+        [Display(Name = "Ngày sinh")]
         public DateTime NgaySinh { get; set; }
+
+        [Display(Name = "Mô tả")]
         public string MoTa { get; set; }
+
+        [Display(Name = "Hình ảnh")]
         public string HinhAnh { get; set; }
 
         public virtual ICollection<DetailBaiHat> DetailBaiHat { get; set; }
