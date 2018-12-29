@@ -41,8 +41,8 @@
                 </ul>
                 <!--Đăng kí và đăng nhập-->
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign up</a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    <li><span class="glyphicon glyphicon-user">@Html.ActionLink("Signup","DangKy","NguoiDung")</span></li>
+                    <li><span class="glyphicon glyphicon-log-in">@Html.ActionLink("Login", "DangNhap", "NguoiDung")</span></li>
                 </ul>
                 <!--Thanh công cụ tìm kiếm-->
                 <form class="navbar-form navbar-right" action="/action_page.php">
