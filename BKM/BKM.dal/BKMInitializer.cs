@@ -58,6 +58,13 @@ namespace BKM.dal
 
             KhuVucs.ForEach(s => context.KhuVucs.Add(s));
             context.SaveChanges();
+
+            var NguoiDungs = new List<NguoiDung>
+            {
+            };
+
+            NguoiDungs.ForEach(s => context.NguoiDungs.Add(s));
+            context.SaveChanges();
         }
     }
 }
