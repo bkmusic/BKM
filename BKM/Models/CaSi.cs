@@ -16,8 +16,6 @@ namespace BKM.Models
         public int MaCaSi { get; set; }
         public string TenCaSi { get; set; }
         public GT GioiTinh { get; set; }
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:dd-mm-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime NgaySinh { get; set; }
         public string MoTa { get; set; }
         public string HinhAnh { get; set; }
