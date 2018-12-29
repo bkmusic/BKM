@@ -20,8 +20,8 @@ namespace BKM.Models
         public string HinhAnh { get; set; }
         public string File { get; set; }
 
-        public virtual ICollection<KhuVuc> KhuVuc { get; set; }
-        public virtual ICollection<TheLoai> TheLoai { get; set; }
-        public virtual ICollection<DetailBaiHat> DetailBaiHat { get; set; }
+        public virtual KhuVuc KhuVuc { get; set; }
+        public virtual TheLoai TheLoai { get; set; }
+        public virtual DetailBaiHat DetailBaiHat { get; set; }
     }
 }

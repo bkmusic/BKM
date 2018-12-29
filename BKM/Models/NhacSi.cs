@@ -20,6 +20,6 @@ namespace BKM.Models
         public string MoTa { get; set; }
         public string HinhAnh { get; set; }
 
-        public virtual BaiHat BaiHat { get; set; }
+        public virtual ICollection<DetailBaiHat> DetailBaiHat { get; set; }
     }
 }

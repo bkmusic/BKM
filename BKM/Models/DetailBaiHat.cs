@@ -23,8 +23,8 @@ namespace BKM.Models
         public string MoTa { get; set; }
         public string HinhAnh { get; set; }
 
-        public virtual BaiHat BaiHat { get; set; }
-        public virtual ICollection<NhacSi> NhacSi { get; set; }
-        public virtual ICollection<CaSi> CaSi { get; set; }
+        public virtual ICollection<BaiHat> BaiHat { get; set; }
+        public virtual NhacSi NhacSi { get; set; }
+        public virtual CaSi CaSi { get; set; }
     }
 }

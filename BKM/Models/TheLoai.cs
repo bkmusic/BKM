@@ -15,6 +15,6 @@ namespace BKM.Models
         public int MaTheLoai { get; set; }
         public string TenTheLoai { get; set; }
 
-        public virtual BaiHat BaiHat { get; set; }
+        public virtual ICollection<BaiHat> BaiHat { get; set; }
     }
 }

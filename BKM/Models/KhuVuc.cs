@@ -15,6 +15,6 @@ namespace BKM.Models
         public int MaKhuVuc { get; set; }
         public string TenKhuVuc { get; set; }
 
-        public virtual BaiHat BaiHat { get; set; }
+        public virtual ICollection<BaiHat> BaiHat { get; set; }
     }
 }
