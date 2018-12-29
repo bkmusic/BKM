@@ -12,6 +12,12 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.CaSi.TenCaSi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NhacSi.TenNhacSi)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.TenBaiHat)
         </th>
         <th>
@@ -19,12 +25,6 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.MaKhuVuc)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MaCaSi)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MaNhacSi)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.NguoiDang)
@@ -44,6 +44,12 @@
 @foreach (var item in Model) {
     <tr>
         <td>
+            @Html.DisplayFor(modelItem => item.CaSi.TenCaSi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NhacSi.TenNhacSi)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.TenBaiHat)
         </td>
         <td>
@@ -51,12 +57,6 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.MaKhuVuc)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MaCaSi)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MaNhacSi)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.NguoiDang)

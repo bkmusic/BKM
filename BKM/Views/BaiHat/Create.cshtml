@@ -24,17 +24,17 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.MaTheLoai, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.MaTheLoai, "MaTheLoai", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.MaTheLoai, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownList("MaTheLoai", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.MaTheLoai, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.MaKhuVuc, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.MaKhuVuc, "MaKhuVuc", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.MaKhuVuc, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownList("MaKhuVuc", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.MaKhuVuc, "", new { @class = "text-danger" })
             </div>
         </div>

@@ -25,6 +25,14 @@ namespace BKM.dal
             context.SaveChanges();
             var TheLoais = new List<TheLoai>
             {
+                new TheLoai{TenTheLoai="Classical"},
+                new TheLoai{TenTheLoai="Country"},
+                new TheLoai{TenTheLoai="Electronic"},
+                new TheLoai{TenTheLoai="Indie"},
+                new TheLoai{TenTheLoai="Jazz"},
+                new TheLoai{TenTheLoai="Pop"},
+                new TheLoai{TenTheLoai="R&B"},
+                new TheLoai{TenTheLoai="Rock"},
             };
 
             TheLoais.ForEach(s => context.TheLoais.Add(s));
@@ -43,6 +51,9 @@ namespace BKM.dal
             context.SaveChanges();
             var KhuVucs = new List<KhuVuc>
             {
+                 new KhuVuc{TenKhuVuc="Viet Nam"},
+                 new KhuVuc{TenKhuVuc="Au My"},
+                 new KhuVuc{TenKhuVuc="Han Quoc"}
             };
 
             KhuVucs.ForEach(s => context.KhuVucs.Add(s));

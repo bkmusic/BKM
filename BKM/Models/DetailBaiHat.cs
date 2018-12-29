@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 
 namespace BKM.Models
 {
@@ -26,5 +27,27 @@ namespace BKM.Models
         public virtual ICollection<BaiHat> BaiHat { get; set; }
         public virtual NhacSi NhacSi { get; set; }
         public virtual CaSi CaSi { get; set; }
+    }
+
+    public class DetailBaiHatViewModel
+    {
+        public string MaBaiHat { get; set; }
+
+        [Required]
+        public string TenBaiHat { get; set; }
+
+        [Required]
+        public string MaCaSi { get; set; }
+        public IEnumerable<SelectListItem> TenCaSi { get; set; }
+
+        [Required]
+        public string MaNhacSi { get; set; }
+        public IEnumerable<SelectListItem> TenNhacSi { get; set; }
+
+        [Required]
+        public string MoTa { get; set; }
+
+        [Required]
+        public string HinhAnh { get; set; }
     }
 }

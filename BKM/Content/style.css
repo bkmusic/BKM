@@ -514,6 +514,93 @@ margin-top: 20px;
 	margin-left: 50px;
 	margin-right: 20px;
 }
+.nghesi-VN .nghesi-HQ .nghesi-USUK img{
+	border-radius: 8;
+}
+.logo img{
+	margin-left: 270px;
+}
+.logo a{
+	font-family:  Roboto,sans-serif;
+	color:#E82226;
+	text-decoration: none;
+	font-size: 50px;
+	margin-left:0;
+	margin-top: 20px;
+}
+.logo {
+	margin-top: 30px;
+}
+.logo .col-md-8{
+	margin-top: 15px;
+}
+.login-fb{
+	margin-left: 430px;
+}
+.form-dangky{
+	margin-left: 0;
+}
+.form-dangky p{
+	font-family:  Roboto,sans-serif;
+	color:white;
+	margin-top: 20px;
+	font-size: 20px;
+	text-align: center;
+}
+.button-tailen{
+	margin-top: 50px;
+	border-style: dashed;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	margin-bottom: 50px;
+}
+.button-tailen p{
+	font-family:  Roboto,sans-serif;
+	color:gray;
+	margin-top: 20px;
+	font-size: 20px;
+	text-align: center;
+}
+.upload-info h2{
+	font-family:  Roboto,sans-serif;
+	color:purple;
+}
+.upload-info p{
+	font-family:  Roboto,sans-serif;
+	color:white;
+}
+.ncn-menu{
+	list-style-type: none;
+	margin-top: 30px;
+	margin-left: -5px;
+	
+}
+.ncn-menu a  {
+	font-family:  Roboto,sans-serif;
+	font-weight: 400;
+	font-size: 16px;
+	padding-bottom: 20px;
+	padding-left: 35px;
+	padding-right: 35px;
+	margin: 0px;
+	
+}
+.ncn-menu a:link {
+    color:white;
+}
+.ncn-menu a:visited {
+    color: white;
+}
+.ncn-menu a:hover {
+    border-bottom: 2px solid;
+	border-bottom-color: purple;
+	text-decoration: none;
+	color:purple;
+}
+
+.ncn-menu a:active {
+    color: white;
+}
 #footer{
 	margin-top: 50px;
 	text-align: center;

@@ -18,7 +18,8 @@ namespace BKM.Controllers
         // GET: DetailBaiHat
         public ActionResult Index()
         {
-            return View(db.DetailBaiHats.ToList());
+            var detailBaiHats = db.DetailBaiHats.Include(d => d.CaSi).Include(d => d.NhacSi);
+            return View(detailBaiHats.ToList());
         }
 
         // GET: DetailBaiHat/Details/5
@@ -28,17 +29,19 @@ namespace BKM.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DetailBaiHat DetailBaiHat = db.DetailBaiHats.Find(id);
-            if (DetailBaiHat == null)
+            DetailBaiHat detailBaiHat = db.DetailBaiHats.Find(id);
+            if (detailBaiHat == null)
             {
                 return HttpNotFound();
             }
-            return View(DetailBaiHat);
+            return View(detailBaiHat);
         }
 
         // GET: DetailBaiHat/Create
         public ActionResult Create()
         {
+            ViewBag.MaCaSi = new SelectList(db.CaSies, "MaCaSi", "TenCaSi");
+            ViewBag.MaNhacSi = new SelectList(db.NhacSies, "MaNhacSi", "TenNhacSi");
             return View();
         }
 
@@ -47,16 +50,18 @@ namespace BKM.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MaBaiHat,TenBaiHat,MaTheLoai,MaKhuVuc,MaCaSi,MaNhacSi,NguoiDang,NgayDang,MoTa,HinhAnh")] DetailBaiHat DetailBaiHat)
+        public ActionResult Create([Bind(Include = "MaBaiHat,TenBaiHat,MaTheLoai,MaKhuVuc,MaCaSi,MaNhacSi,NguoiDang,NgayDang,MoTa,HinhAnh")] DetailBaiHat detailBaiHat)
         {
             if (ModelState.IsValid)
             {
-                db.DetailBaiHats.Add(DetailBaiHat);
+                db.DetailBaiHats.Add(detailBaiHat);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(DetailBaiHat);
+            ViewBag.MaCaSi = new SelectList(db.CaSies, "MaCaSi", "TenCaSi", detailBaiHat.MaCaSi);
+            ViewBag.MaNhacSi = new SelectList(db.NhacSies, "MaNhacSi", "TenNhacSi", detailBaiHat.MaNhacSi);
+            return View(detailBaiHat);
         }
 
         // GET: DetailBaiHat/Edit/5
@@ -66,12 +71,14 @@ namespace BKM.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DetailBaiHat DetailBaiHat = db.DetailBaiHats.Find(id);
-            if (DetailBaiHat == null)
+            DetailBaiHat detailBaiHat = db.DetailBaiHats.Find(id);
+            if (detailBaiHat == null)
             {
                 return HttpNotFound();
             }
-            return View(DetailBaiHat);
+            ViewBag.MaCaSi = new SelectList(db.CaSies, "MaCaSi", "TenCaSi", detailBaiHat.MaCaSi);
+            ViewBag.MaNhacSi = new SelectList(db.NhacSies, "MaNhacSi", "TenNhacSi", detailBaiHat.MaNhacSi);
+            return View(detailBaiHat);
         }
 
         // POST: DetailBaiHat/Edit/5
@@ -79,15 +86,17 @@ namespace BKM.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MaBaiHat,TenBaiHat,MaTheLoai,MaKhuVuc,MaCaSi,MaNhacSi,NguoiDang,NgayDang,MoTa,HinhAnh")] DetailBaiHat DetailBaiHat)
+        public ActionResult Edit([Bind(Include = "MaBaiHat,TenBaiHat,MaTheLoai,MaKhuVuc,MaCaSi,MaNhacSi,NguoiDang,NgayDang,MoTa,HinhAnh")] DetailBaiHat detailBaiHat)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(DetailBaiHat).State = EntityState.Modified;
+                db.Entry(detailBaiHat).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(DetailBaiHat);
+            ViewBag.MaCaSi = new SelectList(db.CaSies, "MaCaSi", "TenCaSi", detailBaiHat.MaCaSi);
+            ViewBag.MaNhacSi = new SelectList(db.NhacSies, "MaNhacSi", "TenNhacSi", detailBaiHat.MaNhacSi);
+            return View(detailBaiHat);
         }
 
         // GET: DetailBaiHat/Delete/5
@@ -97,12 +106,12 @@ namespace BKM.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DetailBaiHat DetailBaiHat = db.DetailBaiHats.Find(id);
-            if (DetailBaiHat == null)
+            DetailBaiHat detailBaiHat = db.DetailBaiHats.Find(id);
+            if (detailBaiHat == null)
             {
                 return HttpNotFound();
             }
-            return View(DetailBaiHat);
+            return View(detailBaiHat);
         }
 
         // POST: DetailBaiHat/Delete/5
@@ -110,8 +119,8 @@ namespace BKM.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            DetailBaiHat DetailBaiHat = db.DetailBaiHats.Find(id);
-            db.DetailBaiHats.Remove(DetailBaiHat);
+            DetailBaiHat detailBaiHat = db.DetailBaiHats.Find(id);
+            db.DetailBaiHats.Remove(detailBaiHat);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
