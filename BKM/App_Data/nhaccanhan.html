@@ -1,0 +1,185 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Nhạc cá nhân</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="bootstrap.min.css">
+  <script src="jquery.min.js"></script>
+  <script src="bootstrap.min.js"></script>
+  <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<div class="container">
+ <div class="ncn-wall">
+    <div class="hovereffect-ncn-wall">
+ 	   <img class="img-responsive" src="IMAGE/1920x985_1490157045-dai-hoc-bach-khoa-ha-noi.jpg">
+ 	</div>
+ 	<div class="wall-text">
+	   <div class="row">
+	          <div class="col-md-4"></div>
+	          <div class="col-md-4">
+ 	            <img src="https://static-zmp3.zadn.vn/skins/zmp3-v5.2/images/text-m4u.svg">
+ 	          </div>
+ 	          <div class="col-md-4"></div>
+ 	   </div>
+ 	</div>
+ </div>
+  <div class="ncn-menu">
+  <button class="tablink" onclick="openPage('tongquan', this, 'black')" id="defaultOpen">Tổng quan</button>
+<button class="tablink" onclick="openPage('playlist', this, 'black')" >Playlist</button>
+<button class="tablink" onclick="openPage('bhyeuthich', this, 'black')">Bài hát yêu thích</button>
+<button class="tablink" onclick="openPage('up', this, 'black')">Upload</button>
+<!--Tổng quan-->
+	<div id="tongquan" class="tabcontent">
+  <div class="container">
+	<div class="tq-user">
+		<div class="row">
+		  <div class="tq-ava">
+			<div class="col-md-2">
+				<img src="IMAGE/img_avatar.png">
+			</div>
+		  </div>
+		  <div class="tq-name">
+			<div class="col-md-5">
+				<h3>Tên đăng nhập</h3>
+			</div>
+		  </div>
+		</div>
+		<div class="user-gmail">
+		    <h4>Gmail:</h4>
+			<p>abcxyz@gmail.com</p>
+		</div>
+	</div>
+</div>
+</div>
+<!--Playlist-->
+<div id="playlist" class="tabcontent">
+  <h3>Playlist</h3>
+   
+</div>
+<!--Bài hát yêu thích-->
+<div id="bhyeuthich" class="tabcontent">
+  <div class="tile">
+          <a href="#">BÀI HÁT YÊU THÍCH <i class="glyphicon glyphicon-heart"></i></a>
+  </div>
+  <h3>Thêm bài bát bằng cách ấn nút "yêu thích"</h3>
+  <h6>ví dụ</h6>
+  <div class="container">
+	<div class="bhyeuthich">
+		<div class="col-md-9">
+      				
+  	                     <ul class="list-group">
+  		                   <li class="list-group-item">
+  		                     <a href="#">
+  			                  <div class="row">
+  				                <div class="col-md-2">
+  				                   <div class="icon">
+  						              <img src="IMAGE/icon-chạyngaydi.jpg" >
+  					               </div>
+  				                </div>
+  				                <div class="col-md-8">
+  				                  <div class="info">
+  				                   <div class="song">
+  					                  <h4>Chạy Ngay Đi</h4>
+  				                   </div>
+  				                   <div class="casi">
+  					                  <p>Sơn Tùng M-TP</p>
+  				                   </div>
+  				                  </div>
+  				                </div>
+  				                <div class="taive">
+  				                <div class="col-md-1">
+  				                	<a href="#"><i class="glyphicon glyphicon-save"></i></a>
+  				                </div>
+  				                <div class="col-md-1">
+  				                	<a href="#"><i class="glyphicon glyphicon-share"></i></a>
+  				                </div>
+  				                </div>
+  			                 </div>
+  			               </a>
+  		</li><!--Chạy Ngay Đi-->
+  		                   
+  		                   <li class="list-group-item">
+  		                     <a href="#">
+  			                  <div class="row">
+  				                <div class="col-md-2">
+  				                   <div class="icon">
+  						              <img src="IMAGE/Icon-LacTroi.jpg" >
+  					               </div>
+  				                </div>
+  				                <div class="col-md-8">
+  				                  <div class="info">
+  				                   <div class="song">
+  					                  <h4>Lạc Trôi</h4>
+  				                   </div>
+  				                   <div class="casi">
+  					                  <p>Sơn Tùng M-TP</p>
+  				                   </div>
+  				                  </div>
+  				                </div>
+  				                <div class="taive">
+  				                <div class="col-md-1">
+  				                	<a href="#"><i class="glyphicon glyphicon-save"></i></a>
+  				                </div>
+  				                <div class="col-md-1">
+  				                	<a href="#"><i class="glyphicon glyphicon-share"></i></a>
+  				                </div>
+  				                </div>
+  			                 </div>
+  			               </a>
+  		</li><!--Lạc Trôi-->
+  		                   
+	                    </ul>	
+      			     
+      		</div>
+	</div>
+</div>
+</div>
+<!--Upload-->
+<div id="up" class="tabcontent">
+  <div class="container">
+  <div class="button-tailen">
+   <div class="row">
+       <div class="col-md-5"></div>
+          <div class="col-md-2">
+	         <button class="btn btn-danger btn-lg"><i class="glyphicon glyphicon-cloud-upload"></i> UPLOAD</button>
+	      </div>
+	   <div class="col-md-5"></div>
+   </div>
+   	   <p>Bạn có thể chọn tải lên nhiều bài hát cùng một lúc</p>
+  </div>
+  <div class="upload-info">
+  	<h2>Nội dung cấm upload</h2>
+  	<p>- Nội dung liên quan đến chính trị, trái thuần phong mỹ tục.</p>
+  	<p>- Nội dung đã thuộc sở hữu của bên thứ ba</p>
+  	<h2>Quy định upload</h2>
+  	<p>- Kích thước file nhạc tối đa là 60MB</p>
+  	<p>- Mỗi tài khoản thường được phép upload tối đa 200 bài hát </p>
+  	<p>- Tính năng upload sẽ bị khóa (tạm thời) nếu bạn cố tình vi phạm nhiều lần các quy định về nội dung cấm (đã nêu ở trên).</p>
+  </div>
+</div>
+</div>
+   </div>
+</div>
+<script>
+function openPage(pageName,elmnt,color) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].style.backgroundColor = "";
+  }
+  document.getElementById(pageName).style.display = "block";
+  elmnt.style.backgroundColor = color;
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+</body>
+</html>
