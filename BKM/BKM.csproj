@@ -161,6 +161,7 @@
     <Compile Include="Controllers\DetailBaiHatController.cs" />
     <Compile Include="Controllers\CaSiController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\NguoiDungController.cs" />
     <Compile Include="Controllers\TheLoaiController.cs" />
     <Compile Include="Controllers\KhuVucController.cs" />
     <Compile Include="Controllers\NhacSiController.cs" />
@@ -172,6 +173,7 @@
     <Compile Include="Models\CaSi.cs" />
     <Compile Include="Models\Enumeration.cs" />
     <Compile Include="Models\KhuVuc.cs" />
+    <Compile Include="Models\NguoiDung.cs" />
     <Compile Include="Models\NhacSi.cs" />
     <Compile Include="Models\TheLoai.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -409,6 +411,8 @@
     <Content Include="Views\TheLoai\Details.cshtml" />
     <Content Include="Views\TheLoai\Edit.cshtml" />
     <Content Include="Views\TheLoai\Index.cshtml" />
+    <Content Include="Views\NguoiDung\DangKy.cshtml" />
+    <Content Include="Views\NguoiDung\DangNhap.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
