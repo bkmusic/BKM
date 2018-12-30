@@ -1,0 +1,176 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Tên Bài Hát</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="bootstrap.min.css">
+  <script src="jquery.min.js"></script>
+  <script src="bootstrap.min.js"></script>
+  <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<div class="container">
+   <div class="baihat-wall">
+   	<img src="IMAGE/wall-sontungMTP.jpg">
+   </div>
+    <div class="baihat-head">
+    	<div class="row">
+    		<div class="col-md-4">
+    		   <audio id="music" preload="true">
+  <source src="Em Cua Ngay Hom Qua - Son Tung M-TP [320kbps_MP3].mp3">
+	</audio>
+
+<div class="main">
+
+    <div id="musicCont" class="flex-container settle">
+      
+      
+      <div id="albumCont" class="flex-item album flex-container">
+        <img id="currentAlbum" class="flex-item" src="IMAGE/nghesi-mtp.jpg">
+      </div>
+      <div id="audioplayer">
+
+
+        <svg id="playButton" class="button" onclick="play()" x="0px" y="0px" width="4.5px" height="6.9px" viewBox="0 0 4.5 6.9" style="enable-background:new 0 0 4.5 6.9;">
+  <polyline class="button" points="0.6,0.3 3.9,3.4 0.6,6.6 "/>
+  </svg>
+
+
+        <svg id="pauseButton" class="button" onclick="pause()" x="0px" y="0px" width="4.5px" height="6.9px" viewBox="0 0 4.5 6.9" style="enable-background:new 0 0 4.5 6.9;">
+    <g>
+      <line class="st0" x1="0.4" y1="0.1" x2="0.4" y2="6.8"/>
+      <line class="st0" x1="4.1" y1="0.1" x2="4.1" y2="6.8"/>
+    </g>
+  </svg>
+        <div id="timeline">
+          <div id="playhead"></div>
+        </div>
+      </div>
+    </div>
+    <div id="sliderCont" class="flex-item">
+      <div id="slider">
+        <span></span>
+      </div>
+    
+  </div>
+</div>
+    		</div>
+    		<div class="baihat-info">
+    			<div class="col-md-8">
+    				<h2>Chạy Ngay Đi</h2>
+    				<a href="#">Sơn Tùng M-TP</a><br>
+    				<div class="theloai">
+    					Thể loại : <a href="#">Nhạc Việt Nam</a>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+    <div class="baihat-menu">
+    	<div class="row">
+    	    
+    		<div class="col-md-2">
+    			<a href="#"><i class="glyphicon glyphicon-heart"></i> Yêu thích</a>
+    		</div>
+    		<div class="col-md-2">
+    			<a href="#"><i class="glyphicon glyphicon-plus"></i> Thêm vào</a>
+    		</div>
+    		<div class="col-md-2">
+    			<a href="#"><i class="glyphicon glyphicon-download-alt"></i> Tải nhạc</a>
+    		</div>
+    		<div class="col-md-2">
+    			<a href="#"><i class="glyphicon glyphicon-share"></i> Chia sẻ</a>
+    		</div>
+    	</div>
+    </div>
+    
+    <div class="intro">
+    	
+      	<div class="tile">
+          <h1>Lời bài hát</h1>
+	   </div>
+     <p>
+     	Ghi lời bài hát ra 
+     </p>
+      </div>
+</div>
+</body>
+<script>
+	var music = document.getElementById('music');
+var duration;
+var playButton = document.getElementById('playButton');
+var pauseButton = document.getElementById('pauseButton');
+var playhead = document.getElementById('playhead');
+var timeline = document.getElementById('timeline');
+var timelineWidth = timeline.offsetWidth - playhead.offsetWidth;
+
+music.addEventListener("timeupdate", timeUpdate, false);
+
+timeline.addEventListener("click", function(event) {
+  moveplayhead(event);
+  music.currentTime = duration * clickPercent(event);
+}, false);
+
+function clickPercent(e) {
+  console.log(e);
+  return (e.pageX - timeline.offsetLeft) / timelineWidth;
+}
+
+playhead.addEventListener('mousedown', mouseDown, false);
+window.addEventListener('mouseup', mouseUp, false);
+
+var onplayhead = false;
+
+function mouseDown() {
+  onplayhead = true;
+  window.addEventListener('mousemove', moveplayhead, true);
+  music.removeEventListener('timeupdate', timeUpdate, false);
+}
+
+function mouseUp(e) {
+  if (onplayhead == true) {
+    moveplayhead(e);
+    window.removeEventListener('mousemove', moveplayhead, true);
+    music.currentTime = duration * clickPercent(e);
+    music.addEventListener('timeupdate', timeUpdate, false);
+  }
+  onplayhead = false;
+}
+
+function moveplayhead(e) {
+  var newMargLeft = e.pageX - timeline.offsetLeft;
+  if (newMargLeft >= 0 && newMargLeft <= timelineWidth) {
+    playhead.style.marginLeft = newMargLeft + "px";
+  }
+  if (newMargLeft < 0) {
+    playhead.style.marginLeft = "0px";
+  }
+  if (newMargLeft > timelineWidth) {
+    playhead.style.marginLeft = timelineWidth + "px";
+  }
+}
+
+function timeUpdate() {
+  var playPercent = timelineWidth * (music.currentTime / duration);
+  playhead.style.marginLeft = playPercent + "px";
+}
+
+function play() {
+  if (music.paused) {
+    music.play();
+  }
+}
+
+function pause() {
+  if (music.play) {
+    music.pause();
+  }
+}
+
+music.addEventListener("canplaythrough", function() {
+  duration = music.duration;
+}, false);
+	</script>
+</html>

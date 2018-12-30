@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Playlist</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="bootstrap.min.css">
+  <script src="jquery.min.js"></script>
+  <script src="bootstrap.min.js"></script>
+  <script type="text/javascript" src="./lib/vpplayer.js"></script>
+  <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<style>
+body { background-color: #222; font-family: 'Roboto'; }
+h1,h2{ color: #fff; text-align: center; }
+h1 { margin: 150px auto 30px auto; }
+.demo {
+	max-width: 800px;
+	margin: 20px auto;
+}
+</style>
+<script>
+$(document).ready(function(){
+	$("#player").vpplayer({
+		src: "./audio/audio.mp3",
+		trackName: "sample audio"
+	});
+  $("#player2").vpplayer({
+    src: "./audio/audio.mp3",
+    trackName: "sample audio",
+    view: "minimal"
+  });
+});
+</script>
+<body>
+  <div id="jquery-script-menu">
+<div class="jquery-script-center">
+<ul>
+<li><a href="https://www.jqueryscript.net/other/Audio-Player-Bootstrap-jQuery-vpplayer.html">Download This Plugin</a></li>
+<li><a href="https://www.jqueryscript.net/">Back To jQueryScript.Net</a></li>
+</ul>
+<div class="jquery-script-ads"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-2783044520727903";
+/* jQuery_demo */
+google_ad_slot = "2780937993";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="https://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div class="jquery-script-clear"></div>
+</div>
+</div>
+  <h1>jQuery vpplayer Plugin Examples</h1>
+  <h2>Basic</h2>
+<div id="player" class="demo"></div>
+<h2>Minimal</h2>
+<div id="player2" class="demo"></div>
+</body>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</html>
