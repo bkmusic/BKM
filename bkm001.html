@@ -1,0 +1,623 @@
+<!doctype html>
+<html>
+<head>
+<title>Bách Khoa Music</title>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="bootstrap.min.css">
+  <script src="jquery.min.js"></script>
+  <script src="bootstrap.min.js"></script>
+  <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<!--Navbar header-->
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">
+      	<img id="WPht1-k91imgimage" data-type="image" src="https://static.wixstatic.com/media/b2c0a7_61190110c8a269fa6b62cbab21950181.png/v1/fill/w_95,h_99,al_c,lg_1,q_80/b2c0a7_61190110c8a269fa6b62cbab21950181.webp" >
+      </a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+       <li id="bk"><a href="#">BÁCH KHOA MUSIC</a></li>
+        <li><a href="#">Trang chủ</a></li>
+        <li dropdown><a class="dropdown-toggle" data-toggle="dropdown" href="#">Nghệ sĩ<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+        	<li><a href="#">Việt Nam</a></li>
+        	<li><a href="#">Âu Mỹ</a></li>
+        	<li><a href="#">Hàn Quốc</a></li>
+        </ul>
+        </li>
+        <li><a href="#">Nhạc cá nhân</a></li>
+        <li><a href="#">Liên hệ</a></li>
+      </ul>
+      <button class="btn btn-danger navbar-btn">UPLOAD</button>
+      <!--Đăng kí và đăng nhập-->
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign up</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+      <!--Thanh công cụ tìm kiếm-->
+      <form class="navbar-form navbar-right" action="/action_page.php">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Nhập tên bài hát hoặc ca sĩ" name="search">
+        <div class="input-group-btn">
+          <button class="btn btn-default" type="submit">
+            <i class="glyphicon glyphicon-search"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+    </div>
+  </div>
+</nav>
+
+<!--Carousel-->
+<div class="main">
+    <div class="container-fluid">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+<!--Inicators-->
+<ol class="carousel-indicators">
+	<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+	<li data-target="#myCarousel" data-slide-to="1" ></li>
+	<li data-target="#myCarousel" data-slide-to="2" ></li>
+	<li data-target="#myCarousel" data-slide-to="3" ></li>
+	<li data-target="#myCarousel" data-slide-to="4" ></li>
+</ol>
+<!--Item-->
+<div class="carousel-inner" role="listbox">
+	<div class="item active">
+		<a href="#"><img src="IMAGE/sl01.jpg" alt="image01"></a>
+	</div>
+	<div class="item">
+		<a href="#"><img src="IMAGE/sl02.jpg" alt="image02"></a>
+	</div>
+	<div class="item">
+		<a href="#"><img src="IMAGE/sl03.jpg" alt="image03"></a>
+	</div>
+	<div class="item">
+		<a href="#"><img src="IMAGE/sl04.jpg" alt="image04"></a>
+	</div>
+	<div class="item">
+		<a href="#"><img src="IMAGE/sl05.jpg" alt="image05"></a>
+	</div>
+</div>
+<!--Carousel's control-->
+<div class="traiphai">
+ <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+</div>
+        </div>
+    </div>
+</div>
+<!--Bài Hát Mói-->
+<div class="container">
+	<div class="row">
+    <div class="bai-hat-moi">
+	    <div class="tile">
+            <a href="#">BÀI HÁT MỚI <i class="glyphicon glyphicon-music"></i></a>
+        </div>
+  <div class="Hotsong">
+      <div class="col-md-6">
+          <div class="Hotsong-left">
+  	          <ul class="list-group">
+  		<li class="list-group-item">
+  		<a href="#">
+  			<div class="row">
+  				<div class="col-md-1">
+  					<div class="numb">
+  						<span>1</span>
+  					</div>
+  				</div>
+  				<div class="col-md-2">
+  				    <div class="icon">
+  						<img src="IMAGE/anhdangodaudayanh5050.jpg" >
+  					</div>
+  				</div>
+  				<div class="col-md-6">
+  				    <div class="info">
+  				        <div class="song">
+  					        <h4>Anh Đang Ở Đâu Đấy Anh</h4>
+  				        </div>
+  				        <div class="casi">
+  					        <p>Hương Giang Idol</p>
+  				        </div>
+  				    </div>
+  				</div>
+  			</div>
+  			</a>
+  		</li><!--Anh Đang Ở Đâu Đấy Anh-->
+  		<li class="list-group-item">
+  		<a href="#">
+  			<div class="row">
+  				<div class="col-md-1">
+  					<div class="numb">
+  						<span>2</span>
+  					</div>
+  				</div>
+  				<div class="col-md-2">
+  				    <div class="icon">
+  						<img src="IMAGE/Icon-Contraicung.jpg" >
+  					</div>
+  				</div>
+  				<div class="col-md-6">
+  				    <div class="info">
+  				        <div class="song">
+  					        <h4>Con Trai Cưng</h4>
+  				        </div>
+  				        <div class="casi">
+  					        <p>B Ray</p>
+  				        </div>
+  				    </div>
+  				</div>
+  			</div>
+  			</a>
+  		</li><!--Con Trai Cưng-->
+  		<li class="list-group-item">
+  		<a href="#">
+  			<div class="row">
+  				<div class="col-md-1">
+  					<div class="numb">
+  						<span>3</span>
+  					</div>
+  				</div>
+  				<div class="col-md-2">
+  				    <div class="icon">
+  						<img src="IMAGE/Icon-Emkhongthe.jpg" >
+  					</div>
+  				</div>
+  				<div class="col-md-6">
+  				    <div class="info">
+  				        <div class="song">
+  					        <h4>Em Không Thể</h4>
+  				        </div>
+  				        <div class="casi">
+  					        <p>Tiên Tiên</p>
+  				        </div>
+  				    </div>
+  				</div>
+  			</div>
+  			</a>
+  		</li><!--Em Không Thể-->
+  		<li class="list-group-item">
+  		<a href="#">
+  			<div class="row">
+  				<div class="col-md-1">
+  					<div class="numb">
+  						<span>4</span>
+  					</div>
+  				</div>
+  				<div class="col-md-2">
+  				    <div class="icon">
+  						<img src="IMAGE/Icon-Votinh.jpg" >
+  					</div>
+  				</div>
+  				<div class="col-md-6">
+  				    <div class="info">
+  				        <div class="song">
+  					        <h4>Vô Tình</h4>
+  				        </div>
+  				        <div class="casi">
+  					        <p>Xesi, Hoaprox</p>
+  				        </div>
+  				    </div>
+  				</div>
+  			</div>
+  			</a>
+  		</li><!--Vô Tình-->
+  		<li class="list-group-item">
+  		<a href="#">
+  			<div class="row">
+  				<div class="col-md-1">
+  					<div class="numb">
+  						<span>5</span>
+  					</div>
+  				</div>
+  				<div class="col-md-2">
+  				    <div class="icon">
+  						<img src="IMAGE/Icon-Hongkong1.jpg" >
+  					</div>
+  				</div>
+  				<div class="col-md-6">
+  				    <div class="info">
+  				        <div class="song">
+  					        <h4>Hongkong1</h4>
+  				        </div>
+  				        <div class="casi">
+  					        <p>Nguyễn Tọng Tài</p>
+  				        </div>
+  				    </div>
+  				</div>
+  			</div>
+  			</a>
+  		</li><!--Hongkong1-->
+	          </ul>	
+	      </div>
+	  </div>
+	  <div class="col-md-6">
+          <div class="Hotsong-right">
+  	          <ul class="list-group">
+  		<li class="list-group-item">
+  		<a href="#">
+  			<div class="row">
+  				<div class="col-md-1">
+  					<div class="numb">
+  						<span>6</span>
+  					</div>
+  				</div>
+  				<div class="col-md-2">
+  				    <div class="icon">
+  						<img src="IMAGE/Icon-tyn.jpg" >
+  					</div>
+  				</div>
+  				<div class="col-md-6">
+  				    <div class="info">
+  				        <div class="song">
+  					        <h4>Thank U, Next</h4>
+  				        </div>
+  				        <div class="casi">
+  					        <p>Ariana Grande</p>
+  				        </div>
+  				    </div>
+  				</div>
+  			</div>
+  			</a>
+  		</li><!--Thank U, Next-->
+  		<li class="list-group-item">
+  		<a href="#">
+  			<div class="row">
+  				<div class="col-md-1">
+  					<div class="numb">
+  						<span>7</span>
+  					</div>
+  				</div>
+  				<div class="col-md-2">
+  				    <div class="icon">
+  						<img src="IMAGE/Icon-Ve.jpg" >
+  					</div>
+  				</div>
+  				<div class="col-md-6">
+  				    <div class="info">
+  				        <div class="song">
+  					        <h4>Về</h4>
+  				        </div>
+  				        <div class="casi">
+  					        <p>Đạt G</p>
+  				        </div>
+  				    </div>
+  				</div>
+  			</div>
+  			</a>
+  		</li><!--Về-->
+  		<li class="list-group-item">
+  		<a href="#">
+  			<div class="row">
+  				<div class="col-md-1">
+  					<div class="numb">
+  						<span>8</span>
+  					</div>
+  				</div>
+  				<div class="col-md-2">
+  				    <div class="icon">
+  						<img src="IMAGE/Icon-Thangdien.jpg" >
+  					</div>
+  				</div>
+  				<div class="col-md-6">
+  				    <div class="info">
+  				        <div class="song">
+  					        <h4>Thằng Điên</h4>
+  				        </div>
+  				        <div class="casi">
+  					        <p>JustaTee, Phương Ly</p>
+  				        </div>
+  				    </div>
+  				</div>
+  			</div>
+  			</a>
+  		</li><!--Thằng Điên-->
+  		<li class="list-group-item">
+  		<a href="#">
+  			<div class="row">
+  				<div class="col-md-1">
+  					<div class="numb">
+  						<span>9</span>
+  					</div>
+  				</div>
+  				<div class="col-md-2">
+  				    <div class="icon">
+  						<img src="IMAGE/Icon-Cangniucangdemat.jpg" >
+  					</div>
+  				</div>
+  				<div class="col-md-6">
+  				    <div class="info">
+  				        <div class="song">
+  					        <h4>Càng Níu Càng Dễ Mất</h4>
+  				        </div>
+  				        <div class="casi">
+  					        <p>Mr Siro</p>
+  				        </div>
+  				    </div>
+  				</div>
+  			</div>
+  			</a>
+  		</li><!--Càng Níu Càng Dễ Mất-->
+  		<li class="list-group-item">
+  		<a href="#">
+  			<div class="row">
+  				<div class="col-md-1">
+  					<div class="numb">
+  						<span>10</span>
+  					</div>
+  				</div>
+  				<div class="col-md-2">
+  				    <div class="icon">
+  						<img src="IMAGE/Icon-solo.jpg" >
+  					</div>
+  				</div>
+  				<div class="col-md-6">
+  				    <div class="info">
+  				        <div class="song">
+  					        <h4>SOLO</h4>
+  				        </div>
+  				        <div class="casi">
+  					        <p>JENNIE</p>
+  				        </div>
+  				    </div>
+  				</div>
+  			</div>
+  			</a>
+  		</li><!--SOLO-->
+	          </ul>	
+	      </div>
+	  </div>
+   </div>
+   </div>
+	</div>
+	<hr>
+	</div>
+<!--BK Chart Tuần-->
+<div class="container">    
+  <div class="row">
+  <div class="bai-hat-tuan">
+  <div class="tile">
+      <div><a href="#">BKCHART TUẦN <i class="glyphicon glyphicon-chevron-right"></i></a></div>
+  </div>
+   <br>
+    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="hovereffect"><a href="#"><img class="img-responsive" src="IMAGE/songvnmtp.jpg"></a>
+      <div class="overlay">Nhạc Việt Nam Hot Nhất</div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12"> 
+      <div class="hovereffect"><a href="#"><img class="img-responsive" src="IMAGE/mvVN.jpg"></a>
+      <div class="overlay">MV Việt Nam Hót Nhất</div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12"> 
+      <div class="hovereffect"><a href="#"><img class="img-responsive" src="IMAGE/songJB.jpg"></a>
+      <div class="overlay">Nhạc USUK Hot Nhất</div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12"> 
+      <div class="hovereffect"><a href="#"><img class="img-responsive" src="IMAGE/songGD.jpg"></a>
+      <div class="overlay">Nhạc KPOP Hot Nhất</div>
+      </div>
+    </div>
+    </div>
+  </div>
+		
+  <hr>
+  </div>
+  <!---MV Hot-->
+<div class="container">
+      <div class="row">
+          <div class="videohot">
+              <div class="tile">
+                  <a href="#">MV HOT <i class="glyphicon glyphicon-film"></i></a>
+              </div>
+              <br>
+   	  <div class="row">
+   		  <div class="col-md-6">
+   		      <div class="mv-left">
+   			      <div class="embed-responsive embed-responsive-4by3">
+   				      <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/t7tZFq29lis"allowfullscreen></iframe>
+   			      </div>
+   		      </div>
+   		  </div>
+   		  <div class="col-md-6">
+   		      <div class="mv-right">
+  		      <div class="row">
+ 		      <br>    
+  		      <div class="mv-right-top">
+   		          <div class="col-md-6">
+   			          <div class="embed-responsive embed-responsive-16by9">
+   				          <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/HXkh7EOqcQ4"allowfullscreen></iframe>
+   			          </div>
+   		          </div>
+   		          <div class="col-md-6">
+   			          <div class="embed-responsive embed-responsive-16by9">
+   				          <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/Yw5MdbnBQ8s"allowfullscreen></iframe>
+   			          </div>
+   		          </div>
+   		      </div>
+   		      </div>
+   		      <br>
+   		      <br>
+   		      <div class="row">
+   		          <div class="mv-right-bot">
+   		        	  <div class="col-md-6">
+   			              <div class="embed-responsive embed-responsive-16by9">
+   				            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/KdrbBJNFwGw"allowfullscreen></iframe>
+   			              </div>
+   		              </div>
+   		              <div class="col-md-6">
+   			              <div class="embed-responsive embed-responsive-16by9">
+   				              <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/32sYGCOYJUM"allowfullscreen></iframe>
+   			              </div>
+   		              </div>
+   		           </div>
+   		        </div>
+   		    </div>
+   		  </div>
+   	  </div>
+   	  
+          </div>
+      </div>
+  <br> 
+  </div>
+  <!--Nghệ Sĩ Nổi Bật-->
+<div class="container">
+  	  <div class="Nghe-si-hot">
+  	  	  <div class="tile">
+  	  	  	  <a href="#">NGHỆ SĨ NỔI BẬT <i class="glyphicon glyphicon-star-empty"></i></a>
+  	  	  </div>
+  	  <div class="row">
+  	  	  <!--carousel-->	  
+  <div class="container-fluid">    
+    <div class="carousel slide" id="nghesiCarousel">
+        <div class="carousel-inner">
+            <div class="item active">
+                    <ul class="nghesi-thumb">
+                       <li class="col-sm-3 col-md-3 col-lg-3 col-xs-12">
+    					  <div class="fff">
+								<div class="nghesi-icon">
+									<div class="hovereffect-nghesi">
+									    <a href="#"><img src="IMAGE/nghesi-bts.jpg" class="img-circle"></a>
+									</div>
+								</div>
+								<div class="nghesi-name">
+									<a href="#"><h4>BTS</h4></a>
+								</div>
+                            </div>
+                        </li><!--BTS-->
+                        <li class="col-sm-3 col-md-3 col-lg-3 col-xs-12">
+    					  <div class="fff">
+								<div class="nghesi-icon">
+									<div class="hovereffect-nghesi">
+									    <a href="#"><img src="IMAGE/nghesi-blackpink.jpg" class="img-circle"></a>
+									</div>
+								</div>
+								<div class="nghesi-name">
+									<a href="#"><h4>Black Pink</h4></a>
+								</div>
+                            </div>
+                        </li><!--BlackPink-->
+                        <li class="col-sm-3 col-md-3 col-lg-3 col-xs-12">
+    					  <div class="fff">
+								<div class="nghesi-icon">
+									<div class="hovereffect-nghesi">
+									    <a href="#"><img src="IMAGE/nghesi-bigbang.jpg" class="img-circle"></a>
+									</div>
+								</div>
+								<div class="nghesi-name">
+									<a href="#"><h4>Big Bang</h4></a>
+								</div>
+                            </div>
+                        </li><!--BigBang-->
+                        <li class="col-sm-3 col-md-3 col-lg-3 col-xs-12">
+    					  <div class="fff">
+								<div class="nghesi-icon">
+									<div class="hovereffect-nghesi">
+									    <a href="#"><img src="IMAGE/nghesi-erik.jpg" class="img-circle"></a>
+									</div>
+								</div>
+								<div class="nghesi-name">
+									<a href="#"><h4>Erik</h4></a>
+								</div>
+                            </div>
+                        </li><!--Erik-->
+                    </ul>
+              </div><!--Slide1 --> 
+            <div class="item">
+                    <ul class="nghesi-thumb">
+                       <li class="col-sm-3 col-md-3 col-lg-3 col-xs-12">
+    					  <div class="fff">
+								<div class="nghesi-icon">
+									<div class="hovereffect-nghesi">
+									    <a href="#"><img src="IMAGE/nghesi-alan.jpg" class="img-circle"></a>
+									</div>
+								</div>
+								<div class="nghesi-name">
+									<a href="#"><h4>Alan Walker</h4></a>
+								</div>
+                            </div>
+                        </li><!--Alan Walker-->
+                        <li class="col-sm-3 col-md-3 col-lg-3 col-xs-12">
+    					  <div class="fff">
+								<div class="nghesi-icon">
+									<div class="hovereffect-nghesi">
+									    <a href="#"><img src="IMAGE/nghesi-chalie.jpg" class="img-circle"></a>
+									</div>
+								</div>
+								<div class="nghesi-name">
+									<a href="#"><h4>Charlie Puth</h4></a>
+								</div>
+                            </div>
+                        </li><!--Charlie Puth-->
+                        <li class="col-sm-3 col-md-3 col-lg-3 col-xs-12">
+    					  <div class="fff">
+								<div class="nghesi-icon">
+									<div class="hovereffect-nghesi">
+									    <a href="#"><img src="IMAGE/nghesi-jb.jpg" class="img-circle"></a>
+									</div>
+								</div>
+								<div class="nghesi-name">
+									<a href="#"><h4>Justin Bieber</h4></a>
+								</div>
+                            </div>
+                        </li><!--Justin Bieber-->
+                        <li class="col-sm-3 col-md-3 col-lg-3 col-xs-12">
+    					  <div class="fff">
+								<div class="nghesi-icon">
+									<div class="hovereffect-nghesi">
+									    <a href="#"><img src="IMAGE/nghesi-mtp.jpg" class="img-circle"></a>
+									</div>
+								</div>
+								<div class="nghesi-name">
+									<a href="#"><h4>Sơn Tùng MTP</h4></a>
+								</div>
+                            </div>
+                        </li><!--Sơn Tùng MTP-->
+                    </ul>
+              </div><!--Slide2 --> 
+        </div>
+        <!--control-->
+	   <div class="nghesi-control">
+				<a data-slide="prev" href="#nghesiCarousel" class="left carousel-control"><i class="glyphicon glyphicon-menu-left"></i></a>
+        <a data-slide="next" href="#nghesiCarousel" class="right carousel-control"><i class="glyphicon glyphicon-menu-right"></i></a>
+		</div>	                       
+    </div>        
+</div>
+  	  	  </div>
+      </div>
+      <hr>
+  </div>
+  <!--footer-->
+  <div id="footer">
+    <div id="footerMenu">
+        <a href="#">TRANG CHỦ</a>
+        <a href="#">LIÊN HỆ</a> 
+        <a href="#">QUẢNG CÁO</a>
+        <a href="#">GÓP Ý</a>
+        <a href="#">GIỚI THIỆU</a>
+        <a href="#">BKM VIP</a>
+    </div>
+    <div class="rights">Designed by: 
+        <a href="https://www.facebook.com/lam.nguyenthanh.3158652">Nguyễn Thanh Lâm</a>
+    </div>
+  </div>
+</body>
+</html>
