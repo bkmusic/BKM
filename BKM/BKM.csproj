@@ -430,7 +430,9 @@
     <Content Include="Views\NgheNhac\NgheNhac.cshtml" />
     <Content Include="Views\NgheNhac\tempView.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\Temp\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
