@@ -57,7 +57,9 @@ namespace BKM.Controllers
                     HttpPostedFileBase file = Request.Files[0];
                     if (file.ContentLength > 0)
                     {
+                        
                         var fileName = Path.GetFileName(file.FileName);
+                        
                         CaSi.HinhAnh = file.FileName;
                         string path = Path.Combine(
                             Server.MapPath("~/IMAGE"), fileName);

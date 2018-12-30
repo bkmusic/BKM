@@ -1,7 +1,12 @@
 ﻿
 @{
     ViewBag.Title = "NhacCaNhan";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    if (Session["nguoiDung"] == null)
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+    else
+    { Layout = "~/Views/Shared/_UserLayout.cshtml"; }
 
 }
 

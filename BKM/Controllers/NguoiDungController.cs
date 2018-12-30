@@ -48,8 +48,8 @@ namespace BKM.Controllers
             if (user != null)
             {
                 ViewBag.ThongBao = "Chúc mừng bạn đã đăng nhập thành công";
-                Session["TenDangNhap"] = user;
-                return View();
+                Session["nguoiDung"] = user;               
+                return RedirectToAction("Index","Home");
             }
             ViewBag.ThongBao = "Sai tên đăng nhập hoặc tài khoản";
             return View();

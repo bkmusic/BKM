@@ -46,7 +46,7 @@
             @Html.DisplayFor(modelItem => item.MoTa)
         </td>
         <td>
-            <img src="~/IMAGE/@Html.DisplayFor(modelItem => item.HinhAnh)" style="height:200px;width:200px;" />
+            <img src="@Url.Content("~/IMAGE/"+item.HinhAnh)" style="height:200px;width:200px;" />
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.MaCaSi }) |

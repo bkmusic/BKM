@@ -31,6 +31,7 @@ namespace BKM.Models
         public string MaBaiHat { get; set; }
 
         [Required]
+        [Display(Name = "Tên bài hát")]
         public string TenBaiHat { get; set; }
 
         [Required]
@@ -42,9 +43,11 @@ namespace BKM.Models
         public IEnumerable<SelectListItem> TenKhuVuc { get; set; }
 
         [Required]
+        [Display(Name = "Mô tả")]
         public string MoTa { get; set; }
 
         [Required]
+        [Display(Name = "Hình ảnh")]
         public string HinhAnh { get; set; }
 
         [Required]

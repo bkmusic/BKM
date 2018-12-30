@@ -19,6 +19,7 @@ namespace BKM.Models
         public int MaNguoiDung { get; set; }
 
         [Required(ErrorMessage = "{0} không được để trống")]
+        
         [Display(Name = "Tên hiển thị")]
         public string TenHienThi { get; set; }
 

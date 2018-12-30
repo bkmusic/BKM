@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using BKM.Models;
 using BKM.dal;
+using System.IO;
 
 namespace BKM.Controllers
 {
@@ -52,13 +53,41 @@ namespace BKM.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "MaBaiHat,TenBaiHat,MaTheLoai,MaKhuVuc,MoTa,HinhAnh,File")] BaiHat baiHat)
         {
+            //if (ModelState.IsValid)
+            //{
+            //    db.BaiHats.Add(baiHat);
+            //    db.SaveChanges();
+            //    return RedirectToAction("Index");
+            //}
+            
             if (ModelState.IsValid)
             {
-                db.BaiHats.Add(baiHat);
+                if (Request.Files.Count > 0)
+                {
+                    HttpPostedFileBase fileAnh = Request.Files[0];
+                    //HttpPostedFileBase fileNhac = Request.Files[0];
+                    if (fileAnh.ContentLength > 0)
+                    {
+                        var fileName = Path.GetFileName(fileAnh.FileName);
+                        baiHat.HinhAnh = fileAnh.FileName;
+                        string path = Path.Combine(
+                            Server.MapPath("~/IMAGE"), fileName);
+                        fileAnh.SaveAs(path);
+                    }
+                    //if (fileNhac.ContentLength > 0)
+                    //{
+                    //    var fileName = Path.GetFileName(fileNhac.FileName);
+                    //    baiHat.File = fileNhac.FileName;
+                    //    string path = Path.Combine(Server.MapPath("~/SONG"), fileName);
+                    //    fileNhac.SaveAs(path);
+                    //}
+                }
+                    db.BaiHats.Add(baiHat);
                 db.SaveChanges();
                 return RedirectToAction("Index");
-            }
 
+            }
+                         
             ViewBag.MaKhuVuc = new SelectList(db.KhuVucs, "MaKhuVuc", "TenKhuVuc", baiHat.MaKhuVuc);
             ViewBag.MaTheLoai = new SelectList(db.TheLoais, "MaTheLoai", "TenTheLoai", baiHat.MaTheLoai);
             return View(baiHat);
@@ -90,7 +119,19 @@ namespace BKM.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(baiHat).State = EntityState.Modified;
+                if (Request.Files.Count > 0)
+                {
+                    HttpPostedFileBase fileAnh = Request.Files[0];
+                    if (fileAnh.ContentLength > 0)
+                    {
+                        var fileName = Path.GetFileName(fileAnh.FileName);
+                        baiHat.HinhAnh = fileAnh.FileName;
+                        string path = Path.Combine(
+                            Server.MapPath("~/IMAGE"), fileName);
+                        fileAnh.SaveAs(path);
+                    }
+                }
+                    db.Entry(baiHat).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -123,6 +164,27 @@ namespace BKM.Controllers
             db.BaiHats.Remove(baiHat);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        //GET: BaiHatVietNam
+        public ActionResult BaiHatVN()
+        {
+            var baiHatVN = db.BaiHats.Where(x=>x.MaKhuVuc==1).ToList();           
+            return View(baiHatVN);
+        }
+
+        //GET: BaiHatAuMy
+        public ActionResult BaiHatUS()
+        {
+            var baiHatUS = db.BaiHats.Where(x => x.MaKhuVuc == 2).ToList();
+            return View(baiHatUS);
+        }
+
+        //GET: BaiHatVietNam
+        public ActionResult BaiHatKP()
+        {
+            var baiHatKP = db.BaiHats.Where(x => x.MaKhuVuc == 2).ToList();
+            return View(baiHatKP);
         }
 
         protected override void Dispose(bool disposing)

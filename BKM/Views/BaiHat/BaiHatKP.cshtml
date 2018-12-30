@@ -1,0 +1,57 @@
+﻿@model IEnumerable<BKM.Models.BaiHat>
+
+@{
+    ViewBag.Title = "BaiHatKPOP";
+}
+
+<h2>Những bài hát KPOP hot nhất</h2>
+
+<p>
+    @Html.ActionLink("Trang chủ", "Index", "Home")
+</p>
+<table class="table">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.TheLoai.TenTheLoai)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TenBaiHat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MoTa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HinhAnh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.File)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.TheLoai.TenTheLoai)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenBaiHat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MoTa)
+            </td>
+            <td>
+                <img src="@Url.Content("~/IMAGE/"+item.HinhAnh)" style="height:200px;width:200px;" />
+
+            </td>
+            <td>
+                @*<img src="@Url.Content("~/SONG/"+item.File)" style="height:200px;width:200px;" />*@
+                <audio src="@Url.Content("~/SONG/"+item.File)" controls type="audio/mp3">abcd</audio>
+            </td>
+        </tr>
+    }
+
+</table>

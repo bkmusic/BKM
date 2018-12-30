@@ -13,6 +13,7 @@ namespace BKM.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
         public int MaTheLoai { get; set; }
+        [Display(Name = "Thể loại")]
         public string TenTheLoai { get; set; }
 
         public virtual ICollection<BaiHat> BaiHat { get; set; }
