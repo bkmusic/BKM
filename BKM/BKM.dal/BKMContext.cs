@@ -22,6 +22,7 @@ namespace BKM.dal
         public DbSet<NhacSi> NhacSies { get; set; }
         public DbSet<TheLoai> TheLoais { get; set; }
         public DbSet<NguoiDung> NguoiDungs { get; set; }
+        public DbSet<NhacCaNhan> NhacCaNhans { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

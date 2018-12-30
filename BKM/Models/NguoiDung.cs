@@ -42,6 +42,7 @@ namespace BKM.Models
 
         public string HinhAnh { get; set; }
 
+        public virtual IEnumerable<SelectListItem> NhacCaNhan { get; set; }
 
     }
 

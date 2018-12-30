@@ -23,7 +23,8 @@ namespace BKM.Models
 
         public virtual DetailBaiHat DetailBaiHat { get; set; }
         public virtual KhuVuc KhuVuc { get; set; }
-        public virtual TheLoai TheLoai { get; set; }        
+        public virtual TheLoai TheLoai { get; set; }   
+        public virtual IEnumerable<SelectListItem> NhacCaNhan { get; set; }
     }
 
     public class BaiHatViewModel

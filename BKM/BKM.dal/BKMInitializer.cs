@@ -65,6 +65,12 @@ namespace BKM.dal
 
             NguoiDungs.ForEach(s => context.NguoiDungs.Add(s));
             context.SaveChanges();
+
+            var NhacCaNhans = new List<NhacCaNhan>
+            { };
+            NhacCaNhans.ForEach(s => context.NhacCaNhans.Add(s));
+            context.SaveChanges();
         }
+
     }
 }
