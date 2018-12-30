@@ -1,4 +1,7 @@
-
+audio {
+  color: red;
+  width:100%;
+}
 .btn-primary {
 color: #fff;
 background-color: purple;
@@ -706,4 +709,30 @@ color: purple;
 	font-size: 20px;
 	color: black;
 }
-
+.gopy-main{
+	background-color: white;
+	padding-bottom: 130px;
+	margin-top: 100px;
+}
+.gopy-title h2{
+	font-size: 30px;
+	color: black;
+}
+.gopy-mess{
+	height: 50px;
+}
+.gopy-mess button{
+	margin-left: 65px;
+}
+.baihat-play{
+	width: 66%;
+    height: auto;
+    padding: 20px;
+    border-radius: 0px;
+    background-color:black;
+	bottom: 0;
+	position: fixed;
+    color: red;
+    
+    overflow: hidden;
+}
