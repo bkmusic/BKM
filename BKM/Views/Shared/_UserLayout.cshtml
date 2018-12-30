@@ -6,9 +6,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="~/Content/bootstrap.min.css">
-    <script src="/Scripts/jquery.min.js"></script>
-    <script src="/Scpipts/bootstrap.min.js"></script>
-    <link href="/Content/style.css" rel="stylesheet" type="text/css">
+    <script src="~/Scripts/jquery.min.js"></script>
+    <script src="~/Scpipts/bootstrap.min.js"></script>
+    <link href="~/Content/style.css" rel="stylesheet" type="text/css">
     @RenderSection("scripts", required: false)
 </head>
 <body>
@@ -39,13 +39,14 @@
                     <li>@Html.ActionLink("Nhạc Cá Nhân", "NhacCaNhan", "Home")</li>
                     <li>@Html.ActionLink("Liên hệ", "Contact", "Home")</li>
                 </ul>
+                <button class="btn btn-danger navbar-btn">UPLOAD</button>
 
-                <form class="nav navbar-nav navbar-right" > 
+                <form class="nav navbar-nav navbar-right">
                     <div class="glyphicon glyphicon-log-out">
-                    @Html.ActionLink("LogOut", "DangXuat", "NguoiDung")
+                        @Html.ActionLink("LogOut", "DangXuat", "NguoiDung")
                     </div>
                 </form>
-               
+
                 <!--Thanh công cụ tìm kiếm-->
                 <form class="navbar-form navbar-right" action="/action_page.php">
                     <div class="input-group">

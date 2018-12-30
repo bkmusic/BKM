@@ -161,6 +161,7 @@
     <Compile Include="Controllers\DetailBaiHatController.cs" />
     <Compile Include="Controllers\CaSiController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\NgheNhacController.cs" />
     <Compile Include="Controllers\NguoiDungController.cs" />
     <Compile Include="Controllers\TheLoaiController.cs" />
     <Compile Include="Controllers\KhuVucController.cs" />
@@ -366,9 +367,9 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="SONG\Anh-Dang-O-Dau-Day-Anh-Huong-Giang.mp3" />
-    <Content Include="SONG\AnhMinh.jpg" />
     <Content Include="SONG\Cang-Niu-Giu-Cang-De-Mat-Mr-Siro.mp3" />
     <Content Include="SONG\Con-Trai-Cung-K-ICM-B-Ray.mp3" />
+    <Content Include="SONG\Em-Cua-Ngay-Hom-Qua-Son-Tung-M-TP.mp3" />
     <Content Include="SONG\Em-Khong-The-Tien-Tien-Touliver.mp3" />
     <Content Include="SONG\Mat-Troi-Cua-Em-Phuong-Ly-JustaTee.mp3" />
     <Content Include="SONG\PhuongLy.jpg" />
@@ -425,6 +426,9 @@
     <Content Include="Views\BaiHat\BaiHatUS.cshtml" />
     <Content Include="Views\BaiHat\BaiHatKP.cshtml" />
     <Content Include="Views\Shared\_UserLayout.cshtml" />
+    <Content Include="Views\NgheNhac\Index.cshtml" />
+    <Content Include="Views\NgheNhac\NgheNhac.cshtml" />
+    <Content Include="Views\NgheNhac\tempView.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
