@@ -54,5 +54,12 @@ namespace BKM.Controllers
             ViewBag.ThongBao = "Sai tên đăng nhập hoặc tài khoản";
             return View();
         }
+
+        public ActionResult DangXuat()
+        {
+            Session.Abandon();
+            return RedirectToAction("Index", "Home");
+        }
+
     }
 }

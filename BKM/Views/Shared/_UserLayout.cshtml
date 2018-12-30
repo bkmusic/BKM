@@ -39,6 +39,12 @@
                     <li>@Html.ActionLink("Nhạc Cá Nhân", "NhacCaNhan", "Home")</li>
                     <li>@Html.ActionLink("Liên hệ", "Contact", "Home")</li>
                 </ul>
+
+                <form class="nav navbar-nav navbar-right" > 
+                    <div class="glyphicon glyphicon-log-out">
+                    @Html.ActionLink("LogOut", "DangXuat", "NguoiDung")
+                    </div>
+                </form>
                
                 <!--Thanh công cụ tìm kiếm-->
                 <form class="navbar-form navbar-right" action="/action_page.php">
