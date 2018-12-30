@@ -4,14 +4,16 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using BKM.Models;
+using BKM.dal;
 namespace BKM.Controllers
 {
     public class HomeController : Controller
     {
-        
+        BKMContext db = new BKMContext();
         public ActionResult Index()
         {
-            return View();
+            var baiHat = db.BaiHats;
+            return View(baiHat);
         }
 
    

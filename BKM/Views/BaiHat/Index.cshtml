@@ -7,7 +7,7 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create", "BaiHat")
 </p>
 <table class="table">
     <tr>
@@ -48,9 +48,11 @@
         </td>
         <td>
             <img src="@Url.Content("~/IMAGE/"+item.HinhAnh)" style="height:200px;width:200px;" />
+           
         </td>
         <td>
-            <img src="@Url.Content("~/SONG/"+item.File)" style="height:200px;width:200px;" />
+            @*<img src="@Url.Content("~/SONG/"+item.File)" style="height:200px;width:200px;" />*@
+            <audio src="@Url.Content("~/SONG/"+item.File)" controls type="audio/mp3">abcd</audio>
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.MaBaiHat }) |

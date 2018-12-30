@@ -13,6 +13,8 @@ namespace BKM.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
         public int MaKhuVuc { get; set; }
+
+        [Display(Name = "Khu vực")]
         public string TenKhuVuc { get; set; }
 
         public virtual ICollection<BaiHat> BaiHat { get; set; }
