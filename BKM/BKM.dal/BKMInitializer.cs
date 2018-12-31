@@ -46,6 +46,15 @@ namespace BKM.dal
             TheLoais.ForEach(s => context.TheLoais.Add(s));
             context.SaveChanges();
 
+            var KhuVucs = new List<KhuVuc>
+            {
+                 new KhuVuc{TenKhuVuc="Viet Nam"},
+                 new KhuVuc{TenKhuVuc="Au My"},
+                 new KhuVuc{TenKhuVuc="Han Quoc"}
+            };
+            KhuVucs.ForEach(s => context.KhuVucs.Add(s));
+            context.SaveChanges();
+
             var BaiHats = new List<BaiHat>
             {
                 new BaiHat{TenBaiHat="Anh Đang Ở Đâu Đấy Anh", MaTheLoai=1, MaKhuVuc= 1, File="Anh - Dang - O - Dau - Day - Anh - Huong - Giang.mp3" },
@@ -56,15 +65,6 @@ namespace BKM.dal
                 new BaiHat{TenBaiHat="SoLo" ,  MaTheLoai= 1, MaKhuVuc =3, File = "Solo - Jennie [128kbps_MP3].mp3" }
             };
             BaiHats.ForEach(s => context.BaiHats.Add(s));
-            context.SaveChanges();
-
-            var KhuVucs = new List<KhuVuc>
-            {
-                 new KhuVuc{TenKhuVuc="Viet Nam"},
-                 new KhuVuc{TenKhuVuc="Au My"},
-                 new KhuVuc{TenKhuVuc="Han Quoc"}
-            };
-            KhuVucs.ForEach(s => context.KhuVucs.Add(s));
             context.SaveChanges();
 
             var NguoiDungs = new List<NguoiDung>

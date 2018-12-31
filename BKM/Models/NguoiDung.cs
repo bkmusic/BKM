@@ -10,7 +10,6 @@ using static BKM.Models.Enumeration;
 
 namespace BKM.Models
 {
-
     [Table("NguoiDung")]
     public class NguoiDung
     {

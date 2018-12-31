@@ -34,7 +34,7 @@ body{
   background: #787474; 
 }
 
-/* Handle on hover */
+/* Handle on ef */
 ::-webkit-scrollbar-thumb:hover {
   background: #BC47B4; 
 }
@@ -258,9 +258,16 @@ div.embed-responsive-4by3{
 .nghesi-name a:active {
     color: white;
 }
-
+.hovereffect-nghesi:hover img {
+-ms-transform:scale(1.1);
+-webkit-transform:scale(1.1);
+transform:scale(1.1);
+}
 .hovereffect-nghesi img{
-	
+	display:block;
+position:relative;
+-webkit-transition:all .4s linear;
+transition:all .4s linear;
 	width: 200px;
 	height: 200px;
 	
@@ -445,6 +452,7 @@ margin-top: 20px;
 	margin-left: -5px;
 }
 .casi-list-song {
+	
   margin-left: 30px;
   height: 300px;
   overflow: auto;
@@ -452,6 +460,12 @@ margin-top: 20px;
 .casi-list-song h4{
 	margin-left: -60px;
 	padding-left: 0;
+	margin-top: 10px;
+	text-align: left;
+}
+.bhyeuthich h4{
+	text-align: left;
+	margin-top: 10px;
 }
 .casi-list-song p{
 	margin-left: -60px;
@@ -827,4 +841,18 @@ color: purple;
 	margin-right: 0px;
 	margin-bottom: 20px;
 	margin-left: 20px;
+}
+.search-title h1{
+	font-size: 50px;
+	color: white;
+}
+.beta-info h3,h4{
+	margin-top: 30px;
+	color: white;
+	text-align: center;
+}
+.beta-info h2{
+	margin-top: 100px;
+	color: greenyellow;
+	text-align: center;
 }

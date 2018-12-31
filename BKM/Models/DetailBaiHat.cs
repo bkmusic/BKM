@@ -15,7 +15,9 @@ namespace BKM.Models
         public int MaBaiHat { get; set; }
         public string TenBaiHat { get; set; }
         public int MaCaSi { get; set; }
+        [Display(Name = "Mô Tả")]
         public string MoTa { get; set; }
+        [Display(Name = "Hình ảnh")]
         public string HinhAnh { get; set; }
 
         public virtual ICollection<BaiHat> BaiHat { get; set; }
@@ -37,12 +39,6 @@ namespace BKM.Models
         [Required]
         public string MaKhuVuc { get; set; }
         public IEnumerable<SelectListItem> TenKhuVuc { get; set; }
-
-        [Display(Name = "Mô tả")]
-        public string MoTa { get; set; }
-
-        [Display(Name = "Hình ảnh")]
-        public string HinhAnh { get; set; }
     }
 
 }

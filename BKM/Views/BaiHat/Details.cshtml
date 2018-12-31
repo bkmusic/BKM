@@ -13,7 +13,6 @@
         <dt>
             @Html.DisplayNameFor(model => model.KhuVuc.TenKhuVuc)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.KhuVuc.TenKhuVuc)
         </dd>
@@ -21,7 +20,6 @@
         <dt>
             @Html.DisplayNameFor(model => model.TheLoai.TenTheLoai)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.TheLoai.TenTheLoai)
         </dd>
@@ -29,15 +27,13 @@
         <dt>
             @Html.DisplayNameFor(model => model.TenBaiHat)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.TenBaiHat)
         </dd>
 
         <dt>
-             @Html.DisplayNameFor(model => model.File)
+            @Html.DisplayNameFor(model => model.File)
         </dt>
-
         <dd>
             <audio src="@Url.Content("~/SONG/"+Model.File)" controls type="audio/mp3"></audio>
         </dd>
@@ -45,6 +41,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.MaBaiHat }) |
+    @Html.ActionLink("Edit", "EditDetailBaiHat", new { id = Model.MaBaiHat }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
