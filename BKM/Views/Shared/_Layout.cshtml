@@ -46,7 +46,8 @@
                     <li><span class="glyphicon glyphicon-log-in">@Html.ActionLink("Login", "DangNhap", "NguoiDung")</span></li>
                 </ul>
                 <!--Thanh công cụ tìm kiếm-->
-                <form class="navbar-form navbar-right" action="/action_page.php">
+                @using (Html.BeginForm("TimKiem", "TimKiem", FormMethod.Post, new { @class = "navbar-form navbar-right" }))
+                {                
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Nhập tên bài hát hoặc ca sĩ" name="search">
                         <div class="input-group-btn">
@@ -54,8 +55,8 @@
                                 <i class="glyphicon glyphicon-search"></i>
                             </button>
                         </div>
-                    </div>
-                </form>
+                    </div>               
+               }
             </div>
         </div>
     </nav>

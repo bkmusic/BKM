@@ -1,0 +1,198 @@
+﻿@using BKM.Models
+@model List<BaiHat>
+@{
+    ViewBag.Title = "TimKiem";
+    if (Session["nguoiDung"] == null)
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+    else
+    { Layout = "~/Views/Shared/_UserLayout.cshtml"; }
+    //List<BaiHat> itemBaiHat = ViewBag.SchBaiHat.Cast<BaiHat>().toList();
+}
+
+<head>
+    <meta charset="utf-8">
+    <title>Tìm kiếm</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <script src="jquery.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+    <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="search-title">
+            <h1>Kết quả tìm kiếm</h1>
+        </div>
+        <div class="row">
+            <div class="search-casi">
+               
+                
+            <div class="search-baihat">
+                <div class="tile">
+                    <a href="#">Bài hát <i class="glyphicon glyphicon-chevron-right"></i></a>
+                </div>
+                <div class="search-baihat-main">
+                    <div class="col-md-9">
+
+                        <ul class="list-group">
+                            @foreach (var item in Model)
+                            {
+                            <li class="list-group-item">
+                                <a href="/NgheNhac/NgheNhac/@item.MaBaiHat")>
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <div class="icon">
+                                               <img src="@Url.Content("~/IMAGE/"+item.HinhAnh)">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="info">
+                                                <div class="song">
+                                                    <h4>@item.TenBaiHat</h4>
+                                                </div>
+                                                <div class="casi">
+                                                    <p>@item.MoTa</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="taive">
+                                            <div class="col-md-1">
+                                                <a href="#"><i class="glyphicon glyphicon-save"></i></a>
+                                            </div>
+                                            <div class="col-md-1">
+                                                <a href="#"><i class="glyphicon glyphicon-share"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li><!--Chạy Ngay Đi-->
+                            }
+                            @*<li class="list-group-item">
+                                <a href="#">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <div class="icon">
+                                                <img src="IMAGE/Icon-Noinaycoanh.jpg">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="info">
+                                                <div class="song">
+                                                    <h4>Nơi Này Có Anh</h4>
+                                                </div>
+                                                <div class="casi">
+                                                    <p>Sơn Tùng M-TP</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="taive">
+                                            <div class="col-md-1">
+                                                <a href="#"><i class="glyphicon glyphicon-save"></i></a>
+                                            </div>
+                                            <div class="col-md-1">
+                                                <a href="#"><i class="glyphicon glyphicon-share"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li><!--Nơi Này Có Anh-->
+                            <li class="list-group-item">
+                                <a href="#">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <div class="icon">
+                                                <img src="IMAGE/Icon-YouofYes.jpg">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="info">
+                                                <div class="song">
+                                                    <h4>You Of Yesterday</h4>
+                                                </div>
+                                                <div class="casi">
+                                                    <p>Sơn Tùng M-TP</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="taive">
+                                            <div class="col-md-1">
+                                                <a href="#"><i class="glyphicon glyphicon-save"></i></a>
+                                            </div>
+                                            <div class="col-md-1">
+                                                <a href="#"><i class="glyphicon glyphicon-share"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li><!--You Of Yesterday-->
+                            <li class="list-group-item">
+                                <a href="#">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <div class="icon">
+                                                <img src="IMAGE/Icon-LacTroi.jpg">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="info">
+                                                <div class="song">
+                                                    <h4>Lạc Trôi</h4>
+                                                </div>
+                                                <div class="casi">
+                                                    <p>Sơn Tùng M-TP</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="taive">
+                                            <div class="col-md-1">
+                                                <a href="#"><i class="glyphicon glyphicon-save"></i></a>
+                                            </div>
+                                            <div class="col-md-1">
+                                                <a href="#"><i class="glyphicon glyphicon-share"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li><!--Lạc Trôi-->
+                            <li class="list-group-item">
+                                <a href="#">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <div class="icon">
+                                                <img src="IMAGE/Icon-Khongphaidangvuadau.jpg">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="info">
+                                                <div class="song">
+                                                    <h4>Không Phải Dạng Vừa Đâu</h4>
+                                                </div>
+                                                <div class="casi">
+                                                    <p>Sơn Tùng M-TP</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="taive">
+                                            <div class="col-md-1">
+                                                <a href="#"><i class="glyphicon glyphicon-save"></i></a>
+                                            </div>
+                                            <div class="col-md-1">
+                                                <a href="#"><i class="glyphicon glyphicon-share"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li><!--Không Phải Dạng Vừa Đâu-->
+                                *@
+                        </ul>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+

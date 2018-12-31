@@ -166,6 +166,7 @@
     <Compile Include="Controllers\TheLoaiController.cs" />
     <Compile Include="Controllers\KhuVucController.cs" />
     <Compile Include="Controllers\NhacSiController.cs" />
+    <Compile Include="Controllers\TimKiemController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -429,6 +430,7 @@
     <Content Include="Views\NgheNhac\Index.cshtml" />
     <Content Include="Views\NgheNhac\NgheNhac.cshtml" />
     <Content Include="Views\NgheNhac\tempView.cshtml" />
+    <Content Include="Views\TimKiem\TimKiem.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Temp\" />
