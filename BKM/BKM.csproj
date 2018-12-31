@@ -158,25 +158,25 @@
     <Compile Include="BKM.dal\BKMContext.cs" />
     <Compile Include="BKM.dal\BKMInitializer.cs" />
     <Compile Include="Controllers\BaiHatController.cs" />
-    <Compile Include="Controllers\DetailBaiHatController.cs" />
     <Compile Include="Controllers\CaSiController.cs" />
+    <Compile Include="Controllers\DetailBaiHatsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NgheNhacController.cs" />
     <Compile Include="Controllers\NguoiDungController.cs" />
+    <Compile Include="Controllers\NhacCaNhanController.cs" />
     <Compile Include="Controllers\TheLoaiController.cs" />
     <Compile Include="Controllers\KhuVucController.cs" />
-    <Compile Include="Controllers\NhacSiController.cs" />
     <Compile Include="Controllers\TimKiemController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\BaiHat.cs" />
-    <Compile Include="Models\DetailBaiHat.cs" />
     <Compile Include="Models\CaSi.cs" />
+    <Compile Include="Models\DetailBaiHat.cs" />
     <Compile Include="Models\Enumeration.cs" />
     <Compile Include="Models\KhuVuc.cs" />
     <Compile Include="Models\NguoiDung.cs" />
-    <Compile Include="Models\NhacSi.cs" />
+    <Compile Include="Models\NhacCaNhan.cs" />
     <Compile Include="Models\TheLoai.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -406,16 +406,6 @@
     <Content Include="Views\BaiHat\Details.cshtml" />
     <Content Include="Views\BaiHat\Edit.cshtml" />
     <Content Include="Views\BaiHat\Index.cshtml" />
-    <Content Include="Views\DetailBaiHat\Create.cshtml" />
-    <Content Include="Views\DetailBaiHat\Delete.cshtml" />
-    <Content Include="Views\DetailBaiHat\Details.cshtml" />
-    <Content Include="Views\DetailBaiHat\Edit.cshtml" />
-    <Content Include="Views\DetailBaiHat\Index.cshtml" />
-    <Content Include="Views\NhacSi\Create.cshtml" />
-    <Content Include="Views\NhacSi\Delete.cshtml" />
-    <Content Include="Views\NhacSi\Details.cshtml" />
-    <Content Include="Views\NhacSi\Edit.cshtml" />
-    <Content Include="Views\NhacSi\Index.cshtml" />
     <Content Include="Views\TheLoai\Create.cshtml" />
     <Content Include="Views\TheLoai\Delete.cshtml" />
     <Content Include="Views\TheLoai\Details.cshtml" />
@@ -431,6 +421,16 @@
     <Content Include="Views\NgheNhac\NgheNhac.cshtml" />
     <Content Include="Views\NgheNhac\tempView.cshtml" />
     <Content Include="Views\TimKiem\TimKiem.cshtml" />
+    <Content Include="Views\DetailBaiHats\Create.cshtml" />
+    <Content Include="Views\DetailBaiHats\Delete.cshtml" />
+    <Content Include="Views\DetailBaiHats\Details.cshtml" />
+    <Content Include="Views\DetailBaiHats\Edit.cshtml" />
+    <Content Include="Views\DetailBaiHats\Index.cshtml" />
+    <Content Include="Views\NhacCaNhan\Create.cshtml" />
+    <Content Include="Views\NhacCaNhan\Delete.cshtml" />
+    <Content Include="Views\NhacCaNhan\Details.cshtml" />
+    <Content Include="Views\NhacCaNhan\Edit.cshtml" />
+    <Content Include="Views\NhacCaNhan\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Temp\" />

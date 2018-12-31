@@ -7,7 +7,7 @@
 <h2>Details</h2>
 
 <div>
-    <h4>@Model.TenBaiHat - @Model.MoTa</h4>
+    <h4>@Model.TenBaiHat</h4> 
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -32,22 +32,6 @@
 
         <dd>
             @Html.DisplayFor(model => model.TenBaiHat)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MoTa)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MoTa)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.HinhAnh)
-        </dt>
-
-        <dd>
-            <img src="@Url.Content("~/IMAGE/"+Model.HinhAnh)" style="height:200px;width:200px;"/>
         </dd>
 
         <dt>
