@@ -452,6 +452,7 @@ margin-top: 20px;
 	margin-left: -5px;
 }
 .casi-list-song {
+	
   margin-left: 30px;
   height: 300px;
   overflow: auto;
@@ -459,6 +460,8 @@ margin-top: 20px;
 .casi-list-song h4{
 	margin-left: -60px;
 	padding-left: 0;
+	margin-top: 10px;
+	text-align: left;
 }
 .casi-list-song p{
 	margin-left: -60px;
