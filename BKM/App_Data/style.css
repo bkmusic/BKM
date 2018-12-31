@@ -34,7 +34,7 @@ body{
   background: #787474; 
 }
 
-/* Handle on hover */
+/* Handle on ef */
 ::-webkit-scrollbar-thumb:hover {
   background: #BC47B4; 
 }
@@ -838,4 +838,14 @@ color: purple;
 .search-title h1{
 	font-size: 50px;
 	color: white;
+}
+.beta-info h3,h4{
+	margin-top: 30px;
+	color: white;
+	text-align: center;
+}
+.beta-info h2{
+	margin-top: 100px;
+	color: greenyellow;
+	text-align: center;
 }
