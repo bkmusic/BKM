@@ -8,7 +8,7 @@
     }
     else
     { Layout = "~/Views/Shared/_UserLayout.cshtml"; }
-    //List<BaiHat> itemBaiHat = ViewBag.SchBaiHat.Cast<BaiHat>().toList();
+    List<CaSi> itemCaSi = ViewBag.schCaSi;
 
     string errorMess = "Không tìm thấy kết quả phù hợp";
 }
@@ -24,6 +24,12 @@
 </head>
 
 <body>
+    @{ 
+        foreach (var item in itemCaSi)
+        {
+            <h2>@item.TenCaSi</h2>
+        }
+    }
     <div class="container">
         <div class="search-title">
             <h1>Kết quả tìm kiếm</h1>
