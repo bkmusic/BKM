@@ -35,7 +35,32 @@
             <h1>Kết quả tìm kiếm</h1>
         </div>
         <div class="row">
+
             <div class="search-casi">
+                <div class="tile">
+                    <a href="#">Ca sĩ <i class="glyphicon glyphicon-chevron-right"></i></a>
+                </div>
+                <div class="search-casi-main">
+                    <div class="row">
+                        @{ foreach (var item in itemCaSi)
+                            {
+                        <div class="col-md-3 col-lg-3 col-xs-6">
+                            <div class="fff">
+                                <div class="nghesi-icon">
+                                    <div class="hovereffect-nghesi">
+                                        <img src="@Url.Content("~/IMAGE/"+item.HinhAnh)">
+                                    </div>
+                                </div>
+                                <div class="nghesi-name">
+                                    <a href="@Url.Action("Details","CaSi",item.MaCaSi)"><h4>@item.TenCaSi</h4></a>
+                                </div>
+                            </div>
+                        </div>
+                                }
+                            }
+                    </div>
+                </div>
+            </div>
                
                 
             <div class="search-baihat">
@@ -56,7 +81,7 @@
                                         <div class="row">
                                             <div class="col-md-2">
                                                 <div class="icon">
-                                                    <img src="@Url.Content("~/IMAGE/"+item.HinhAnh)">
+                                                    <img src="@Url.Content("~/IMAGE/"+item.DetailBaiHat.HinhAnh)">
                                                 </div>
                                             </div>
                                             <div class="col-md-8">
@@ -65,7 +90,7 @@
                                                         <h4>@item.TenBaiHat</h4>
                                                     </div>
                                                     <div class="casi">
-                                                        <p>@item.MoTa</p>
+                                                        <p>@item.DetailBaiHat.CaSi.TenCaSi</p>
                                                     </div>
                                                 </div>
                                             </div>

@@ -34,6 +34,7 @@ namespace BKM.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.BaiHat = db.BaiHats.Take(10).Where(x => x.DetailBaiHat.MaCaSi == caSi.MaCaSi).ToList();
             return View(caSi);
         }
 
