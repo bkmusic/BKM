@@ -19,14 +19,8 @@
             @Html.DisplayNameFor(model => model.TenBaiHat)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.MoTa)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.HinhAnh)
-        </th>
-        @*<th>
             @Html.DisplayNameFor(model => model.File)
-        </th>*@
+        </th>
         <th></th>
     </tr>
 
@@ -41,15 +35,8 @@
                 @Html.ActionLink(item.TenBaiHat, "NgheNhac", "NgheNhac", new { id = item.MaBaiHat }, null)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.MoTa)
-            </td>
-            <td>
-                <img src="@Url.Content("~/IMAGE/"+item.HinhAnh)" style="height:200px;width:200px;" />
-
-            </td>
-            @*<td>
                 <audio src="@Url.Content("~/SONG/"+item.File)" controls type="audio/mp3">abcd</audio>
-            </td>*@
+            </td>
         </tr>
     }
 

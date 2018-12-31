@@ -42,7 +42,7 @@ namespace BKM.Models
 
         public string HinhAnh { get; set; }
 
-
+        public virtual ICollection<NhacCaNhan> NhacCaNhan { get; set; }
     }
 
 }

@@ -51,7 +51,7 @@ namespace BKM.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MaBaiHat,TenBaiHat,MaTheLoai,MaKhuVuc,MoTa,HinhAnh,File")] BaiHat baiHat)
+        public ActionResult Create(BaiHat baiHat)
         {
             //if (ModelState.IsValid)
             //{
@@ -64,15 +64,15 @@ namespace BKM.Controllers
             {
                 if (Request.Files.Count > 0)
                 {
-                    HttpPostedFileBase fileAnh = Request.Files[0];
+                    HttpPostedFileBase fileNhac = Request.Files[0];
                     //HttpPostedFileBase fileNhac = Request.Files[0];
-                    if (fileAnh.ContentLength > 0)
+                    if (fileNhac.ContentLength > 0)
                     {
-                        var fileName = Path.GetFileName(fileAnh.FileName);
-                        baiHat.HinhAnh = fileAnh.FileName;
+                        var fileName = Path.GetFileName(fileNhac.FileName);
+                        baiHat.File = fileNhac.FileName;
                         string path = Path.Combine(
-                            Server.MapPath("~/IMAGE"), fileName);
-                        fileAnh.SaveAs(path);
+                            Server.MapPath("~/SONG"), fileName);
+                        fileNhac.SaveAs(path);
                     }
                     //if (fileNhac.ContentLength > 0)
                     //{
@@ -82,6 +82,9 @@ namespace BKM.Controllers
                     //    fileNhac.SaveAs(path);
                     //}
                 }
+                DetailBaiHat detailBaiHat = new DetailBaiHat { MaBaiHat = baiHat.MaBaiHat, TenBaiHat = baiHat.TenBaiHat, MaCaSi = 1, HinhAnh = "images.png", MoTa = "" };
+                db.DetailBaiHats.Add(detailBaiHat);
+                db.SaveChanges();
                     db.BaiHats.Add(baiHat);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -115,20 +118,20 @@ namespace BKM.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MaBaiHat,TenBaiHat,MaTheLoai,MaKhuVuc,MoTa,HinhAnh,File")] BaiHat baiHat)
+        public ActionResult Edit([Bind(Include = "MaBaiHat,TenBaiHat,MaTheLoai,MaKhuVuc,File")] BaiHat baiHat)
         {
             if (ModelState.IsValid)
             {
                 if (Request.Files.Count > 0)
                 {
-                    HttpPostedFileBase fileAnh = Request.Files[0];
-                    if (fileAnh.ContentLength > 0)
+                    HttpPostedFileBase fileNhac = Request.Files[0];
+                    if (fileNhac.ContentLength > 0)
                     {
-                        var fileName = Path.GetFileName(fileAnh.FileName);
-                        baiHat.HinhAnh = fileAnh.FileName;
+                        var fileName = Path.GetFileName(fileNhac.FileName);
+                        baiHat.File = fileNhac.FileName;
                         string path = Path.Combine(
-                            Server.MapPath("~/IMAGE"), fileName);
-                        fileAnh.SaveAs(path);
+                            Server.MapPath("~/SONG"), fileName);
+                        fileNhac.SaveAs(path);
                     }
                 }
                     db.Entry(baiHat).State = EntityState.Modified;
