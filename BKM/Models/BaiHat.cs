@@ -42,10 +42,6 @@ namespace BKM.Models
         public IEnumerable<SelectListItem> TenKhuVuc { get; set; }
 
         [Required]
-        [Display(Name = "Hình ảnh")]
-        public string HinhAnh { get; set; }
-
-        [Required]
         public string File { get; set; }
     }
 }

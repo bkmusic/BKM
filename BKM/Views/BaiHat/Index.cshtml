@@ -23,6 +23,9 @@
         <th>
             @Html.DisplayNameFor(model => model.File)
         </th>
+        <th>
+            Hình Ảnh
+        </th>
         <th></th>
     </tr>
 
@@ -35,17 +38,18 @@
             @Html.DisplayFor(modelItem => item.TheLoai.TenTheLoai)
         </td>
         <td>
-            @Html.ActionLink(item.TenBaiHat, "NgheNhac","NgheNhac", new { id = item.MaBaiHat },null)
+            @Html.DisplayFor(modelItem => item.TenBaiHat)
         </td>
         <td>
-            
             <audio src="@Url.Content("~/SONG/"+item.File)" controls type="audio/mp3">abcd</audio>
-        </td>*
-       
+        </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MaBaiHat }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MaBaiHat }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MaBaiHat })
+            <img src="@Url.Content("~/IMAGE/"+item.DetailBaiHat.HinhAnh)" class="baihat-head"/>
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.MaBaiHat }) |
+            @Html.ActionLink("Details", "Details", new { id = item.MaBaiHat }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.MaBaiHat })
         </td>
     </tr>
 }

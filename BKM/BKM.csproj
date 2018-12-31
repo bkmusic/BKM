@@ -431,6 +431,7 @@
     <Content Include="Views\NhacCaNhan\Details.cshtml" />
     <Content Include="Views\NhacCaNhan\Edit.cshtml" />
     <Content Include="Views\NhacCaNhan\Index.cshtml" />
+    <Content Include="Views\BaiHat\EditDetailBaiHat.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Temp\" />

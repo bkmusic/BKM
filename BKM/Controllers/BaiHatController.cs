@@ -19,7 +19,7 @@ namespace BKM.Controllers
         // GET: BaiHat
         public ActionResult Index()
         {
-            var baiHats = db.BaiHats.Include(b => b.KhuVuc).Include(b => b.TheLoai);
+            var baiHats = db.BaiHats.Take(20);
             return View(baiHats.ToList());
         }
 
@@ -141,6 +141,50 @@ namespace BKM.Controllers
             ViewBag.MaKhuVuc = new SelectList(db.KhuVucs, "MaKhuVuc", "TenKhuVuc", baiHat.MaKhuVuc);
             ViewBag.MaTheLoai = new SelectList(db.TheLoais, "MaTheLoai", "TenTheLoai", baiHat.MaTheLoai);
             return View(baiHat);
+        }
+
+        public ActionResult EditDetailBaiHat(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            DetailBaiHat DetailbaiHat = db.DetailBaiHats.Find(id);
+            if (DetailbaiHat == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.MaCaSi = new SelectList(db.CaSies, "MaCaSi", "TenCaSi", DetailbaiHat.MaCaSi);
+            return View(DetailbaiHat);
+        }
+
+        // POST: BaiHat/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditDetailBaiHat(DetailBaiHat DetailbaiHat)
+        {
+            if (ModelState.IsValid)
+            {
+                if (Request.Files.Count > 0)
+                {
+                    HttpPostedFileBase fileAnh = Request.Files[0];
+                    if (fileAnh.ContentLength > 0)
+                    {
+                        var fileName = Path.GetFileName(fileAnh.FileName);
+                        DetailbaiHat.HinhAnh = fileAnh.FileName;
+                        string path = Path.Combine(
+                            Server.MapPath("~/IMAGE"), fileName);
+                        fileAnh.SaveAs(path);
+                    }
+                }
+                db.Entry(DetailbaiHat).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            ViewBag.MaCaSi = new SelectList(db.CaSies, "MaCaSi", "TenCaSi", DetailbaiHat.MaCaSi);
+            return View(DetailbaiHat);
         }
 
         // GET: BaiHat/Delete/5
