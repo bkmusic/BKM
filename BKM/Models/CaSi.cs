@@ -18,12 +18,6 @@ namespace BKM.Models
         [Display(Name = "Tên ca sĩ")]
         public string TenCaSi { get; set; }
 
-        [Display(Name = "Giới tính")]
-        public GT GioiTinh { get; set; }
-
-        [Display(Name = "Ngày sinh")]
-        public DateTime NgaySinh { get; set; }
-
         [Display(Name = "Mô tả")]
         public string MoTa { get; set; }
 

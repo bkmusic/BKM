@@ -275,6 +275,10 @@ transition:all .4s linear;
 .hovereffect-nghesi {
 margin-top: 20px;
 }
+.baihat-wall img{
+	width: 1130px;
+	height: 350px;
+}
 .casi-small-icon{
 	width: 50px;
 	height: 50px;
@@ -654,7 +658,7 @@ padding-bottom: 0;
   cursor: pointer;
   padding: 14px 16px;
   font-size: 17px;
-  width: 25%;
+  width: 100%;
 }
 
 .tablink:active {
