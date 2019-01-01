@@ -13,32 +13,32 @@
 
 <html>
 <head>
-    <meta charset="utf-8">
     <title>Nhạc cá nhân</title>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="bootstrap.min.css">
-    <script src="jquery.min.js"></script>
-    <script src="bootstrap.min.js"></script>
-    <link href="style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css">
+    <script src="~/Scripts/jquery.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <link href="~/Content/style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
     <div class="container">
         <div class="ncn-wall">
             <div class="hovereffect-ncn-wall">
-                <img class="img-responsive" src="IMAGE/1920x985_1490157045-dai-hoc-bach-khoa-ha-noi.jpg">
+                <img class="img-responsive" src="/IMAGE/1920x985_1490157045-dai-hoc-bach-khoa-ha-noi.jpg">
             </div>
         </div>
         <div class="ncn-menu">
             <div class="row">
                 <div class="col-md-4">
-                    <button class="tablink" onclick="openPage('tongquan', this, 'black')" id="defaultOpen">Tổng quan</button>
+                    <button class="tablink" id="defaultOpen" style="width:100%">Tổng quan</button>
                 </div>
                 <div class="col-md-4">
-                    <button class="tablink" onclick="openPage('bhyeuthich', this, 'black')">Bài hát yêu thích</button>
+                    <button class="tablink"style="width:100%" >Bài hát yêu thích</button>
                 </div>
                 <div class="col-md-4">
-                    <button class="tablink" onclick="openPage('up', this, 'black')">Upload</button>
+                    <button class="tablink"style="width:100%">Upload</button>
                 </div>
             </div>
             <!--Tổng quan-->
@@ -48,7 +48,7 @@
                         <div class="row">
                             <div class="tq-ava">
                                 <div class="col-md-2">
-                                    <img src="IMAGE/img_avatar.png">
+                                    <img src="/IMAGE/img_avatar.png">
                                 </div>
                             </div>
                             <div class="tq-name">
