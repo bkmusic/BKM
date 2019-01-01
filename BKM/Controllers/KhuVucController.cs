@@ -116,6 +116,19 @@ namespace BKM.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult KhuVuc()
+        {
+
+            //if(khuVuc == null)
+            //{
+            //    return HttpNotFound();
+            //}
+            ViewBag.BaiHatVN = db.BaiHats.Where(x => x.MaKhuVuc == 1).ToList();
+            ViewBag.BaiHatHQ = db.BaiHats.Where(x => x.MaKhuVuc == 3).ToList();
+            ViewBag.BaiHatUS = db.BaiHats.Where(x => x.MaKhuVuc == 2).ToList();
+            return View();
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

@@ -23,7 +23,7 @@ namespace BKM.Controllers
             if (sch != null && sch != "")
             {
                 var baiHat = db.BaiHats.Take(20).Where(x => x.TenBaiHat.ToUpper().Contains(sch.ToUpper())).ToList();
-                ViewBag.SchCaSi = db.CaSies.Where(x => x.TenCaSi.ToUpper().Contains(sch.ToUpper())).ToList();
+                ViewBag.SchCaSi = db.CaSies.Take(20).Where(x => x.TenCaSi.ToUpper().Contains(sch.ToUpper())).ToList();
                 return View(baiHat);
             }
             else

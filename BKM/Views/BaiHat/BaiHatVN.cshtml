@@ -19,10 +19,10 @@
             @Html.DisplayNameFor(model => model.TenBaiHat)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.MoTa)
+            @Html.DisplayNameFor(model => model.File)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.HinhAnh)
+            @Html.DisplayNameFor(model => model.DetailBaiHat.HinhAnh)
         </th>
         <th></th>
     </tr>
@@ -38,10 +38,10 @@
                 @Html.ActionLink(item.TenBaiHat, "NgheNhac", "NgheNhac", new { id = item.MaBaiHat }, null)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.MoTa)
+                @Html.DisplayFor(modelItem => item.DetailBaiHat.TenBaiHat)
             </td>
             <td>
-                <img src="@Url.Content("~/IMAGE/"+item.HinhAnh)" style="height:200px;width:200px;" />
+                <img src="@Url.Content("~/IMAGE/"+item.DetailBaiHat.HinhAnh)" style="height:200px;width:200px;" />
 
             </td>
             @*<td>

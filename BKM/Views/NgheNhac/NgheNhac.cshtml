@@ -1,6 +1,6 @@
 ﻿@model BKM.Models.BaiHat
 @{
-    ViewBag.Title = "tempView";
+   
     if (Session["nguoiDung"] == null)
     {
         Layout = "~/Views/Shared/_Layout.cshtml";
@@ -21,7 +21,7 @@
 <body>
     <div class="container">
         <div class="baihat-wall">
-            <img src="@Url.Content("~/IMAGE/"+Model.HinhAnh)">
+            <img src="@Url.Content("~/IMAGE/"+Model.DetailBaiHat.HinhAnh)">
         </div>
         <div class="baihat-head">
             <div class="row">
@@ -36,7 +36,7 @@
 
 
                             <div id="albumCont" class="flex-item album flex-container">
-                                <img id="currentAlbum" class="flex-item" src="@Url.Content("~/IMAGE/"+Model.HinhAnh)">
+                                <img id="currentAlbum" class="flex-item" src="@Url.Content("~/IMAGE/"+Model.DetailBaiHat.HinhAnh)">
                             </div>
                             <div id="audioplayer">
 
@@ -68,9 +68,9 @@
                 <div class="baihat-info">
                     <div class="col-md-8">
                         <h2>@Model.TenBaiHat</h2>
-                        @Html.ActionLink(@Model.MoTa,"Details","CaSi",new {id = 3 },null) <br>
+                        @Html.ActionLink(@Model.DetailBaiHat.CaSi.TenCaSi,"Details","CaSi",new {id = Model.DetailBaiHat.CaSi.MaCaSi },null) <br>
                         <div class="theloai">
-                            <a href="/BaiHat/BaiHatVN">@Html.DisplayFor(model => model.KhuVuc.TenKhuVuc)</a>
+                            <a href="/BaiHat/BaiHatKhuVuc">@Html.DisplayFor(model => model.KhuVuc.TenKhuVuc)</a>
                         </div>
                     </div>
                 </div>
@@ -100,7 +100,7 @@
                 <h1>Lời bài hát</h1>
             </div>
             <p>
-                @Model.MoTa
+                @Model.DetailBaiHat.MoTa
             </p>
         </div>
     </div>
