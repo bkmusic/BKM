@@ -16,21 +16,21 @@ namespace BKM.Controllers
             return View(caSi);
         }
 
-   
-
-        public ActionResult NhacCaNhan()
-        {
-            ViewBag.Message = "This is your music";
-           
-            return View();
-
-        }
-
-
+ 
         public ActionResult Contact()
         {
             ViewBag.Message = "Contact us at";
 
+            return View();
+        }
+
+        public ActionResult GopY()
+        {
+            return View();
+        }
+
+        public ActionResult BeTa()
+        {
             return View();
         }
     }

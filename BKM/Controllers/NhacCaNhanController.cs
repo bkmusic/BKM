@@ -13,19 +13,71 @@ namespace BKM.Controllers
 {
     public class NhacCaNhanController : Controller
     {
-        private BKMContext db = new BKMContext();      
+        private BKMContext db = new BKMContext();
         // GET: NhacCaNhan
-        public ActionResult Index()
+        public bool ChkDangNhap()
         {
-            var ChkNguoiDung = Session["nguoiDung"];
-            if(ChkNguoiDung==null)
+            var ChkDangNhap = Session["nguoiDung"];
+            if(ChkDangNhap == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        public ActionResult Index()
+        {           
+            if(ChkDangNhap()==false)
             {
                 return View();
             }
             NguoiDung nguoiDung = (NguoiDung)Session["nguoiDung"];
             //var nhacCaNhan = db.NhacCaNhans.Include(n => n.BaiHat).Include(n => n.NguoiDung);
             ViewBag.NhacCaNhan = db.NhacCaNhans.Where(x => x.MaNguoiDung == nguoiDung.MaNguoiDung).ToList();
-            return View(nguoiDung);
+            return View(nguoiDung); 
+        }
+
+
+        public ActionResult AddBaiHat(int? id)
+        {           
+            
+            if(id == null)
+            {
+                return HttpNotFound();
+            }
+            if (ChkDangNhap() == false)
+            {
+                return RedirectToAction("DangNhap", "NguoiDung");
+            }
+            NguoiDung nguoiDung = (NguoiDung)Session["nguoiDung"];
+            NhacCaNhan nhacCaNhan = db.NhacCaNhans.SingleOrDefault(x => x.MaBaiHat == id && x.MaNguoiDung == nguoiDung.MaNguoiDung);
+            if(nhacCaNhan == null)
+            {
+                nhacCaNhan = new NhacCaNhan();
+                nhacCaNhan.MaBaiHat = (int)id;
+                nhacCaNhan.MaNguoiDung = nguoiDung.MaNguoiDung;
+                db.NhacCaNhans.Add(nhacCaNhan);
+                db.SaveChanges();
+                return RedirectToAction("Index", "NhacCaNhan");
+            }
+            
+            return RedirectToAction("Index", "NhacCaNhan");
+        }
+
+        public ActionResult DelBaiHat(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            NguoiDung nguoiDung = (NguoiDung)Session["nguoiDung"];
+            NhacCaNhan nhacCaNhan = db.NhacCaNhans.Single(x => x.MaBaiHat == id && x.MaNguoiDung == nguoiDung.MaNguoiDung);
+            db.NhacCaNhans.Remove(nhacCaNhan);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
 
         // GET: NhacCaNhan/Details/5

@@ -44,10 +44,10 @@
                 <div class="ncn-menu">
                     <div class="row">
                         <div class="col-md-4">
-                            <button class="tablink"  onclick="openPage('tongquan', this, 'black')" id="defaultOpen"  style="width:100%">Tổng quan</button>
+                            <button class="tablink"  onclick="openPage('tongquan', this, 'black')"  style="width:100%">Tổng quan</button>
                         </div>
                         <div class="col-md-4">
-                            <button class="tablink" onclick="openPage('bhyeuthich', this, 'black')" style="width:100%">Bài hát yêu thích</button>
+                            <button class="tablink" onclick="openPage('bhyeuthich', this, 'black')" id="defaultOpen" style="width:100%">Bài hát yêu thích</button>
                         </div>
                         <div class="col-md-4">
                             <button class="tablink" onclick="openPage('up', this, 'black')" id=""style="width:100%">Upload</button>
@@ -76,7 +76,7 @@
 
 
                                 <div class="tq-vip">
-                                    <button class="btn btn-primary navbar-btn"><i class="glyphicon glyphicon-fire"></i> BKM VIP</button>
+                                    <a href="/Home/Beta" class="btn btn-primary navbar-btn"><i class="glyphicon glyphicon-fire"></i> BKM VIP</a>
                                 </div>
                             </div>
                         </div>
@@ -88,8 +88,7 @@
                         <div class="tile">
                             <a href="#">BÀI HÁT YÊU THÍCH <i class="glyphicon glyphicon-heart"></i></a>
                         </div>
-                        @*<h3>Thêm bài bát bằng cách ấn nút "yêu thích"</h3>
-                            <h6>ví dụ</h6>*@
+                        
                         <div class="container">
                             <div class="bhyeuthich">
                                 <div class="col-md-9">
@@ -102,7 +101,7 @@
                                                 foreach (var item in nhacCaNhan)
                                                 {
                                                 <li class="list-group-item">
-                                                    <a href="#">
+                                                    <a href="@Url.Action("NgheNhac","NgheNhac",new { id = item.MaBaiHat})">
                                                         <div class="row">
                                                             <div class="col-md-2">
                                                                 <div class="icon">
@@ -124,10 +123,11 @@
                                                                     <a href="#"><i class="glyphicon glyphicon-save"></i></a>
                                                                 </div>
                                                                 <div class="col-md-1">
-                                                                    <a href="#"><i class="glyphicon glyphicon-share"></i></a>
+                                                                    <a href="/Home/Beta"><i class="glyphicon glyphicon-share"></i></a>
                                                                 </div>
                                                                 <div class="col-md-1">
-                                                                    <a href="#"><i class="glyphicon glyphicon-remove-sign"></i></a>
+                                                                    <a href="@Url.Action("DelBaiHat","NhacCaNhan",new {id = item.MaBaiHat })">
+                                                                    <i class="glyphicon glyphicon-remove-sign"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>

@@ -33,6 +33,7 @@ namespace BKM.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.BaiHat = db.BaiHats.Where(x => x.MaCaSi == id).ToList();
             return View(caSi);
         }
 

@@ -1,6 +1,11 @@
 ﻿@model IEnumerable<BKM.Models.TheLoai>
 @{
-    ViewBag.Title = "Index";
+    if (Session["nguoiDung"] == null)
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+    else
+    { Layout = "~/Views/Shared/_UserLayout.cshtml"; }
 }
 
 <html>

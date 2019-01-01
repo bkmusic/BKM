@@ -23,12 +23,7 @@
 </head>
 
 <body>
-    @{ 
-        foreach (var item in itemCaSi)
-        {
-            <h2>@item.TenCaSi</h2>
-        }
-    }
+   
     <div class="container">
         <div class="search-title">
             <h1>Kết quả tìm kiếm</h1>
@@ -51,7 +46,7 @@
                                     </div>
                                 </div>
                                 <div class="nghesi-name">
-                                    <a href="@Url.Action("Details","CaSi",item.MaCaSi)"><h4>@item.TenCaSi</h4></a>
+                                    <a href="@Url.Action("Details","CaSi",new { id = item.MaCaSi })"><h4>@item.TenCaSi</h4></a>
                                 </div>
                             </div>
                         </div>
@@ -80,7 +75,7 @@
                                         <div class="row">
                                             <div class="col-md-2">
                                                 <div class="icon">
-                                                    <img src="@Url.Content("~/IMAGE/"+item.DetailBaiHat.HinhAnh)">
+                                                    <img src="@Url.Content("~/IMAGE/"+item.HinhAnh)">
                                                 </div>
                                             </div>
                                             <div class="col-md-8">
@@ -89,7 +84,7 @@
                                                         <h4>@item.TenBaiHat</h4>
                                                     </div>
                                                     <div class="casi">
-                                                        <p>@item.DetailBaiHat.CaSi.TenCaSi</p>
+                                                        <p>@item.CaSi.TenCaSi</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -98,7 +93,7 @@
                                                     <a href="#"><i class="glyphicon glyphicon-save"></i></a>
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <a href="#"><i class="glyphicon glyphicon-share"></i></a>
+                                                    <a href="/Home/BeTa"><i class="glyphicon glyphicon-share"></i></a>
                                                 </div>
                                             </div>
                                         </div>

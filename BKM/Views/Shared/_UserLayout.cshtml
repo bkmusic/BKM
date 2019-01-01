@@ -1,5 +1,8 @@
-﻿<!DOCTYPE html>
-
+﻿@using BKM.Models
+@{
+    NguoiDung nguoiDung = (NguoiDung)Session["NguoiDung"];
+}
+<!DOCTYPE html>
 <html>
 <head>
 
@@ -20,7 +23,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="/Home">
                     <img id="WPht1-k91imgimage" data-type="image" src="https://static.wixstatic.com/media/b2c0a7_61190110c8a269fa6b62cbab21950181.png/v1/fill/w_95,h_99,al_c,lg_1,q_80/b2c0a7_61190110c8a269fa6b62cbab21950181.webp">
                 </a>
             </div>
@@ -70,12 +73,12 @@
     </div>
     <div id="footer">
         <div id="footerMenu">
-            <a href="#">TRANG CHỦ</a>
+            <a href="/Home/Index">TRANG CHỦ</a>
             <a href="/Home/Contact">LIÊN HỆ</a>
-            <a href="#">QUẢNG CÁO</a>
-            <a href="#">GÓP Ý</a>
-            <a href="#">GIỚI THIỆU</a>
-            <a href="#">BKM VIP</a>
+            <a href="/Home/Beta">QUẢNG CÁO</a>
+            <a href="/Home/GopY">GÓP Ý</a>
+            <a href="/Home/Contact">GIỚI THIỆU</a>
+            <a href="/Home/Beta">BKM VIP</a>
         </div>
         <div class="rights">
             Designed by:
