@@ -22,13 +22,81 @@
     <script src="~/Scripts/jquery.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
     <link href="~/Content/style.css" rel="stylesheet" type="text/css">
+    @Styles.Render("~/Content/style.css")
+    <style>
+        .button-tailen-click {
+            margin-top: -100px;
+            margin-left: 100px;
+            position: absolute;
+            z-index: 1;
+        }
+        .form-control {
+            background-color: whitesmoke;
+        }
+
+        .files input {
+            outline: 2px dashed #92b0b3;
+            outline-offset: -10px;
+            -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
+            transition: outline-offset .15s ease-in-out, background-color .15s linear;
+            padding: 120px 0px 85px 35%;
+            text-align: center !important;
+            margin: 0;
+            width: 100% !important;
+        }
+
+            .files input:focus {
+                outline: 2px dashed #92b0b3;
+                outline-offset: -10px;
+                -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
+                transition: outline-offset .15s ease-in-out, background-color .15s linear;
+                border: 1px solid #92b0b3;
+            }
+
+        .files {
+            position: relative
+        }
+
+            .files:before {
+                position: absolute;
+                top: 50px;
+                left: 0;
+                pointer-events: none;
+                width: 100%;
+                right: 0;
+                height: 57px;
+                content: "Kéo thả vào vùng này để tải nhạc lên";
+                display: block;
+                margin: 0 auto;
+                color: black;
+                font-weight: 600px;
+                text-transform: capitalize;
+                text-align: center;
+            }
+
+        .button-nap button {
+            background-color: purple;
+            color: white;
+        }
+
+            .button-nap button:hover {
+                background-color: purple;
+                color: white;
+            }
+
+            .button-nap button:checked{
+                opacity:0;
+            }
+    </style>
 </head>
 
+
 <body>
+    
     @{
         if (Session["NguoiDung"] == null)
         {
-            <h1 class="lienhe-title">Bạn vui lòng <a href="@Url.Action("DangNhap","NguoiDung")">đăng nhập</a> để sử dụng tính năng này</h1>
+            <h1 class="lienhe-title">Bạn vui lòng <a href="@Url.Action("DangNhap", "NguoiDung")">đăng nhập</a> để sử dụng tính năng này</h1>
         }
 
         else
@@ -43,15 +111,15 @@
                 </div>
                 <div class="ncn-menu">
                     <div class="row">
-                        <div class="col-md-4">
-                            <button class="tablink"  onclick="openPage('tongquan', this, 'black')"  style="width:100%">Tổng quan</button>
+                        <div class="col-md-6">
+                            <button class="tablink" onclick="openPage('tongquan', this, 'black')" style="width:100%">Tổng quan</button>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <button class="tablink" onclick="openPage('bhyeuthich', this, 'black')" id="defaultOpen" style="width:100%">Bài hát yêu thích</button>
                         </div>
-                        <div class="col-md-4">
-                            <button class="tablink" onclick="openPage('up', this, 'black')" id=""style="width:100%">Upload</button>
-                        </div>
+                        @*<div class="col-md-4">
+                            <button class="tablink" onclick="openPage('up', this, 'black')" id="" style="width:100%">Upload</button>
+                        </div>*@
                     </div>
                     <!--Tổng quan-->
                     <div id="tongquan" class="tabcontent">
@@ -88,7 +156,7 @@
                         <div class="tile">
                             <a href="#">BÀI HÁT YÊU THÍCH <i class="glyphicon glyphicon-heart"></i></a>
                         </div>
-                        
+
                         <div class="container">
                             <div class="bhyeuthich">
                                 <div class="col-md-9">
@@ -100,44 +168,47 @@
 
                                                 foreach (var item in nhacCaNhan)
                                                 {
-                                                <li class="list-group-item">
-                                                    <a href="@Url.Action("NgheNhac","NgheNhac",new { id = item.MaBaiHat})">
-                                                        <div class="row">
-                                                            <div class="col-md-2">
-                                                                <div class="icon">
-                                                                    <img src="@Url.Content("/IMAGE/" + item.BaiHat.HinhAnh)">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-7">
-                                                                <div class="info">
-                                                                    <div class="song">
-                                                                        <h4>@item.BaiHat.TenBaiHat</h4>
-                                                                    </div>
-                                                                    <div class="casi">
-                                                                        <p>@item.BaiHat.CaSi.TenCaSi</p>
+                                                    <li class="list-group-item">
+                                                        <a href="@Url.Action("NgheNhac","NgheNhac",new { id = item.MaBaiHat})">
+                                                            <div class="row">
+                                                                <div class="col-md-2">
+                                                                    <div class="icon">
+                                                                        <img src="@Url.Content("/IMAGE/" + item.BaiHat.HinhAnh)">
                                                                     </div>
                                                                 </div>
+                                                                <div class="col-md-7">
+                                                                    <div class="info">
+                                                                        <div class="song">
+                                                                            <h4>@item.BaiHat.TenBaiHat</h4>
+                                                                        </div>
+                                                                        <div class="casi">
+                                                                            <p>@item.BaiHat.CaSi.TenCaSi</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="taive">
+                                                                    <div class="col-md-1">
+                                                                        <a href="#"><i class="glyphicon glyphicon-save"></i></a>
+                                                                    </div>
+                                                                    <div class="col-md-1">
+                                                                        <a href="/Home/Beta"><i class="glyphicon glyphicon-share"></i></a>
+                                                                    </div>
+                                                                    <div class="col-md-1">
+                                                                        <a href="@Url.Action("DelBaiHat","NhacCaNhan",new {id = item.MaBaiHat })">
+                                                                            <i class="glyphicon glyphicon-remove-sign"></i>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
                                                             </div>
-                                                            <div class="taive">
-                                                                <div class="col-md-1">
-                                                                    <a href="#"><i class="glyphicon glyphicon-save"></i></a>
-                                                                </div>
-                                                                <div class="col-md-1">
-                                                                    <a href="/Home/Beta"><i class="glyphicon glyphicon-share"></i></a>
-                                                                </div>
-                                                                <div class="col-md-1">
-                                                                    <a href="@Url.Action("DelBaiHat","NhacCaNhan",new {id = item.MaBaiHat })">
-                                                                    <i class="glyphicon glyphicon-remove-sign"></i></a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </li>
-                                                    }
+                                                        </a>
+                                                    </li>
                                                 }
-                                                else { <h2 class="lienhe-title">Bạn chưa có bài hát yêu thích nào</h2> }
-
                                             }
+                                            else
+                                            {
+                                                <h2 class="lienhe-title">Bạn chưa có bài hát yêu thích nào</h2> }
+
+                                        }
                                     </ul>
 
                                 </div>
@@ -146,34 +217,30 @@
                     </div>
 
                     <!--Upload-->
-                    <div id="up" class="tabcontent">
-                        <div class="container">
+                    
+                        @*<div class="container">
                             <div class="button-tailen">
                                 <div class="row">
                                     <div class="col-md-5"></div>
                                     <div class="col-md-2">
-
-                                        <button class="btn btn-danger btn-lg"><i class="glyphicon glyphicon-cloud-upload"></i> UPLOAD</button>
-
+                                        <a href="@Url.Action("Create", "BaiHat")" type="button" value="Upload" class="btn btn-danger btn-lg"><i class="glyphicon glyphicon-cloud-upload"></i> UPLOAD</a>
                                     </div>
                                     <div class="col-md-5"></div>
                                 </div>
                                 @*<p>Bạn có thể chọn tải lên nhiều bài hát cùng một lúc</p>*@
-                            </div>
-                            <div class="upload-info">
-                                <h2>Nội dung cấm upload</h2>
-                                <p>- Nội dung liên quan đến chính trị, trái thuần phong mỹ tục.</p>
-                                <p>- Nội dung đã thuộc sở hữu của bên thứ ba</p>
-                                <h2>Quy định upload</h2>
-                                <p>- Kích thước file nhạc tối đa là 60MB</p>
-                                <p>- Mỗi tài khoản thường được phép upload tối đa 200 bài hát </p>
-                                <p>- Tính năng upload sẽ bị khóa (tạm thời) nếu bạn cố tình vi phạm nhiều lần các quy định về nội dung cấm (đã nêu ở trên).</p>
-                            </div>
-                        </div>
+                        @*</div>
+                                <div class="upload-info">
+                                    <h2>Nội dung cấm upload</h2>
+                                    <p>- Nội dung liên quan đến chính trị, trái thuần phong mỹ tục.</p>
+                                    <p>- Nội dung đã thuộc sở hữu của bên thứ ba</p>
+                                    <h2>Quy định upload</h2>
+                                    <p>- Kích thước file nhạc tối đa là 60MB</p>
+                                    <p>- Mỗi tài khoản thường được phép upload tối đa 200 bài hát </p>
+                                    <p>- Tính năng upload sẽ bị khóa (tạm thời) nếu bạn cố tình vi phạm nhiều lần các quy định về nội dung cấm (đã nêu ở trên).</p>
+                                </div>
+                            </div>*@
                     </div>
                 </div>
-
-            </div>
 
             <script>
                 function openPage(pageName, elmnt, color) {
@@ -189,12 +256,27 @@
                     document.getElementById(pageName).style.display = "block";
                     elmnt.style.backgroundColor = color;
                 }
-                // Get the element with id="defaultOpen" and click on it    
+                // Get the element with id="defaultOpen" and click on it
                 document.getElementById("defaultOpen").click();
+
+                function openPage1(pageName, elmnt, color) {
+                    var i, tabcontent, tablinks;
+                    tabcontent = document.getElementsByClassName("tabcontent1");
+                    for (i = 0; i < tabcontent.length; i++) {
+                        tabcontent[i].style.display = "none";
+                    }
+                    tablinks = document.getElementsByClassName("tablink1");
+                    for (i = 0; i < tablinks.length; i++) {
+                        tablinks[i].style.backgroundColor = "";
+                    }
+                    document.getElementById(pageName).style.display = "block";
+                    elmnt.style.backgroundColor = color;
+                }
+                // Get the element with id="defaultOpen" and click on it
+                document.getElementById("defaultOpen1").click();
             </script>
         }
     }
-
 
 </body>
 </html>

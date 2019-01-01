@@ -9,7 +9,6 @@ using System.Web.Mvc;
 using BKM.Models;
 using BKM.dal;
 using System.IO;
-using System.Data.Entity.Migrations;
 
 namespace BKM.Controllers
 {
@@ -42,16 +41,117 @@ namespace BKM.Controllers
         // GET: BaiHat/Create
         public ActionResult Create()
         {
-            ViewBag.MaKhuVuc = new SelectList(db.KhuVucs, "MaKhuVuc", "TenKhuVuc");
+            List<SelectListItem> khuVuc = new SelectList(db.KhuVucs, "MaKhuVuc", "TenKhuVuc").ToList();
+            khuVuc.Insert(0, (new SelectListItem
+            {
+                Text = "---Chọn Khu Vực---",
+                Value = "0.0",
+                Selected = true,
+            }));
+            khuVuc.Insert(1, (new SelectListItem
+            {
+                Text = "Custom",
+                Value = "0",
+            }));
+            ViewBag.MaKhuVuc = new SelectList(khuVuc, "Value", "Text");
             ViewBag.MaTheLoai = new SelectList(db.TheLoais, "MaTheLoai", "TenTheLoai");
             ViewBag.MaCaSi = new SelectList(db.CaSies, "MaCaSi", "TenCaSi");
             return View();
         }
 
-        // POST: BaiHat/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        public ActionResult Upload()
+        {
+            List<SelectListItem> khuVuc = new SelectList(db.KhuVucs, "MaKhuVuc", "TenKhuVuc").ToList();
+            khuVuc.Insert(0, (new SelectListItem
+            {
+                Text = "---Chọn Khu Vực---",
+                Value = "0.0",
+                Selected = true,
+                Disabled = true,
+            }));
+            //khuVuc.Insert(1, (new SelectListItem
+            //{
+            //    Text = "Custom",
+            //    Value = "0",
+            //}));
+            ViewBag.MaKhuVuc = new SelectList(khuVuc, "Value", "Text");
+
+            List<SelectListItem> theLoai = new SelectList(db.TheLoais, "MaTheLoai", "TenTheLoai").ToList();
+            theLoai.Insert(0, (new SelectListItem
+            {
+                Text = "---Chọn Thể Loại---",
+                Value = "0.0",
+                Selected = true,
+                Disabled = true,
+            }));
+            //theLoai.Insert(1, (new SelectListItem
+            //{
+            //    Text = "Custom",
+            //    Value = "0",
+            //}));
+            ViewBag.MaTheLoai = new SelectList(theLoai, "Value", "Text");
+
+            List<SelectListItem> caSi = new SelectList(db.CaSies, "MaCaSi", "TenCaSi").ToList();
+            caSi.Insert(0, (new SelectListItem
+            {
+                Text = "---Chọn Ca Sĩ---",
+                Value = "0.0",
+                Selected = true,
+                Disabled = true,
+            }));
+            //caSi.Insert(1, (new SelectListItem
+            //{
+            //    Text = "Custom",
+            //    Value = "0",
+            //}));
+            ViewBag.MaCaSi = new SelectList(caSi, "Value", "Text");
+            return View();
+        }
+
         [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Upload(BaiHat baiHat)
+        {
+            if (ModelState.IsValid)
+            {
+                baiHat.HinhAnh = "images.png";
+                if (Request.Files.Count > 0)
+                {
+                    HttpPostedFileBase fileNhac = Request.Files[0];
+                    if (fileNhac.ContentLength > 0)
+                    {
+                        var fileName = Path.GetFileName(fileNhac.FileName);
+                        baiHat.File = fileNhac.FileName;
+                        string path = Path.Combine(
+                            Server.MapPath("~/SONG/"), fileName);
+                        fileNhac.SaveAs(path);
+                    }
+                }
+                db.BaiHats.Add(baiHat);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            ViewBag.MaTheLoai = new SelectList(db.KhuVucs, "MaKhuVuc", "TenKhuVuc", baiHat.MaKhuVuc);
+            ViewBag.MaTheLoai = new SelectList(db.TheLoais, "MaTheLoai", "TenTheLoai", baiHat.MaTheLoai);
+            ViewBag.MaCaSi = new SelectList(db.CaSies, "MaCaSi", "TenCaSi", baiHat.MaCaSi);
+            return View(baiHat);
+        }
+
+//public ActionResult Nap(HttpPostedFileBase file)
+//{           
+//    var fname = file.FileName;
+//    var name = fname.Substring(0, fname.Length - 4);
+//    BaiHat baiHat = new BaiHat { TenBaiHat = name, File = fname, HinhAnh = "images.png", MaCaSi = 1, MaKhuVuc = 1, MaTheLoai = 1 } ;
+//    return View();
+//}
+
+
+
+// POST: BaiHat/Create
+// To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+// more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+[HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(BaiHat baiHat)
         {          
@@ -76,7 +176,14 @@ namespace BKM.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.MaKhuVuc = new SelectList(db.KhuVucs, "MaKhuVuc", "TenKhuVuc", baiHat.MaKhuVuc);
+            List<SelectListItem> khuVuc = new SelectList(db.KhuVucs, "MaKhuVuc", "TenKhuVuc", baiHat.MaKhuVuc).ToList();
+            khuVuc.Insert(0, (new SelectListItem
+            {
+                Text = "---Chọn Khu Vực---",
+                Value = "0.0",
+                Selected = true,
+            }));
+            ViewBag.MaKhuVuc = khuVuc;
             ViewBag.MaTheLoai = new SelectList(db.TheLoais, "MaTheLoai", "TenTheLoai", baiHat.MaTheLoai);
             ViewBag.MaCaSi = new SelectList(db.CaSies, "MaCaSi", "TenCaSi",baiHat.MaCaSi);
             return View(baiHat);
