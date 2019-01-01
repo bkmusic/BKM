@@ -1,4 +1,5 @@
-﻿@model BKM.Models.KhuVuc
+﻿@using BKM.Models
+@model BKM.Models.KhuVuc
 
 @{
     ViewBag.Title = "Details";
@@ -8,9 +9,72 @@
     }
     else
     { Layout = "~/Views/Shared/_UserLayout.cshtml"; }
+    List<BaiHat> baiHat = ViewBag.BaiHat;
 }
 
-<h2>Details</h2>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Bài hát yêu thích</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css">
+    <script src="~/Scripts/jquery.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <link href="~/Content/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="bhyeuthich">
+            <div class="tile">
+                <div><a href="#">@Model.TenKhuVuc <i class="glyphicon glyphicon-chevron-right"></i></a></div>
+            </div>
+            <div class="col-md-9">
+
+                <ul class="list-group">
+                    @{
+                        foreach (var item in baiHat)
+                        {
+                            <li class="list-group-item">
+                                <a href="@Url.Action("NgheNhac","NgheNhac",new {id = item.MaBaiHat })">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <div class="icon">
+                                                <img src="@Url.Content("~/IMAGE/"+item.DetailBaiHat.HinhAnh)">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="info">
+                                                <div class="song">
+                                                    <h4>@item.TenBaiHat</h4>
+                                                </div>
+                                                <div class="casi">
+                                                    <p>@item.DetailBaiHat.CaSi.TenCaSi</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="taive">
+                                            <div class="col-md-1">
+                                                <a href="#"><i class="glyphicon glyphicon-save"></i></a>
+                                            </div>
+                                            <div class="col-md-1">
+                                                <a href="#"><i class="glyphicon glyphicon-share"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li><!--Chạy Ngay Đi-->
+                        }
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+@*<h2>Details</h2>
 
 <div>
     <h4>KhuVuc</h4>
@@ -29,4 +93,4 @@
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.MaKhuVuc }) |
     @Html.ActionLink("Back to List", "Index")
-</p>
+</p>*@

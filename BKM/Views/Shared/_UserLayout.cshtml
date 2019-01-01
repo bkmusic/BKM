@@ -29,15 +29,17 @@
                     <li id="bk">@Html.ActionLink("BÁCH KHOA MUSIC", "Index", "Home")</li>
                     <li>@Html.ActionLink("Trang Chủ", "Index", "Home")</li>
                     <li dropdown="" class="">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">Nghệ sĩ<span class="caret"></span></a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">Khu vực<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Việt Nam</a></li>
-                            <li><a href="#">Âu Mỹ</a></li>
-                            <li><a href="#">Hàn Quốc</a></li>
+                            <li><a href="@Url.Action("Index","KhuVuc")">Việt Nam</a></li>
+                            <li><a href="@Url.Action("Index","KhuVuc")">Âu Mỹ</a></li>
+                            <li><a href="@Url.Action("Index","KhuVuc")">Hàn Quốc</a></li>
                         </ul>
                     </li>
-                    <li>@Html.ActionLink("Nhạc Cá Nhân", "NhacCaNhan", "Home")</li>
+                    <li>@Html.ActionLink("Nhạc Cá Nhân", "Index", "NhacCaNhan")</li>
                     <li>@Html.ActionLink("Liên hệ", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Thể loại", "Index", "TheLoai")</li>
+
                 </ul>
                 <button class="btn btn-danger navbar-btn">UPLOAD</button>
 
@@ -48,7 +50,8 @@
                 </form>
 
                 <!--Thanh công cụ tìm kiếm-->
-                <form class="navbar-form navbar-right" action="/action_page.php">
+                @using (Html.BeginForm("TimKiem", "TimKiem", FormMethod.Post, new { @class = "navbar-form navbar-right" }))
+                {
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Nhập tên bài hát hoặc ca sĩ" name="search">
                         <div class="input-group-btn">
@@ -57,7 +60,7 @@
                             </button>
                         </div>
                     </div>
-                </form>
+                }
             </div>
         </div>
     </nav>
@@ -68,7 +71,7 @@
     <div id="footer">
         <div id="footerMenu">
             <a href="#">TRANG CHỦ</a>
-            <a href="#">LIÊN HỆ</a>
+            <a href="/Home/Contact">LIÊN HỆ</a>
             <a href="#">QUẢNG CÁO</a>
             <a href="#">GÓP Ý</a>
             <a href="#">GIỚI THIỆU</a>

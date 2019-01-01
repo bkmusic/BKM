@@ -1,4 +1,5 @@
-﻿@model IEnumerable<BKM.Models.KhuVuc>
+﻿@using BKM.Models
+@model IEnumerable<BKM.Models.KhuVuc>
 
 @{
     ViewBag.Title = "Index";
@@ -8,32 +9,151 @@
     }
     else
     { Layout = "~/Views/Shared/_UserLayout.cshtml"; }
+    List<BaiHat> baiHatVN = ViewBag.BaiHatVN;
+    List<BaiHat> baiHatUS = ViewBag.BaiHatUS;
+    List<BaiHat> baiHatHQ = ViewBag.BaiHatHQ;
 }
 
-<h2>Index</h2>
+<head>
+    <meta charset="utf-8">
+    <title>Nghệ Sĩ</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css">
+    <script src="~/Scripts/jquery.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <link href="~/Content/style.css" rel="stylesheet" type="text/css">
+</head>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.TenKhuVuc)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.TenKhuVuc)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MaKhuVuc }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MaKhuVuc }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MaKhuVuc })
-        </td>
-    </tr>
-}
+    <div class="container">
+        <hr>
+        <div class="nghesi-menu">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="col-md-2">
+                        <li><a href="#">TẤT CẢ</a></li>
+                    </div>
+                    <div class="col-md-2">
+                        <li><a href="#VN">VIỆT NAM</a></li>
+                    </div>
+                    <div class="col-md-2">
+                        <li><a href="#HQ">HÀN QUỐC</a></li>
+                    </div>
+                    <div class="col-md-2">
+                        <li><a href="#USUK">ÂU MỸ</a></li>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="nghesi-VN" id="VN">
+            <div class="row">
+                <div class="tile">
+                    <a href="#">VIỆT NAM <i class="glyphicon glyphicon-chevron-right"></i></a>
+                </div>
+                @{foreach (var item in baiHatVN)
+                    {
+                        <div class="col-md-3 col-lg-3 col-xs-6">
+                            <div class="fff">
+                                <div class="nghesi-icon">
+                                    <div class="hovereffect-nghesi">
+                                        <a href="@Url.Action("NgheNhac","NgheNhac",new {id = item.MaBaiHat })">
+                                        <img src="@Url.Content("~/IMAGE"+item.DetailBaiHat.HinhAnh)"></a>
+                                    </div>
+                                </div>
+                                <div class="nghesi-name">
+                                    <a href="@Url.Action("NgheNhac","NgheNhac",new {id = item.MaBaiHat })">
+                                    <h4>@item.TenBaiHat</h4></a>
+                                </div>
+                            </div>
+                        </div><!--Bài hát VN-->
+                    }              
+                }              
+            </div>
+        </div>
 
-</table>
+        <div class="nghesi-HQ" id="HQ">
+            <div class="row">
+                <div class="tile">
+                    <a href="#">HÀN QUỐC <i class="glyphicon glyphicon-chevron-right"></i></a>
+                </div>
+                @{foreach (var item in baiHatHQ)
+                    {
+                        <div class="col-md-3 col-lg-3 col-xs-6">
+                            <div class="fff">
+                                <div class="nghesi-icon">
+                                    <div class="hovereffect-nghesi">
+                                        <a href="@Url.Action("NgheNhac","NgheNhac",new {id = item.MaBaiHat })">
+                                            <img src="@Url.Content("~/IMAGE"+item.DetailBaiHat.HinhAnh)">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="nghesi-name">
+                                    <a href="@Url.Action("NgheNhac","NgheNhac",new {id = item.MaBaiHat })">
+                                        <h4>@item.TenBaiHat</h4>
+                                    </a>
+                                </div>
+                            </div>
+                        </div><!--Bài hát HQ-->
+                    }
+                }               
+            </div>
+        </div>
+
+        <div class="nghesi-USUK" id="USUK">
+            <div class="row">
+                <div class="tile">
+                    <a href="#">ÂU MỸ <i class="glyphicon glyphicon-chevron-right"></i></a>
+                </div>
+                @{foreach (var item in baiHatUS)
+                    {
+                        <div class="col-md-3 col-lg-3 col-xs-6">
+                            <div class="fff">
+                                <div class="nghesi-icon">
+                                    <div class="hovereffect-nghesi">
+                                        <a href="@Url.Action("NgheNhac","NgheNhac",new {id = item.MaBaiHat })">
+                                            <img src="@Url.Content("~/IMAGE"+item.DetailBaiHat.HinhAnh)">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="nghesi-name">
+                                    <a href="@Url.Action("NgheNhac","NgheNhac",new {id = item.MaBaiHat })">
+                                        <h4>@item.TenBaiHat</h4>
+                                    </a>
+                                </div>
+                            </div>
+                        </div><!--Bài hát US-->
+                    }
+                }             
+            </div>
+        </div>
+
+    </div>
+
+
+@*<h2>Index</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TenKhuVuc)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenKhuVuc)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.MaKhuVuc }) |
+                @Html.ActionLink("Details", "Details", new { id=item.MaKhuVuc }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.MaKhuVuc })
+            </td>
+        </tr>
+    }
+
+    </table>*@

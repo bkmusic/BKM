@@ -14,7 +14,7 @@ namespace BKM.Controllers
     public class NhacCaNhanController : Controller
     {
         private BKMContext db = new BKMContext();
-
+        
         // GET: NhacCaNhan
         public ActionResult Index()
         {

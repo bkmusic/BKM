@@ -29,6 +29,7 @@ namespace BKM.Controllers
             {
                 db.NguoiDungs.Add(User);
                 db.SaveChanges();
+                return RedirectToAction("DangNhap");
             }
             return View();
         }

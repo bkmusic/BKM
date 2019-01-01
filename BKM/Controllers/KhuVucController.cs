@@ -18,6 +18,9 @@ namespace BKM.Controllers
         // GET: KhuVuc
         public ActionResult Index()
         {
+            ViewBag.BaiHatVN = db.BaiHats.Where(x => x.MaKhuVuc == 1).ToList();
+            ViewBag.BaiHatHQ = db.BaiHats.Where(x => x.MaKhuVuc == 3).ToList();
+            ViewBag.BaiHatUS = db.BaiHats.Where(x => x.MaKhuVuc == 2).ToList();
             return View(db.KhuVucs.ToList());
         }
 
@@ -33,6 +36,7 @@ namespace BKM.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.BaiHat = db.BaiHats.Where(x => x.MaTheLoai == id).ToList();
             return View(khuVuc);
         }
 
@@ -66,7 +70,7 @@ namespace BKM.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            KhuVuc khuVuc = db.KhuVucs.Find(id);
+            KhuVuc khuVuc = db.KhuVucs.Find(id);    
             if (khuVuc == null)
             {
                 return HttpNotFound();

@@ -1,26 +1,91 @@
-﻿@model BKM.Models.TheLoai
+﻿@using BKM.Models
+@model BKM.Models.TheLoai
 
 @{
     ViewBag.Title = "Details";
+    List<BaiHat> baiHat = ViewBag.BaiHat;
 }
 
-<h2>Details</h2>
+<html>
+<head>
+    <title>Bài hát yêu thích</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css">
+    <script src="~/Scripts/jquery.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <link href="~/Content/style.css" rel="stylesheet" type="text/css">
+</head>
 
-<div>
-    <h4>TheLoai</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.TenTheLoai)
-        </dt>
+<body>
+    <div class="container">
+        <div class="bhyeuthich">
+            <div class="tile">
+                <div><a href="#">@Model.TenTheLoai <i class="glyphicon glyphicon-chevron-right"></i></a></div>
+            </div>
+            <div class="col-md-9">
 
-        <dd>
-            @Html.DisplayFor(model => model.TenTheLoai)
-        </dd>
+                <ul class="list-group">
+                    @{
+                        foreach (var item in baiHat)
+                        {
+                            <li class="list-group-item">
+                                <a href="@Url.Action("NgheNhac","NgheNhac",new {id = item.MaBaiHat })">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <div class="icon">
+                                                <img src="@Url.Content("~/IMAGE/"+item.DetailBaiHat.HinhAnh)">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="info">
+                                                <div class="song">
+                                                    <h4>@item.TenBaiHat</h4>
+                                                </div>
+                                                <div class="casi">
+                                                    <p>@item.DetailBaiHat.CaSi.TenCaSi</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="taive">
+                                            <div class="col-md-1">
+                                                <a href="#"><i class="glyphicon glyphicon-save"></i></a>
+                                            </div>
+                                            <div class="col-md-1">
+                                                <a href="#"><i class="glyphicon glyphicon-share"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li><!--Chạy Ngay Đi-->
+                        }
+                    }                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
 
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.MaTheLoai }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+
+@*<h2>Details</h2>
+
+    <div>
+        <h4>TheLoai</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.TenTheLoai)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TenTheLoai)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.MaTheLoai }) |
+        @Html.ActionLink("Back to List", "Index")
+</p>*@

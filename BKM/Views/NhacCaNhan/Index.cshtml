@@ -2,8 +2,23 @@
 
 @{
     ViewBag.Title = "Index";
+    if (Session["nguoiDung"] == null)
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+    else
+    { Layout = "~/Views/Shared/_UserLayout.cshtml"; }
 }
 
+<head>
+<title>Bách Khoa Music</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="~/Content/bootstrap.min.css">
+<script src="~/Scripts/jquery.min.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<link href="~/Content/style.css" rel="stylesheet" type="text/css">
+</head>
 <h2>Index</h2>
 
 <p>
@@ -20,20 +35,21 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.BaiHat.TenBaiHat)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NguoiDung.TenHienThi)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BaiHat.TenBaiHat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NguoiDung.TenHienThi)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
 
 </table>
