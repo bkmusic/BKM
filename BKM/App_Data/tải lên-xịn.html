@@ -1,0 +1,130 @@
+<!doctype html>
+<html>
+<head>
+<title>Tải Mới Bài Hát</title>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="bootstrap.min.css">
+  <script src="jquery.min.js"></script>
+  <script src="bootstrap.min.js"></script>
+  <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<div class="container">
+  <br>
+  <br>
+  <div class="tabcontent" id="up-st">
+  	
+  </div>
+	  <div class="row">
+  		<div class="col-md-3"></div>
+	  		<div class="col-md-6">
+				  <form method="post" action="#">
+					  <div class="form-group files">
+					  	
+							<input id="file" name="file" type="file" class="form-control" multiple>
+							<div class="button-tailen-click">
+								<label for="file" class="btn btn-primary btn-lg" >Hoặc ấn vào nút này để chọn File bài hát</label>
+							</div>
+						
+					  </div>
+				  </form>
+			  </div>
+			  <div class="col-md-3"></div>
+			  <div class="row">
+			  <div class="col-md-5"></div>
+		  		<div class="col-md-2">
+		  			<div class="button-nap">
+			  			<button class="tablink" onclick="openPage('up-main', this, 'purple')">NẠP</button>
+			  		</div>
+			  	</div>
+			  <div class="col-md-5"></div>
+			  </div>
+			  
+		</div><!--upload zone-->
+	
+			<div class="tabcontent" id="up-main">
+			  <div class="row">
+		<form>
+			<div class="form-group">
+			  <input type="text" class="form-control" id="name" placeholder="Tên bài hát">
+			</div>
+			<div class="row">
+				<div class="col-md-4">
+					<div class="up-theloai">
+						<div class="form-group">
+							<select class="combobox form-control">
+							  <option value="" disabled selected>Thể loại</option>
+							  <option>Classic</option>
+							  <option>2</option>
+							  <option>3</option>
+							  <option>4</option>
+							  <option>5</option>
+							</select>
+						</div>
+					</div>
+				</div><!--Thể loại-->
+				<div class="col-md-4">
+					<div class="up-khuvuc">
+						<div class="form-group">
+							<select class="combobox form-control">
+								<option value="" disabled selected>Khu vực</option>
+							  <option>Việt Nam</option>
+							  <option>Âu Mỹ</option>
+							  <option>Hàn Quốc</option>
+							</select>
+						</div>
+					</div>
+				</div><!--Khu vực-->
+				<div class="col-md-4">
+					<div class="up-casi">
+						<div class="form-group">
+							<select class="combobox form-control">
+							  <option value="" disabled selected>Ca sĩ</option>
+							  <option>Classic</option>
+							  <option>2</option>
+							  <option>3</option>
+							  <option>4</option>
+							  <option>5</option>
+							</select>
+						</div>
+					</div>
+				</div><!--Ca sĩ-->
+			</div>
+			<div class="form-group">
+			  <textarea class="form-control" id="exampleFormControlTextarea1" style="height: 150px;" placeholder="Mô tả"></textarea>
+			</div>	
+
+		  </form>
+		  	
+			  <div class="row">
+
+					  <div class="col-md-2">
+						 <button class="btn btn-primary btn-lg"><i class="glyphicon glyphicon-cloud-upload"></i> UPLOAD</button>
+					  </div>
+				   <div class="col-md-5"></div>
+			   </div>
+   			</div>
+	</div>  
+</div>
+</body>
+<script>
+function openPage(pageName,elmnt,color) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].style.backgroundColor = "";
+  }
+  document.getElementById(pageName).style.display = "block";
+  elmnt.style.backgroundColor = color;
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+</html>
