@@ -2,6 +2,7 @@ audio {
   width:100%;
 	
 }
+
 .btn-primary {
 color: #fff;
 background-color: purple;
@@ -168,7 +169,10 @@ div.embed-responsive-4by3{
 	width: auto;
     height: auto;
 }
-
+.Hotsong h4{
+	text-align: left;
+	margin-top: 10px;
+}
 .Hotsong{
 	margin-top: 30px;
 	list-style-type: none;
