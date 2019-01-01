@@ -177,7 +177,6 @@
     </Compile>
     <Compile Include="Models\BaiHat.cs" />
     <Compile Include="Models\CaSi.cs" />
-    <Compile Include="Models\DetailBaiHat.cs" />
     <Compile Include="Models\Enumeration.cs" />
     <Compile Include="Models\KhuVuc.cs" />
     <Compile Include="Models\NguoiDung.cs" />
@@ -458,11 +457,6 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\NhacCaNhan.cshtml" />
-    <Content Include="Views\CaSi\Create.cshtml" />
-    <Content Include="Views\CaSi\Delete.cshtml" />
-    <Content Include="Views\CaSi\Details.cshtml" />
-    <Content Include="Views\CaSi\Edit.cshtml" />
-    <Content Include="Views\CaSi\Index.cshtml" />
     <Content Include="Views\KhuVuc\Create.cshtml" />
     <Content Include="Views\KhuVuc\Delete.cshtml" />
     <Content Include="Views\KhuVuc\Details.cshtml" />
@@ -493,7 +487,12 @@
     <Content Include="Views\NhacCaNhan\Details.cshtml" />
     <Content Include="Views\NhacCaNhan\Edit.cshtml" />
     <Content Include="Views\NhacCaNhan\Index.cshtml" />
-    <Content Include="Views\BaiHat\EditDetailBaiHat.cshtml" />
+    <Content Include="Views\CaSi\Create.cshtml" />
+    <Content Include="Views\CaSi\Delete.cshtml" />
+    <Content Include="Views\CaSi\Details.cshtml" />
+    <Content Include="Views\CaSi\Edit.cshtml" />
+    <Content Include="Views\CaSi\Index.cshtml" />
+    <Content Include="Views\BaiHat\EditImage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Temp\" />

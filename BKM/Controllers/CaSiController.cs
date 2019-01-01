@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
-using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using BKM.dal;
 using BKM.Models;
+using BKM.dal;
 
 namespace BKM.Controllers
 {
@@ -34,7 +33,6 @@ namespace BKM.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.BaiHat = db.BaiHats.Take(10).Where(x => x.DetailBaiHat.MaCaSi == caSi.MaCaSi).ToList();
             return View(caSi);
         }
 
@@ -49,30 +47,16 @@ namespace BKM.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(CaSi CaSi)
+        public ActionResult Create([Bind(Include = "MaCaSi,TenCaSi,MoTa,HinhAnh")] CaSi caSi)
         {
             if (ModelState.IsValid)
             {
-                if (Request.Files.Count > 0)
-                {
-                    HttpPostedFileBase file = Request.Files[0];
-                    if (file.ContentLength > 0)
-                    {
-                        
-                        var fileName = Path.GetFileName(file.FileName);
-                        
-                        CaSi.HinhAnh = file.FileName;
-                        string path = Path.Combine(
-                            Server.MapPath("~/IMAGE"), fileName);
-                        file.SaveAs(path);
-                    }
-                    db.CaSies.Add(CaSi);
-                    db.SaveChanges();
-                    return RedirectToAction("Index");
-                }
+                db.CaSies.Add(caSi);
+                db.SaveChanges();
+                return RedirectToAction("Index");
             }
 
-            return View(CaSi);
+            return View(caSi);
         }
 
         // GET: CaSi/Edit/5
@@ -95,27 +79,15 @@ namespace BKM.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(CaSi CaSi)
+        public ActionResult Edit([Bind(Include = "MaCaSi,TenCaSi,MoTa,HinhAnh")] CaSi caSi)
         {
             if (ModelState.IsValid)
             {
-                if (Request.Files.Count > 0)
-                {
-                    HttpPostedFileBase file = Request.Files[0];
-                    if (file.ContentLength > 0)
-                    {
-                        var fileName = Path.GetFileName(file.FileName);
-                        CaSi.HinhAnh = file.FileName;
-                        string path = Path.Combine(
-                            Server.MapPath("~/IMAGE"), fileName);
-                        file.SaveAs(path);
-                    }
-                }
-                db.Entry(CaSi).State = EntityState.Modified;
+                db.Entry(caSi).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(CaSi);
+            return View(caSi);
         }
 
         // GET: CaSi/Delete/5

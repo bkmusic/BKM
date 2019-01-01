@@ -17,11 +17,12 @@ namespace BKM.Models
         public string TenBaiHat { get; set; }
         public int MaTheLoai { get; set; }
         public int MaKhuVuc { get; set; }
-        public int ID { get; set; }
+        public int MaCaSi { get; set; }
+        public string MoTa { get; set; }
+        public string HinhAnh { get; set; }
         public string File { get; set; }
 
         public virtual ICollection<NhacCaNhan> NhacCaNhan { get; set; }
-        public virtual DetailBaiHat DetailBaiHat { get; set; }
         public virtual KhuVuc KhuVuc { get; set; }
         public virtual TheLoai TheLoai { get; set; }        
     }
@@ -43,6 +44,17 @@ namespace BKM.Models
         [Display(Name = "Tên Khu Vực")]
         public string MaKhuVuc { get; set; }
         public IEnumerable<SelectListItem> TenKhuVuc { get; set; }
+
+        [Required]
+        [Display(Name = "Tên Ca Sĩ")]
+        public string MaCaSi { get; set; }
+        public IEnumerable<SelectListItem> TenCaSi { get; set; }
+
+        [Display(Name = "Tên Hình Ảnh")]
+        public string HinhAnh { get; set; }
+
+        [Display(Name = "Tên Mô Tả")]
+        public string MoTa { get; set; }
 
         [Required]
         public string File { get; set; }

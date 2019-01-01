@@ -36,16 +36,41 @@
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.MaCaSi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaCaSi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MoTa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MoTa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HinhAnh)
+        </dt>
+
+        <dd>
+            <img src="@Html.DisplayFor(model => model.HinhAnh)" />
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.File)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.File)
+            <audio controls resource="@Html.DisplayFor(model => model.File)"></audio>
         </dd>
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">

@@ -14,7 +14,6 @@
         <th>
             @Html.DisplayNameFor(model => model.TenCaSi)
         </th>
-       
         <th>
             @Html.DisplayNameFor(model => model.MoTa)
         </th>
@@ -29,12 +28,11 @@
         <td>
             @Html.DisplayFor(modelItem => item.TenCaSi)
         </td>
-       
         <td>
             @Html.DisplayFor(modelItem => item.MoTa)
         </td>
         <td>
-            <img src="@Url.Content("~/IMAGE/"+item.HinhAnh)" style="height:100px;width:100px;" />
+            @Html.DisplayFor(modelItem => item.HinhAnh)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.MaCaSi }) |
