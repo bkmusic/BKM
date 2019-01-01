@@ -11,18 +11,18 @@ using BKM.dal;
 
 namespace BKM.Controllers
 {
-    public class DetailBaiHatsController : Controller
+    public class DetailBaiHatController : Controller
     {
         private BKMContext db = new BKMContext();
 
-        // GET: DetailBaiHats
+        // GET: DetailBaiHat
         public ActionResult Index()
         {
-            var detailBaiHats = db.DetailBaiHats.Include(d => d.CaSi);
+            var detailBaiHats = db.DetailBaiHats.Include(d => d.BaiHat);
             return View(detailBaiHats.ToList());
         }
 
-        // GET: DetailBaiHats/Details/5
+        // GET: DetailBaiHat/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -37,19 +37,19 @@ namespace BKM.Controllers
             return View(detailBaiHat);
         }
 
-        // GET: DetailBaiHats/Create
+        // GET: DetailBaiHat/Create
         public ActionResult Create()
         {
-            ViewBag.MaCaSi = new SelectList(db.CaSies, "MaCaSi", "TenCaSi");
+            ViewBag.MaBaiHat = new SelectList(db.BaiHats, "MaBaiHat", "TenBaiHat");
             return View();
         }
 
-        // POST: DetailBaiHats/Create
+        // POST: DetailBaiHat/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MaBaiHat,TenBaiHat,MaCaSi,MoTa,HinhAnh")] DetailBaiHat detailBaiHat)
+        public ActionResult Create([Bind(Include = "ID,MaBaiHat,TenBaiHat,MaCaSi,MoTa,HinhAnh")] DetailBaiHat detailBaiHat)
         {
             if (ModelState.IsValid)
             {
@@ -58,11 +58,11 @@ namespace BKM.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.MaCaSi = new SelectList(db.CaSies, "MaCaSi", "TenCaSi", detailBaiHat.MaCaSi);
+            ViewBag.MaBaiHat = new SelectList(db.BaiHats, "MaBaiHat", "TenBaiHat", detailBaiHat.MaBaiHat);
             return View(detailBaiHat);
         }
 
-        // GET: DetailBaiHats/Edit/5
+        // GET: DetailBaiHat/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -74,16 +74,16 @@ namespace BKM.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.MaCaSi = new SelectList(db.CaSies, "MaCaSi", "TenCaSi", detailBaiHat.MaCaSi);
+            ViewBag.MaBaiHat = new SelectList(db.BaiHats, "MaBaiHat", "TenBaiHat", detailBaiHat.MaBaiHat);
             return View(detailBaiHat);
         }
 
-        // POST: DetailBaiHats/Edit/5
+        // POST: DetailBaiHat/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MaBaiHat,TenBaiHat,MaCaSi,MoTa,HinhAnh")] DetailBaiHat detailBaiHat)
+        public ActionResult Edit([Bind(Include = "ID,MaBaiHat,TenBaiHat,MaCaSi,MoTa,HinhAnh")] DetailBaiHat detailBaiHat)
         {
             if (ModelState.IsValid)
             {
@@ -91,11 +91,11 @@ namespace BKM.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.MaCaSi = new SelectList(db.CaSies, "MaCaSi", "TenCaSi", detailBaiHat.MaCaSi);
+            ViewBag.MaBaiHat = new SelectList(db.BaiHats, "MaBaiHat", "TenBaiHat", detailBaiHat.MaBaiHat);
             return View(detailBaiHat);
         }
 
-        // GET: DetailBaiHats/Delete/5
+        // GET: DetailBaiHat/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -110,7 +110,7 @@ namespace BKM.Controllers
             return View(detailBaiHat);
         }
 
-        // POST: DetailBaiHats/Delete/5
+        // POST: DetailBaiHat/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

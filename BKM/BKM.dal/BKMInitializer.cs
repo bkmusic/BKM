@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Data.Entity;
 using BKM.Models;
+using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace BKM.dal
 {
@@ -11,25 +12,18 @@ namespace BKM.dal
     {
         protected override void Seed(BKMContext context)
         {
-            var CaSies = new List<CaSi>
+            var caSies = new List<CaSi>
             {
-                new CaSi{TenCaSi ="Default",   GioiTinh=Enumeration.GT.Unknown,  NgaySinh= DateTime.Today, MoTa="", HinhAnh="181668.png"},
-                new CaSi{TenCaSi ="Ariana Grande",   GioiTinh=Enumeration.GT.Nu,  NgaySinh= DateTime.Today, MoTa="", HinhAnh="a3-15460480392821349991640.jpg"},
-                new CaSi{TenCaSi ="B Ray",   GioiTinh=Enumeration.GT.Nu,  NgaySinh= DateTime.Today, MoTa="", HinhAnh="9ce68f7d32102e37837bf3d87c82895c.jpg"},
-                new CaSi{TenCaSi ="Black Pink",   GioiTinh=Enumeration.GT.Nu,  NgaySinh= DateTime.Today, MoTa="", HinhAnh="1747927_1.jpg"},
-                new CaSi{TenCaSi ="Đạt G",   GioiTinh=Enumeration.GT.Nu,  NgaySinh= DateTime.Today, MoTa="", HinhAnh="Datg-0.jpg"},
-                new CaSi{TenCaSi ="ERIK	1",   GioiTinh=Enumeration.GT.Nu,  NgaySinh= DateTime.Today, MoTa="", HinhAnh="1474010206663_600.jpg"},
-                new CaSi{TenCaSi ="Hương Giang",   GioiTinh=Enumeration.GT.Nu,  NgaySinh= DateTime.Today, MoTa="", HinhAnh="16-1520665091402914466665.jpg"},
-                new CaSi{TenCaSi ="Jennie",   GioiTinh=Enumeration.GT.Nu,  NgaySinh= DateTime.Today, MoTa="", HinhAnh="jennie-22.jpg"}
+                new CaSi{TenCaSi ="Default", MoTa ="", HinhAnh="181668.png"},
+                new CaSi{TenCaSi ="Ariana Grande", MoTa ="", HinhAnh="a3-15460480392821349991640.jpg"},
+                new CaSi{TenCaSi ="B Ray", MoTa ="",  HinhAnh="9ce68f7d32102e37837bf3d87c82895c.jpg"},
+                new CaSi{TenCaSi ="Black Pink",MoTa ="",  HinhAnh="1747927_1.jpg"},
+                new CaSi{TenCaSi ="Đạt G",MoTa ="",  HinhAnh="Datg-0.jpg"},
+                new CaSi{TenCaSi ="ERIK	1",MoTa ="",  HinhAnh="1474010206663_600.jpg"},
+                new CaSi{TenCaSi ="Hương Giang",MoTa ="", HinhAnh="16-1520665091402914466665.jpg"},
+                new CaSi{TenCaSi ="Jennie", MoTa ="",  HinhAnh="jennie-22.jpg"}
             };
-            CaSies.ForEach(s => context.CaSies.Add(s));
-            context.SaveChanges();
-
-            var DetailBaiHats = new List<DetailBaiHat>
-            {
-                new DetailBaiHat{MaBaiHat = 0, TenBaiHat = "Default", MaCaSi = 1, MoTa = "", HinhAnh = "img.png"}
-            };
-            DetailBaiHats.ForEach(s => context.DetailBaiHats.Add(s));
+            caSies.ForEach(s => context.CaSies.Add(s));
             context.SaveChanges();
 
             var TheLoais = new List<TheLoai>
@@ -65,6 +59,19 @@ namespace BKM.dal
                 new BaiHat{TenBaiHat="SoLo" ,  MaTheLoai= 1, MaKhuVuc =3, File = "Solo - Jennie [128kbps_MP3].mp3" }
             };
             BaiHats.ForEach(s => context.BaiHats.Add(s));
+            context.SaveChanges();
+
+            var DetailBaiHats = new List<DetailBaiHat>
+            {
+                new DetailBaiHat{MaBaiHat = 1, TenBaiHat = "Anh Đang Ở Đâu Đấy Anh", MaCaSi = 1, MoTa = "", HinhAnh = "img.png"},
+                new DetailBaiHat{MaBaiHat = 2, TenBaiHat = "Thank U, Next", MaCaSi = 1, MoTa = "", HinhAnh = "img.png"},
+                new DetailBaiHat{MaBaiHat = 3, TenBaiHat = "Ve", MaCaSi = 1, MoTa = "", HinhAnh = "img.png"},
+                new DetailBaiHat{MaBaiHat = 4, TenBaiHat = "Cham Day Noi Dau", MaCaSi = 1, MoTa = "", HinhAnh = "img.png"},
+                new DetailBaiHat{MaBaiHat = 5, TenBaiHat = "Mình Chia Tay Đi", MaCaSi = 1, MoTa = "", HinhAnh = "img.png"},
+                new DetailBaiHat{MaBaiHat = 6, TenBaiHat = "SoLo", MaCaSi = 1, MoTa = "", HinhAnh = "img.png"}
+
+            };
+            DetailBaiHats.ForEach(s => context.DetailBaiHats.Add(s));
             context.SaveChanges();
 
             var NguoiDungs = new List<NguoiDung>

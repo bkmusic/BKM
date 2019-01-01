@@ -20,7 +20,7 @@ namespace BKM.Models
         public string File { get; set; }
 
         public virtual ICollection<NhacCaNhan> NhacCaNhan { get; set; }
-        public virtual DetailBaiHat DetailBaiHat { get; set; }
+        public virtual ICollection<DetailBaiHat> DetailBaiHat { get; set; }
         public virtual KhuVuc KhuVuc { get; set; }
         public virtual TheLoai TheLoai { get; set; }        
     }
@@ -34,10 +34,12 @@ namespace BKM.Models
         public string TenBaiHat { get; set; }
 
         [Required]
+        [Display(Name = "Tên thể loại")]
         public string MaTheLoai { get; set; }
         public IEnumerable<SelectListItem> TenTheLoai { get; set; }
 
         [Required]
+        [Display(Name = "Tên Khu Vực")]
         public string MaKhuVuc { get; set; }
         public IEnumerable<SelectListItem> TenKhuVuc { get; set; }
 
