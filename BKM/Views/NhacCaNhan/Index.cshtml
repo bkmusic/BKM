@@ -28,7 +28,7 @@
     @{
         if (Session["NguoiDung"] == null)
         {
-            <h1 class="lienhe-title">Bạn vui lòng <a href="@Url.Action("DangNhap","NguoiDung")">đăng nhập</a> để sử dụng tính năng này</h1>
+            <h1 class="lienhe-title">Bạn vui lòng <a href="@Url.Action("DangNhap", "NguoiDung")">đăng nhập</a> để sử dụng tính năng này</h1>
         }
 
         else
@@ -133,9 +133,9 @@
                                                         </div>
                                                     </a>
                                                 </li>
-                                                    }
                                                 }
-                                                else { <h2 class="lienhe-title">Bạn chưa có bài hát yêu thích nào</h2> }
+                                            }
+                                            else { <h2 class="lienhe-title">Bạn chưa có bài hát yêu thích nào</h2> }
 
                                             }
                                     </ul>
@@ -152,9 +152,7 @@
                                 <div class="row">
                                     <div class="col-md-5"></div>
                                     <div class="col-md-2">
-
-                                        <button class="btn btn-danger btn-lg"><i class="glyphicon glyphicon-cloud-upload"></i> UPLOAD</button>
-
+                                        <a href="@Url.Action("Create", "BaiHat")" type="button" value="Upload" class="btn btn-danger btn-lg"><i class="glyphicon glyphicon-cloud-upload"></i> UPLOAD</a>
                                     </div>
                                     <div class="col-md-5"></div>
                                 </div>

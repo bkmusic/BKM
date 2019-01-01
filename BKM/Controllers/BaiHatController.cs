@@ -9,7 +9,6 @@ using System.Web.Mvc;
 using BKM.Models;
 using BKM.dal;
 using System.IO;
-using System.Data.Entity.Migrations;
 
 namespace BKM.Controllers
 {
@@ -42,7 +41,19 @@ namespace BKM.Controllers
         // GET: BaiHat/Create
         public ActionResult Create()
         {
-            ViewBag.MaKhuVuc = new SelectList(db.KhuVucs, "MaKhuVuc", "TenKhuVuc");
+            List<SelectListItem> khuVuc = new SelectList(db.KhuVucs, "MaKhuVuc", "TenKhuVuc").ToList();
+            khuVuc.Insert(0, (new SelectListItem
+            {
+                Text = "---Chọn Khu Vực---",
+                Value = "0.0",
+                Selected = true,
+            }));
+            khuVuc.Insert(1, (new SelectListItem
+            {
+                Text = "Custom",
+                Value = "0",
+            }));
+            ViewBag.MaKhuVuc = new SelectList(khuVuc, "Value", "Text");
             ViewBag.MaTheLoai = new SelectList(db.TheLoais, "MaTheLoai", "TenTheLoai");
             ViewBag.MaCaSi = new SelectList(db.CaSies, "MaCaSi", "TenCaSi");
             return View();
@@ -76,7 +87,14 @@ namespace BKM.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.MaKhuVuc = new SelectList(db.KhuVucs, "MaKhuVuc", "TenKhuVuc", baiHat.MaKhuVuc);
+            List<SelectListItem> khuVuc = new SelectList(db.KhuVucs, "MaKhuVuc", "TenKhuVuc", baiHat.MaKhuVuc).ToList();
+            khuVuc.Insert(0, (new SelectListItem
+            {
+                Text = "---Chọn Khu Vực---",
+                Value = "0.0",
+                Selected = true,
+            }));
+            ViewBag.MaKhuVuc = khuVuc;
             ViewBag.MaTheLoai = new SelectList(db.TheLoais, "MaTheLoai", "TenTheLoai", baiHat.MaTheLoai);
             ViewBag.MaCaSi = new SelectList(db.CaSies, "MaCaSi", "TenCaSi",baiHat.MaCaSi);
             return View(baiHat);

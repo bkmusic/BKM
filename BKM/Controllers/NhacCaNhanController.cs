@@ -8,6 +8,8 @@ using System.Web;
 using System.Web.Mvc;
 using BKM.Models;
 using BKM.dal;
+using System.IO;
+
 
 namespace BKM.Controllers
 {
@@ -128,6 +130,28 @@ namespace BKM.Controllers
             NhacCaNhan nhacCaNhan = db.NhacCaNhans.Find(id);
             db.NhacCaNhans.Remove(nhacCaNhan);
             db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Upload()
+        {
+            //var fname = fileNhac.FileName.ToString();
+            //var name = fname.Substring(0, fname.Length - 4);
+            //BaiHat baiHats = new BaiHat { TenBaiHat = name, MaTheLoai = 1, MaKhuVuc = 1, MaCaSi = 1, File = fname, HinhAnh = "181668.png" };
+            //if (Request.Files.Count > 0)
+            //{
+            //    fileNhac = Request.Files[0];
+
+            //    if (fileNhac.ContentLength > 0)
+            //    {
+            //        var fileName = Path.GetFileName(fileNhac.FileName);
+            //        string path = Path.Combine(
+            //            Server.MapPath("~/SONG/"), fileName);
+            //        fileNhac.SaveAs(path);
+            //    }
+            //}
+            //db.BaiHats.Add(baiHats);
+            //db.SaveChanges();
             return RedirectToAction("Index");
         }
 
