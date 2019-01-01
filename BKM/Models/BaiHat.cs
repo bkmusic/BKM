@@ -17,10 +17,11 @@ namespace BKM.Models
         public string TenBaiHat { get; set; }
         public int MaTheLoai { get; set; }
         public int MaKhuVuc { get; set; }
+        public int ID { get; set; }
         public string File { get; set; }
 
         public virtual ICollection<NhacCaNhan> NhacCaNhan { get; set; }
-        public virtual ICollection<DetailBaiHat> DetailBaiHat { get; set; }
+        public virtual DetailBaiHat DetailBaiHat { get; set; }
         public virtual KhuVuc KhuVuc { get; set; }
         public virtual TheLoai TheLoai { get; set; }        
     }

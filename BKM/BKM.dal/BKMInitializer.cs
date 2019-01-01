@@ -49,29 +49,29 @@ namespace BKM.dal
             KhuVucs.ForEach(s => context.KhuVucs.Add(s));
             context.SaveChanges();
 
-            var BaiHats = new List<BaiHat>
-            {
-                new BaiHat{TenBaiHat="Anh Đang Ở Đâu Đấy Anh", MaTheLoai=1, MaKhuVuc= 1, File="Anh - Dang - O - Dau - Day - Anh - Huong - Giang.mp3" },
-                new BaiHat{TenBaiHat="Thank U, Next", MaTheLoai=1, MaKhuVuc= 2, File="Thank U_ Next - Ariana Grande[128kbps_MP3].mp3" },
-                new BaiHat{TenBaiHat="Ve", MaTheLoai= 1  , MaKhuVuc=  1  , File=" Ve-Dat-G-DuUyen-BeeBB.mp3" },
-                new BaiHat{TenBaiHat="Cham Day Noi Dau",  MaTheLoai=  1, MaKhuVuc =  1 , File="Cham -Day-Noi-Dau-ERIK.mp3"} ,
-                new BaiHat{TenBaiHat="Mình Chia Tay Đi" , MaTheLoai=  1,  MaKhuVuc = 1, File="Minh -Chia-Tay-Di-ERIK.mp3"},
-                new BaiHat{TenBaiHat="SoLo" ,  MaTheLoai= 1, MaKhuVuc =3, File = "Solo - Jennie [128kbps_MP3].mp3" }
-            };
-            BaiHats.ForEach(s => context.BaiHats.Add(s));
-            context.SaveChanges();
-
             var DetailBaiHats = new List<DetailBaiHat>
             {
-                new DetailBaiHat{MaBaiHat = 1, TenBaiHat = "Anh Đang Ở Đâu Đấy Anh", MaCaSi = 1, MoTa = "", HinhAnh = "img.png"},
-                new DetailBaiHat{MaBaiHat = 2, TenBaiHat = "Thank U, Next", MaCaSi = 1, MoTa = "", HinhAnh = "img.png"},
-                new DetailBaiHat{MaBaiHat = 3, TenBaiHat = "Ve", MaCaSi = 1, MoTa = "", HinhAnh = "img.png"},
-                new DetailBaiHat{MaBaiHat = 4, TenBaiHat = "Cham Day Noi Dau", MaCaSi = 1, MoTa = "", HinhAnh = "img.png"},
-                new DetailBaiHat{MaBaiHat = 5, TenBaiHat = "Mình Chia Tay Đi", MaCaSi = 1, MoTa = "", HinhAnh = "img.png"},
-                new DetailBaiHat{MaBaiHat = 6, TenBaiHat = "SoLo", MaCaSi = 1, MoTa = "", HinhAnh = "img.png"}
+                new DetailBaiHat{MaCaSi = 1, MoTa = "", HinhAnh = "img.png"},
+                new DetailBaiHat{MaCaSi = 1, MoTa = "", HinhAnh = "img.png"},
+                new DetailBaiHat{MaCaSi = 1, MoTa = "", HinhAnh = "img.png"},
+                new DetailBaiHat{MaCaSi = 1, MoTa = "", HinhAnh = "img.png"},
+                new DetailBaiHat{MaCaSi = 1, MoTa = "", HinhAnh = "img.png"},
+                new DetailBaiHat{MaCaSi = 1, MoTa = "", HinhAnh = "img.png"}
 
             };
             DetailBaiHats.ForEach(s => context.DetailBaiHats.Add(s));
+            context.SaveChanges();
+
+            var BaiHats = new List<BaiHat>
+            {
+                new BaiHat{TenBaiHat="Anh Đang Ở Đâu Đấy Anh", MaTheLoai=1, ID = 1, MaKhuVuc= 1, File="Anh - Dang - O - Dau - Day - Anh - Huong - Giang.mp3" },
+                new BaiHat{TenBaiHat="Thank U, Next", MaTheLoai=1, MaKhuVuc= 2,ID = 2, File="Thank U_ Next - Ariana Grande[128kbps_MP3].mp3" },
+                new BaiHat{TenBaiHat="Ve", MaTheLoai= 1  , MaKhuVuc=  1  ,ID = 3, File=" Ve-Dat-G-DuUyen-BeeBB.mp3" },
+                new BaiHat{TenBaiHat="Cham Day Noi Dau",  MaTheLoai=  1, MaKhuVuc =  1 ,ID = 4, File="Cham -Day-Noi-Dau-ERIK.mp3"} ,
+                new BaiHat{TenBaiHat="Mình Chia Tay Đi" , MaTheLoai=  1,  MaKhuVuc = 1,ID = 5, File="Minh -Chia-Tay-Di-ERIK.mp3"},
+                new BaiHat{TenBaiHat="SoLo" ,  MaTheLoai= 1, MaKhuVuc =3, ID = 6,File = "Solo - Jennie [128kbps_MP3].mp3" }
+            };
+            BaiHats.ForEach(s => context.BaiHats.Add(s));
             context.SaveChanges();
 
             var NguoiDungs = new List<NguoiDung>

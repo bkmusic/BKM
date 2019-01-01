@@ -43,9 +43,9 @@
         <td>
             <audio src="@Url.Content("~/SONG/"+item.File)" controls type="audio/mp3">abcd</audio>
         </td>
-        @*<td>
-            <img src="@Url.Content("~/IMAGE/"+item.DetailBaiHat.Hinh)" class="baihat-head"/>
-        </td>*@
+        <td>
+            <img src="@Url.Content("~/IMAGE/"+item.DetailBaiHat.HinhAnh)" class="baihat-head"/>
+        </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id = item.MaBaiHat }) |
             @Html.ActionLink("Details", "Details", new { id = item.MaBaiHat }) |
