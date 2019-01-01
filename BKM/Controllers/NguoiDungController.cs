@@ -37,7 +37,7 @@ namespace BKM.Controllers
                 ViewBag.ThongBao = "Email "+chkEmail.Email+" đã tồn tại,bạn vui lòng đăng ký lại!" ;
                 return View();
             }
-            ViewBag.ThongBao = "Bạn vui lòng nhập đúng yêu cầu!";
+            ViewBag.ThongBao = "Bạn vui lòng nhập đúng định dạng!";
             return View();
         }
 
