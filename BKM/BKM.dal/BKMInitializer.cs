@@ -8,7 +8,7 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace BKM.dal
 {
-    public class BKMInitializer : DropCreateDatabaseAlways<BKMContext>
+    public class BKMInitializer : DropCreateDatabaseIfModelChanges<BKMContext>
     {
         protected override void Seed(BKMContext context)
         {

@@ -1,42 +1,145 @@
-﻿@model BKM.Models.CaSi
-
+﻿@using BKM.Models
+@model BKM.Models.CaSi
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "TimKiem";
+    if (Session["nguoiDung"] == null)
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+    else
+    { Layout = "~/Views/Shared/_UserLayout.cshtml"; }
+    List<BaiHat> baiHat = ViewBag.BaiHat;
 }
 
-<h2>Details</h2>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Tên Ca Sĩ</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <script src="jquery.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+    <link href="style.css" rel="stylesheet" type="text/css">
+</head>
 
-<div>
-    <h4>CaSi</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.TenCaSi)
-        </dt>
+<body>
+    <div class="container">
+        <div class="hovereffect11">
+            <img class="img-responsive" src="@Url.Content("~/IMAGE/" + Model.HinhAnh)" />
+            <div class="overlay">
+                <h2>@Model.TenCaSi</h2>
+            </div>
+        </div>
+        <div class="tile">
+            <a href="#">BÀI HÁT <i class="glyphicon glyphicon-chevron-right"></i></a>
+        </div>
+        <div class="casi-song">
+            <div class="row">
+                <div class="col-md-3">
+                    <img src="@Url.Content("~/IMAGE/" + Model.HinhAnh)">
+                </div>
+                <div class="col-md-9">
+                    <div class="casi-list-song">
+                        <ul class="list-group">
+                            @{ foreach (var item in baiHat)
+                                {
+                                    <li class="list-group-item">
+                                        <a href="#">
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <div class="icon">
+                                                        <img src="@Url.Content("~/IMAGE/" + item.HinhAnh)">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <div class="info">
+                                                        <div class="song">
+                                                            <h4>@item.TenBaiHat</h4>
+                                                        </div>
+                                                        <div class="casi">
+                                                            <p>@Model.TenCaSi</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="taive">
+                                                    <div class="col-md-1">
+                                                        <a href="#"><i class="glyphicon glyphicon-save"></i></a>
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                        <a href="#"><i class="glyphicon glyphicon-share"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li><!--List bài hát-->
+                                }
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--intro-->
+        <div class="intro">
+            <div class="tile">
+                <h1>@Model.TenCaSi</h1>
+            </div>
+            <p>
+                @Model.MoTa
+            </p>
+        </div>
+    </div>
+</body>
+</html>
 
-        <dd>
-            @Html.DisplayFor(model => model.TenCaSi)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.MoTa)
-        </dt>
+@*<div>
+        <h4>CaSi</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.TenCaSi)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.MoTa)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.TenCaSi)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.HinhAnh)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.GioiTinh)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.HinhAnh)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.GioiTinh)
+            </dd>
 
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.MaCaSi }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+            <dt>
+                @Html.DisplayNameFor(model => model.NgaySinh)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NgaySinh)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.MoTa)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MoTa)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.HinhAnh)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.HinhAnh)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.MaCaSi }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>*@

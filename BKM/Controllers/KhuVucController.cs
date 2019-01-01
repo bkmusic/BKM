@@ -36,7 +36,7 @@ namespace BKM.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.BaiHat = db.BaiHats.Where(x => x.MaTheLoai == id).ToList();
+            ViewBag.BaiHat = db.BaiHats.Where(x => x.MaKhuVuc == id).ToList();
             return View(khuVuc);
         }
 

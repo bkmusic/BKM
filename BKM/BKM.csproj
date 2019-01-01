@@ -493,6 +493,8 @@
     <Content Include="Views\CaSi\Edit.cshtml" />
     <Content Include="Views\CaSi\Index.cshtml" />
     <Content Include="Views\BaiHat\EditImage.cshtml" />
+    <Content Include="Views\Home\GopY.cshtml" />
+    <Content Include="Views\Home\BeTa.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Temp\" />

@@ -4,16 +4,20 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="col-md-8">
-    <a href="#">BÁCH KHOA MUSIC</a>
-</div>
+<h2 style="color:whitesmoke; font-weight:inherit">ĐĂNG NHẬP</h2>
+@*<div class="col-md-8">
+    <div style="color:whitesmoke; font-weight:inherit; font-size:large" >ĐĂNG NHẬP</div>
+</div>*@
 <hr>
+<br />
 <div class="row">
     <div class="form-dangky">
         <div class="col-md-4"></div>
         <div class="col-md-4">
-
-            <h3>@ViewBag.ThongBao</h3>
+            <div class="beta-info">
+                <h3>@ViewBag.ThongBao</h3>
+            </div>
+            
             @using (Html.BeginForm())
             {
                 <div class="form-group">
