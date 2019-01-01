@@ -165,7 +165,6 @@
     <Compile Include="BKM.dal\BKMInitializer.cs" />
     <Compile Include="Controllers\BaiHatController.cs" />
     <Compile Include="Controllers\CaSiController.cs" />
-    <Compile Include="Controllers\DetailBaiHatController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NgheNhacController.cs" />
     <Compile Include="Controllers\NguoiDungController.cs" />
@@ -433,11 +432,6 @@
     <Content Include="Views\NhacCaNhan\Edit.cshtml" />
     <Content Include="Views\NhacCaNhan\Index.cshtml" />
     <Content Include="Views\BaiHat\EditDetailBaiHat.cshtml" />
-    <Content Include="Views\DetailBaiHat\Create.cshtml" />
-    <Content Include="Views\DetailBaiHat\Delete.cshtml" />
-    <Content Include="Views\DetailBaiHat\Details.cshtml" />
-    <Content Include="Views\DetailBaiHat\Edit.cshtml" />
-    <Content Include="Views\DetailBaiHat\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Temp\" />
