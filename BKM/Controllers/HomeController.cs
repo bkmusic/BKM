@@ -12,8 +12,8 @@ namespace BKM.Controllers
         BKMContext db = new BKMContext();
         public ActionResult Index()
         {
-            var baiHat = db.BaiHats;
-            return View(baiHat);
+            var caSi = db.CaSies.Take(8).ToList();
+            return View(caSi);
         }
 
    

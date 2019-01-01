@@ -1,4 +1,4 @@
-﻿
+﻿@model  List<BKM.Models.CaSi>
 @{ViewBag.Title = "Home Page";
     if (Session["nguoiDung"] == null)
     {
@@ -409,7 +409,7 @@
                 <br>
                 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                     <div class="hovereffect">
-                        <a href="/KhuVuc/Index"><img class="img-responsive" src="/IMAGE/songvnmtp.jpg"></a>
+                        <a href="@Url.Action("Details","KhuVuc",new {id = 1})"><img class="img-responsive" src="/IMAGE/songvnmtp.jpg"></a>
                         <div class="overlay">Nhạc Việt Nam Hot Nhất</div>
                     </div>
                 </div>
@@ -421,13 +421,13 @@
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                     <div class="hovereffect">
-                        <a href="/BaiHat/BaiHatUS"><img class="img-responsive" src="/IMAGE/songJB.jpg"></a>
+                        <a href="@Url.Action("Details","KhuVuc",new {id = 2})"><img class="img-responsive" src="/IMAGE/songJB.jpg"></a>
                         <div class="overlay">Nhạc USUK Hot Nhất</div>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                     <div class="hovereffect">
-                        <a href="/BaiHat/BaiHatKP"><img class="img-responsive" src="/IMAGE/songGD.jpg"></a>
+                        <a href="@Url.Action("Details","KhuVuc",new {id = 3})"><img class="img-responsive" src="/IMAGE/songGD.jpg"></a>
                         <div class="overlay">Nhạc KPOP Hot Nhất</div>
                     </div>
                 </div>
@@ -506,106 +506,50 @@
                         <div class="carousel-inner">
                             <div class="item active">
                                 <ul class="nghesi-thumb">
-                                    <li class="col-sm-3 col-md-3 col-lg-3 col-xs-12">
-                                        <div class="fff">
-                                            <div class="nghesi-icon">
-                                                <div class="hovereffect-nghesi">
-                                                    <a href="#"><img src="/IMAGE/nghesi-bts.jpg" class="img-circle"></a>
+                                    @{ for (int i = 0; i <= 3; i++)
+                                        {
+
+                                            <li class="col-sm-3 col-md-3 col-lg-3 col-xs-12">
+                                                <div class="fff">
+                                                    <div class="nghesi-icon">
+                                                        <div class="hovereffect-nghesi">
+                                                            <a href="@Url.Action("Details", "CaSi", new { id = Model[i].MaCaSi })">
+                                                                <img src="@Url.Content("~/IMAGE/" + Model[i].HinhAnh)" class="img-circle">
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="nghesi-name">
+                                                        <a href="@Url.Action("Details", "CaSi", new { id = Model[i].MaCaSi })"><h4>@Model[i].TenCaSi</h4></a>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="nghesi-name">
-                                                <a href="#"><h4>BTS</h4></a>
-                                            </div>
-                                        </div>
-                                    </li><!--BTS-->
-                                    <li class="col-sm-3 col-md-3 col-lg-3 col-xs-12">
-                                        <div class="fff">
-                                            <div class="nghesi-icon">
-                                                <div class="hovereffect-nghesi">
-                                                    <a href="#"><img src="/IMAGE/nghesi-blackpink.jpg" class="img-circle"></a>
-                                                </div>
-                                            </div>
-                                            <div class="nghesi-name">
-                                                <a href="#"><h4>Black Pink</h4></a>
-                                            </div>
-                                        </div>
-                                    </li><!--BlackPink-->
-                                    <li class="col-sm-3 col-md-3 col-lg-3 col-xs-12">
-                                        <div class="fff">
-                                            <div class="nghesi-icon">
-                                                <div class="hovereffect-nghesi">
-                                                    <a href="#"><img src="/IMAGE/nghesi-bigbang.jpg" class="img-circle"></a>
-                                                </div>
-                                            </div>
-                                            <div class="nghesi-name">
-                                                <a href="#"><h4>Big Bang</h4></a>
-                                            </div>
-                                        </div>
-                                    </li><!--BigBang-->
-                                    <li class="col-sm-3 col-md-3 col-lg-3 col-xs-12">
-                                        <div class="fff">
-                                            <div class="nghesi-icon">
-                                                <div class="hovereffect-nghesi">
-                                                    <a href="#"><img src="/IMAGE/nghesi-erik.jpg" class="img-circle"></a>
-                                                </div>
-                                            </div>
-                                            <div class="nghesi-name">
-                                                <a href="#"><h4>Erik</h4></a>
-                                            </div>
-                                        </div>
-                                    </li><!--Erik-->
+
+                                            </li>
+                                        }
+                                    }
                                 </ul>
                             </div><!--Slide1 -->
                             <div class="item">
                                 <ul class="nghesi-thumb">
-                                    <li class="col-sm-3 col-md-3 col-lg-3 col-xs-12">
-                                        <div class="fff">
-                                            <div class="nghesi-icon">
-                                                <div class="hovereffect-nghesi">
-                                                    <a href="#"><img src="/IMAGE/nghesi-alan.jpg" class="img-circle"></a>
+                                    @{ for (int i = 4; i <= 7; i++)
+                                        {
+
+                                            <li class="col-sm-3 col-md-3 col-lg-3 col-xs-12">
+                                                <div class="fff">
+                                                    <div class="nghesi-icon">
+                                                        <div class="hovereffect-nghesi">
+                                                            <a href="@Url.Action("Details", "CaSi", new { id = Model[i].MaCaSi })">
+                                                                <img src="@Url.Content("~/IMAGE/" + Model[i].HinhAnh)" class="img-circle">
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="nghesi-name">
+                                                        <a href="@Url.Action("Details", "CaSi", new { id = Model[i].MaCaSi })"><h4>@Model[i].TenCaSi</h4></a>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="nghesi-name">
-                                                <a href="#"><h4>Alan Walker</h4></a>
-                                            </div>
-                                        </div>
-                                    </li><!--Alan Walker-->
-                                    <li class="col-sm-3 col-md-3 col-lg-3 col-xs-12">
-                                        <div class="fff">
-                                            <div class="nghesi-icon">
-                                                <div class="hovereffect-nghesi">
-                                                    <a href="#"><img src="/IMAGE/nghesi-chalie.jpg" class="img-circle"></a>
-                                                </div>
-                                            </div>
-                                            <div class="nghesi-name">
-                                                <a href="#"><h4>Charlie Puth</h4></a>
-                                            </div>
-                                        </div>
-                                    </li><!--Charlie Puth-->
-                                    <li class="col-sm-3 col-md-3 col-lg-3 col-xs-12">
-                                        <div class="fff">
-                                            <div class="nghesi-icon">
-                                                <div class="hovereffect-nghesi">
-                                                    <a href="#"><img src="/IMAGE/nghesi-jb.jpg" class="img-circle"></a>
-                                                </div>
-                                            </div>
-                                            <div class="nghesi-name">
-                                                <a href="#"><h4>Justin Bieber</h4></a>
-                                            </div>
-                                        </div>
-                                    </li><!--Justin Bieber-->
-                                    <li class="col-sm-3 col-md-3 col-lg-3 col-xs-12">
-                                        <div class="fff">
-                                            <div class="nghesi-icon">
-                                                <div class="hovereffect-nghesi">
-                                                    <a href="#"><img src="/IMAGE/nghesi-mtp.jpg" class="img-circle"></a>
-                                                </div>
-                                            </div>
-                                            <div class="nghesi-name">
-                                                <a href="#"><h4>Sơn Tùng MTP</h4></a>
-                                            </div>
-                                        </div>
-                                    </li><!--Sơn Tùng MTP-->
+
+                                            </li>
+                                        }
+                                    }
                                 </ul>
                             </div><!--Slide2 -->
                         </div>

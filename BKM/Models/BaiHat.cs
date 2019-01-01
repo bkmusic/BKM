@@ -24,7 +24,9 @@ namespace BKM.Models
 
         public virtual ICollection<NhacCaNhan> NhacCaNhan { get; set; }
         public virtual KhuVuc KhuVuc { get; set; }
-        public virtual TheLoai TheLoai { get; set; }        
+        public virtual TheLoai TheLoai { get; set; }
+        public virtual CaSi CaSi { get; set; }
+
     }
 
     public class BaiHatViewModel

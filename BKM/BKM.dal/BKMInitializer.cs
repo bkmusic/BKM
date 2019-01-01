@@ -51,8 +51,8 @@ namespace BKM.dal
 
             var BaiHats = new List<BaiHat>
             {
-                new BaiHat{TenBaiHat="Anh Đang Ở Đâu Đấy Anh", MaTheLoai=1, MaCaSi = 1, MaKhuVuc= 1,MoTa="", HinhAnh="images.png", File="Anh - Dang - O - Dau - Day - Anh - Huong - Giang.mp3" },
-                new BaiHat{TenBaiHat="Thank U, Next", MaTheLoai=1, MaKhuVuc= 2,MaCaSi = 1, HinhAnh="images.png", File="Thank U_ Next - Ariana Grande[128kbps_MP3].mp3" },
+                new BaiHat{TenBaiHat="Anh Đang Ở Đâu Đấy Anh", MaTheLoai=1, MaCaSi = 1, MaKhuVuc= 1,MoTa="", HinhAnh="images.png", File="Anh-Dang-O-Dau-Day-Anh-Huong-Giang.mp3" },
+                new BaiHat{TenBaiHat="Thank U, Next", MaTheLoai=1, MaKhuVuc= 2,MaCaSi = 1, HinhAnh="images.png", File="Thank U_ Next - Ariana Grande [128kbps_MP3].mp3" },
                 new BaiHat{TenBaiHat="Ve", MaTheLoai= 1  , MaKhuVuc=  1  ,MaCaSi = 1, HinhAnh="images.png", File=" Ve-Dat-G-DuUyen-BeeBB.mp3" },
                 new BaiHat{TenBaiHat="Cham Day Noi Dau",  MaTheLoai=  1, MaKhuVuc =  1 , MaCaSi = 1,HinhAnh="images.png", File="Cham -Day-Noi-Dau-ERIK.mp3"} ,
                 new BaiHat{TenBaiHat="Mình Chia Tay Đi" , MaTheLoai=  1,  MaKhuVuc = 1, MaCaSi = 1,HinhAnh="images.png", File="Minh -Chia-Tay-Di-ERIK.mp3"},
