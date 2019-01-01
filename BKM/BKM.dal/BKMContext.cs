@@ -18,7 +18,6 @@ namespace BKM.dal
         public DbSet<BaiHat> BaiHats { get; set; }
         public DbSet<CaSi> CaSies { get; set; }
         public DbSet<KhuVuc> KhuVucs { get; set; }
-        public DbSet<DetailBaiHat> DetailBaiHats { get; set; }
         public DbSet<TheLoai> TheLoais { get; set; }
         public DbSet<NguoiDung> NguoiDungs { get; set; }
         public DbSet<NhacCaNhan> NhacCaNhans { get; set; }

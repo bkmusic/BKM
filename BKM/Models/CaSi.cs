@@ -24,6 +24,6 @@ namespace BKM.Models
         [Display(Name = "Hình ảnh")]
         public string HinhAnh { get; set; }
 
-        public virtual ICollection<DetailBaiHat> DetailBaiHat { get; set; }
+        public virtual ICollection<BaiHat> BaiHat { get; set; }
     }
 }

@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using BKM.Models;
 using BKM.dal;
 using System.IO;
+using System.Data.Entity.Migrations;
 
 namespace BKM.Controllers
 {
@@ -19,7 +20,7 @@ namespace BKM.Controllers
         // GET: BaiHat
         public ActionResult Index()
         {
-            var baiHats = db.BaiHats.Take(20);
+            var baiHats = db.BaiHats.Include(b => b.KhuVuc).Include(b => b.TheLoai);
             return View(baiHats.ToList());
         }
 
@@ -43,6 +44,7 @@ namespace BKM.Controllers
         {
             ViewBag.MaKhuVuc = new SelectList(db.KhuVucs, "MaKhuVuc", "TenKhuVuc");
             ViewBag.MaTheLoai = new SelectList(db.TheLoais, "MaTheLoai", "TenTheLoai");
+            ViewBag.MaCaSi = new SelectList(db.CaSies, "MaCaSi", "TenCaSi");
             return View();
         }
 
@@ -52,20 +54,14 @@ namespace BKM.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(BaiHat baiHat)
-        {
-            //if (ModelState.IsValid)
-            //{
-            //    db.BaiHats.Add(baiHat);
-            //    db.SaveChanges();
-            //    return RedirectToAction("Index");
-            //}
-            
+        {          
             if (ModelState.IsValid)
             {
+                baiHat.HinhAnh = "images.png";
                 if (Request.Files.Count > 0)
                 {
                     HttpPostedFileBase fileNhac = Request.Files[0];
-                    //HttpPostedFileBase fileNhac = Request.Files[0];
+
                     if (fileNhac.ContentLength > 0)
                     {
                         var fileName = Path.GetFileName(fileNhac.FileName);
@@ -74,25 +70,15 @@ namespace BKM.Controllers
                             Server.MapPath("~/SONG"), fileName);
                         fileNhac.SaveAs(path);
                     }
-                    //if (fileNhac.ContentLength > 0)
-                    //{
-                    //    var fileName = Path.GetFileName(fileNhac.FileName);
-                    //    baiHat.File = fileNhac.FileName;
-                    //    string path = Path.Combine(Server.MapPath("~/SONG"), fileName);
-                    //    fileNhac.SaveAs(path);
-                    //}
                 }
-                //DetailBaiHat detailBaiHat = new DetailBaiHat { MaBaiHat = baiHat.MaBaiHat, TenBaiHat = baiHat.TenBaiHat, MaCaSi = 1, HinhAnh = "images.png", MoTa = "" };
-                //db.DetailBaiHats.Add(detailBaiHat);
-                //db.SaveChanges();
-                    db.BaiHats.Add(baiHat);
+                db.BaiHats.Add(baiHat);
                 db.SaveChanges();
                 return RedirectToAction("Index");
-
             }
-                         
+
             ViewBag.MaKhuVuc = new SelectList(db.KhuVucs, "MaKhuVuc", "TenKhuVuc", baiHat.MaKhuVuc);
             ViewBag.MaTheLoai = new SelectList(db.TheLoais, "MaTheLoai", "TenTheLoai", baiHat.MaTheLoai);
+            ViewBag.MaCaSi = new SelectList(db.CaSies, "MaCaSi", "TenCaSi",baiHat.MaCaSi);
             return View(baiHat);
         }
 
@@ -110,6 +96,7 @@ namespace BKM.Controllers
             }
             ViewBag.MaKhuVuc = new SelectList(db.KhuVucs, "MaKhuVuc", "TenKhuVuc", baiHat.MaKhuVuc);
             ViewBag.MaTheLoai = new SelectList(db.TheLoais, "MaTheLoai", "TenTheLoai", baiHat.MaTheLoai);
+            ViewBag.MaCaSi = new SelectList(db.CaSies, "MaCaSi", "TenCaSi", baiHat.MaCaSi);
             return View(baiHat);
         }
 
@@ -118,13 +105,15 @@ namespace BKM.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MaBaiHat,TenBaiHat,MaTheLoai,MaKhuVuc,File")] BaiHat baiHat)
+        public ActionResult Edit(BaiHat baiHat)
         {
             if (ModelState.IsValid)
             {
+                baiHat.HinhAnh = "images.png";
                 if (Request.Files.Count > 0)
                 {
                     HttpPostedFileBase fileNhac = Request.Files[0];
+
                     if (fileNhac.ContentLength > 0)
                     {
                         var fileName = Path.GetFileName(fileNhac.FileName);
@@ -134,58 +123,61 @@ namespace BKM.Controllers
                         fileNhac.SaveAs(path);
                     }
                 }
-                    db.Entry(baiHat).State = EntityState.Modified;
+                db.Entry(baiHat).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
             ViewBag.MaKhuVuc = new SelectList(db.KhuVucs, "MaKhuVuc", "TenKhuVuc", baiHat.MaKhuVuc);
             ViewBag.MaTheLoai = new SelectList(db.TheLoais, "MaTheLoai", "TenTheLoai", baiHat.MaTheLoai);
+            ViewBag.MaCaSi = new SelectList(db.CaSies, "MaCaSi", "TenCaSi", baiHat.MaCaSi);
             return View(baiHat);
         }
 
-        //public ActionResult EditDetailBaiHat(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    DetailBaiHat DetailbaiHat = db.DetailBaiHats.Find(id);
-        //    if (DetailbaiHat == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    ViewBag.MaCaSi = new SelectList(db.CaSies, "MaCaSi", "TenCaSi", DetailbaiHat.MaCaSi);
-        //    return View(DetailbaiHat);
-        //}
+        public ActionResult EditImage(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            BaiHat baiHat = db.BaiHats.Find(id);
+            if (baiHat == null)
+            {
+                return HttpNotFound();
+            }
+            return View(baiHat);
+        }
 
-        //// POST: BaiHat/Edit/5
-        //// To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        //// more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult EditDetailBaiHat(DetailBaiHat DetailbaiHat)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        if (Request.Files.Count > 0)
-        //        {
-        //            HttpPostedFileBase fileAnh = Request.Files[0];
-        //            if (fileAnh.ContentLength > 0)
-        //            {
-        //                var fileName = Path.GetFileName(fileAnh.FileName);
-        //                DetailbaiHat.HinhAnh = fileAnh.FileName;
-        //                string path = Path.Combine(
-        //                    Server.MapPath("~/IMAGE"), fileName);
-        //                fileAnh.SaveAs(path);
-        //            }
-        //        }
-        //        db.Entry(DetailbaiHat).State = EntityState.Modified;
-        //        db.SaveChanges();
-        //        return RedirectToAction("Index");
-        //    }
-        //    ViewBag.MaCaSi = new SelectList(db.CaSies, "MaCaSi", "TenCaSi", DetailbaiHat.MaCaSi);
-        //    return View(DetailbaiHat);
-        //}
+        // POST: BaiHat/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditImage(BaiHat baiHat)
+        {
+            if (ModelState.IsValid)
+            {
+                if (Request.Files.Count > 0)
+                {
+                    HttpPostedFileBase fileAnh = Request.Files[0];
+
+                    if (fileAnh.ContentLength > 0)
+                    {
+                        var fileName = Path.GetFileName(fileAnh.FileName);
+                        baiHat.File = fileAnh.FileName;
+                        string path = Path.Combine(
+                            Server.MapPath("~/IMAGE"), fileName);
+                        fileAnh.SaveAs(path);
+                    }
+                }
+                db.Entry(baiHat).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            ViewBag.MaKhuVuc = new SelectList(db.KhuVucs, "MaKhuVuc", "TenKhuVuc", baiHat.MaKhuVuc);
+            ViewBag.MaTheLoai = new SelectList(db.TheLoais, "MaTheLoai", "TenTheLoai", baiHat.MaTheLoai);
+            ViewBag.MaCaSi = new SelectList(db.CaSies, "MaCaSi", "TenCaSi", baiHat.MaCaSi);
+            return View(baiHat);
+        }
 
         // GET: BaiHat/Delete/5
         public ActionResult Delete(int? id)
@@ -216,7 +208,7 @@ namespace BKM.Controllers
         //GET: BaiHatVietNam
         public ActionResult BaiHatVN()
         {
-            var baiHatVN = db.BaiHats.Where(x=>x.MaKhuVuc==1).ToList();           
+            var baiHatVN = db.BaiHats.Where(x => x.MaKhuVuc == 1).ToList();
             return View(baiHatVN);
         }
 
@@ -227,7 +219,7 @@ namespace BKM.Controllers
             return View(baiHatUS);
         }
 
-        //GET: BaiHatVietNam
+        //GET: BaiHatKP
         public ActionResult BaiHatKP()
         {
             var baiHatKP = db.BaiHats.Where(x => x.MaKhuVuc == 2).ToList();

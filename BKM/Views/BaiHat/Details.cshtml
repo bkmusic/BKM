@@ -7,12 +7,13 @@
 <h2>Details</h2>
 
 <div>
-    <h4>@Model.TenBaiHat</h4> 
+    <h4>BaiHat</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.KhuVuc.TenKhuVuc)
         </dt>
+
         <dd>
             @Html.DisplayFor(model => model.KhuVuc.TenKhuVuc)
         </dd>
@@ -20,6 +21,7 @@
         <dt>
             @Html.DisplayNameFor(model => model.TheLoai.TenTheLoai)
         </dt>
+
         <dd>
             @Html.DisplayFor(model => model.TheLoai.TenTheLoai)
         </dd>
@@ -27,20 +29,46 @@
         <dt>
             @Html.DisplayNameFor(model => model.TenBaiHat)
         </dt>
+
         <dd>
             @Html.DisplayFor(model => model.TenBaiHat)
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.MaCaSi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaCaSi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MoTa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MoTa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HinhAnh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HinhAnh)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.File)
         </dt>
+
         <dd>
-            <audio src="@Url.Content("~/SONG/"+Model.File)" controls type="audio/mp3"></audio>
+            @Html.DisplayFor(model => model.File)
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "EditDetailBaiHat", new { id = Model.MaBaiHat }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaBaiHat }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
