@@ -27,10 +27,17 @@ namespace BKM.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.NguoiDungs.Add(User);
-                db.SaveChanges();
-                return RedirectToAction("DangNhap");
+                NguoiDung chkEmail = db.NguoiDungs.SingleOrDefault(x => x.Email == User.Email);
+                if (chkEmail == null)
+                {
+                    db.NguoiDungs.Add(User);
+                    db.SaveChanges();
+                    return RedirectToAction("DangNhap");
+                }
+                ViewBag.ThongBao = "Email "+chkEmail.Email+" đã tồn tại,bạn vui lòng đăng ký lại!" ;
+                return View();
             }
+            ViewBag.ThongBao = "Bạn vui lòng nhập đúng yêu cầu!";
             return View();
         }
 

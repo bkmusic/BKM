@@ -1,4 +1,5 @@
-﻿@model BKM.Models.NguoiDung
+﻿
+@model BKM.Models.NguoiDung
 
 @{
     ViewBag.Title = "DangKy";
@@ -9,11 +10,14 @@
 
 @using (Html.BeginForm())
 {
+    <div class="beta-info">
+        <h3>@ViewBag.ThongBao</h3>
+    </div>
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
         <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" }) 
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
             @Html.LabelFor(model => model.TenHienThi, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -33,7 +37,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.MatKhau, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.MatKhau, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.MatKhau, new { htmlAttributes = new { @class = "form-control", type = "password" } })
                 @Html.ValidationMessageFor(model => model.MatKhau, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -41,7 +45,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.NgaySinh, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.NgaySinh, new { htmlAttributes = new { @class = "form-control"} })
+                @Html.EditorFor(model => model.NgaySinh, new { htmlAttributes = new { @class = "form-control", type = "date" } })
                 @Html.ValidationMessageFor(model => model.NgaySinh, "", new { @class = "text-danger" })
             </div>
         </div>
