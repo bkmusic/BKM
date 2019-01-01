@@ -13,13 +13,19 @@ namespace BKM.Controllers
 {
     public class NhacCaNhanController : Controller
     {
-        private BKMContext db = new BKMContext();
-        
+        private BKMContext db = new BKMContext();      
         // GET: NhacCaNhan
         public ActionResult Index()
         {
-            var nhacCaNhans = db.NhacCaNhans.Include(n => n.BaiHat).Include(n => n.NguoiDung);
-            return View(nhacCaNhans.ToList());
+            var ChkNguoiDung = Session["nguoiDung"];
+            if(ChkNguoiDung==null)
+            {
+                return View();
+            }
+            NguoiDung nguoiDung = (NguoiDung)Session["nguoiDung"];
+            //var nhacCaNhan = db.NhacCaNhans.Include(n => n.BaiHat).Include(n => n.NguoiDung);
+            ViewBag.NhacCaNhan = db.NhacCaNhans.Where(x => x.MaNguoiDung == nguoiDung.MaNguoiDung).ToList();
+            return View(nguoiDung);
         }
 
         // GET: NhacCaNhan/Details/5

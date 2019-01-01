@@ -13,13 +13,13 @@
 
 <html>
 <head>
-    <meta charset="utf-8">
+
     <title>Tên Ca Sĩ</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="bootstrap.min.css">
-    <script src="jquery.min.js"></script>
-    <script src="bootstrap.min.js"></script>
-    <link href="style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css">
+    <script src="~/Scripts/jquery.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <link href="~/Content/style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -44,7 +44,7 @@
                             @{ foreach (var item in baiHat)
                                 {
                             <li class="list-group-item">
-                                <a href="#">
+                                <a href="@Url.Action("NgheNhac","NgheNhac", new {id = item.MaBaiHat })">
                                     <div class="row">
                                         <div class="col-md-2">
                                             <div class="icon">

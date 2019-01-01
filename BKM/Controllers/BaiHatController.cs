@@ -71,7 +71,7 @@ namespace BKM.Controllers
                         var fileName = Path.GetFileName(fileNhac.FileName);
                         baiHat.File = fileNhac.FileName;
                         string path = Path.Combine(
-                            Server.MapPath("~/SONG"), fileName);
+                            Server.MapPath("~/SONG/"), fileName);
                         fileNhac.SaveAs(path);
                     }
                     //if (fileNhac.ContentLength > 0)

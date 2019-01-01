@@ -414,13 +414,34 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="SONG\Anh-Dang-O-Dau-Day-Anh-Huong-Giang.mp3" />
+    <Content Include="SONG\Ba-Da-Bum-B-Ray.mp3" />
+    <Content Include="SONG\Baby - Justin Bieber [128kbps_MP3].mp3" />
+    <Content Include="SONG\Boombayah - BlackPink [128kbps_MP3].mp3" />
     <Content Include="SONG\Cang-Niu-Giu-Cang-De-Mat-Mr-Siro.mp3" />
+    <Content Include="SONG\Cham-Day-Noi-Dau-ERIK.mp3" />
     <Content Include="SONG\Con-Trai-Cung-K-ICM-B-Ray.mp3" />
+    <Content Include="SONG\Da-Lo-Yeu-Em-Nhieu-JustaTee.mp3" />
+    <Content Include="SONG\Ddu-Du Ddu-Du - BlackPink [128kbps_MP3].mp3" />
+    <Content Include="SONG\Di-De-Tro-Ve-Soobin-Hoang-Son.mp3" />
+    <Content Include="SONG\Em Cua Ngay Hom Qua - Son Tung M-TP [320kbps_MP3].mp3" />
     <Content Include="SONG\Em-Cua-Ngay-Hom-Qua-Son-Tung-M-TP.mp3" />
     <Content Include="SONG\Em-Khong-The-Tien-Tien-Touliver.mp3" />
+    <Content Include="SONG\Forever-Alone-Nong-JustaTee-BigDaddy.mp3" />
+    <Content Include="SONG\Hongkong1-Official-Version-Nguyen-Trong-Tai-San-Ji-Double-X.mp3" />
+    <Content Include="SONG\Lac-Troi-Son-Tung-M-TP.mp3" />
     <Content Include="SONG\Mat-Troi-Cua-Em-Phuong-Ly-JustaTee.mp3" />
+    <Content Include="SONG\Minh-Chia-Tay-Di-ERIK.mp3" />
+    <Content Include="SONG\Noi-Nay-Co-Anh-Son-Tung-M-TP.mp3" />
     <Content Include="SONG\PhuongLy.jpg" />
+    <Content Include="SONG\Say-You-Do-Tien-Tien.mp3" />
+    <Content Include="SONG\Solo - Jennie [128kbps_MP3].mp3" />
+    <Content Include="SONG\Thang-Dien-JustaTee-Phuong-Ly.mp3" />
+    <Content Include="SONG\Thank U_ Next - Ariana Grande [128kbps_MP3].mp3" />
+    <Content Include="SONG\Tuy Am - Xesi_ Masew_ Nhat Nguyen [128kbps_MP3].mp3" />
     <Content Include="SONG\Ve-Dat-G-DuUyen-BeeBB.mp3" />
+    <Content Include="SONG\Vo-Tinh-Xesi-Hoaprox.mp3" />
+    <Content Include="SONG\Xin-Dung-Lang-Im-Soobin-Hoang-Son.mp3" />
+    <Content Include="SONG\You-Of-Yesterday-Son-Tung-M-TP.mp3" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
