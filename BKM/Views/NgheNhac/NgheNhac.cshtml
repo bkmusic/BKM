@@ -16,6 +16,20 @@
     <script src="~/Scripts/jquery.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
     <link href="~/Content/style.css" rel="stylesheet" type="text/css">
+    <style>
+        .intro pre {
+            background-color: black;
+            font-size: 16px;
+            color:white;
+            border-color:black;
+        }
+        #goiy h4{
+            margin-left:20px;
+        }
+        #goiy p{
+            margin-left:20px;
+        }
+    </style>
 </head>
 
 <body>
@@ -101,13 +115,51 @@
         </div>
 
         <div class="intro">
-
-            <div class="tile">
-                <h1>Lời bài hát</h1>
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="tile">
+                        <h1>Lời bài hát</h1>
+                    </div>
+                    <pre >
+                        @Model.MoTa
+                    </pre>
+                </div>
+                <div id="goiy" class="col-md-7">
+                    <div class="casi-list-song">
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <a href="#">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <div class="icon">
+                                                <img src="IMAGE/icon-chạyngaydi.jpg">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="info">
+                                                <div class="song">
+                                                    <h4>Chạy Ngay Đi</h4>
+                                                </div>
+                                                <div class="casi">
+                                                    <p>Sơn Tùng M-TP</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="taive">
+                                            <div class="col-md-1">
+                                                <a href="#"><i class="glyphicon glyphicon-save"></i></a>
+                                            </div>
+                                            <div class="col-md-1">
+                                                <a href="#"><i class="glyphicon glyphicon-share"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <p>
-                @Model.MoTa
-            </p>
         </div>
         <div class="fb-comments" data-href="@Url.Content("https://bkmusic.github.io/"+Model.MaBaiHat)" data-width="100%" data-numposts="5"></div>
     </div>    
