@@ -115,7 +115,7 @@ namespace BKM.Controllers
                 }
                 db.BaiHats.Add(baiHat);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return Redirect("~/Home");
             }
 
             ViewBag.KhuVuc = new SelectList(db.KhuVucs, "MaKhuVuc", "TenKhuVuc", baiHat.MaKhuVuc);
@@ -159,7 +159,7 @@ namespace BKM.Controllers
                 }
                 db.BaiHats.Add(baiHat);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return Redirect("Home");
             }
 
             ViewBag.KhuVuc = new SelectList(db.KhuVucs, "MaKhuVuc", "TenKhuVuc", baiHat.MaKhuVuc);

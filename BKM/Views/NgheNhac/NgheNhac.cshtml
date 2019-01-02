@@ -1,5 +1,4 @@
-﻿@using BKM.Models
-@model BKM.Models.BaiHat
+﻿@model BKM.Models.BaiHat
 @{
    
     if (Session["nguoiDung"] == null)
@@ -8,11 +7,10 @@
     }
     else
     { Layout = "~/Views/Shared/_UserLayout.cshtml"; }
-    List<BaiHat> baiHat = ViewBag.BaiHat;
 }
 <head>
     <meta charset="utf-8">
-    <title>Tên Bài Hát</title>
+    <title>@Model.TenBaiHat</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="~/Content/bootstrap.min.css">
     <script src="~/Scripts/jquery.min.js"></script>
@@ -22,17 +20,14 @@
         .intro pre {
             background-color: black;
             font-size: 16px;
-            color: white;
-            border-color: black;
-            font-family: Roboto, sans-serif
+            color:white;
+            border-color:black;
         }
-
-        #goiy h4 {
-            margin-left: 20px;
+        #goiy h4{
+            margin-left:20px;
         }
-
-        #goiy p {
-            margin-left: 20px;
+        #goiy p{
+            margin-left:20px;
         }
     </style>
 </head>
@@ -89,7 +84,7 @@
                         <h2>@Model.TenBaiHat</h2>
                         @Html.ActionLink(@Model.CaSi.TenCaSi, "Details", "CaSi", new { id = Model.CaSi.MaCaSi }, null) <br>
                         <div class="theloai">
-                            <a href="@Url.Action("details","KhuVuc",new {id = Model.KhuVuc.MaKhuVuc })">@Html.DisplayFor(model => model.KhuVuc.TenKhuVuc)</a>
+                            <a href="@Url.Action("Details","KhuVuc", new { id = Model.KhuVuc.MaKhuVuc })">@Html.DisplayFor(model => model.KhuVuc.TenKhuVuc)</a>
                         </div>
                     </div>
                 </div>
@@ -102,13 +97,14 @@
                     <a href="@Url.Action("AddBaihat","NhacCaNhan",new {id = Model.MaBaiHat })"><i class="glyphicon glyphicon-heart"></i> Yêu thích</a>
                 </div>
                 <div class="col-md-2">
-                    <a href="#"><i class="glyphicon glyphicon-plus"></i> Thêm vào</a>
+                    <a href="@Url.Action("BeTa","Home")"><i class="glyphicon glyphicon-plus"></i> Thêm vào</a>
                 </div>
                 <div class="col-md-2">
                     <a href="@Url.Content("~/SONG/"+Model.File)" download="@Url.Content(Model.File).ToString()"><i class="glyphicon glyphicon-download-alt"></i> Tải nhạc</a>
                 </div>
                 <div class="col-md-2">
-                    <div data-href="https://bkmusic.github.io/"
+                    <div 
+                         data-href="https://bkmusic.github.io/"
                          data-mobile-iframe="true">
                         <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fbkmusic.github.io%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">
                             <i class="glyphicon glyphicon-share"></i> Chia sẻ
@@ -124,60 +120,49 @@
                     <div class="tile">
                         <h1>Lời bài hát</h1>
                     </div>
-                    <pre>
+                    <pre >
                         @Model.MoTa
                     </pre>
                 </div>
-                <div class="col-md-7" id="goiy">
+                <div id="goiy" class="col-md-7">
                     <div class="casi-list-song">
                         <ul class="list-group">
-                            @{
-                                foreach (var item in baiHat)
-                                {
-                                    <li class="list-group-item">
-                                        <a href="@Url.Action("NgheNhac","NgheNhac",new {id = item.MaBaiHat })">
-                                            <div class="row">
-                                                <div class="col-md-2">
-                                                    <div class="icon">
-                                                        <img src="@Url.Content("~/IMAGE/"+item.HinhAnh)">
-                                                    </div>
+                            <li class="list-group-item">
+                                <a href="#">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <div class="icon">
+                                                <img src="IMAGE/icon-chạyngaydi.jpg">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="info">
+                                                <div class="song">
+                                                    <h4>Chạy Ngay Đi</h4>
                                                 </div>
-                                                <div class="col-md-8">
-                                                    <div class="info">
-                                                        <div class="song">
-                                                            <h4>@item.TenBaiHat</h4>
-                                                        </div>
-                                                        <div class="casi">
-                                                            <p>@item.CaSi.TenCaSi</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="taive">
-                                                    <div class="col-md-1">
-                                                        <a href="@Url.Content("~/SONG/"+Model.File)" download="@Url.Content(Model.File).ToString()"><i class="glyphicon glyphicon-save"></i></a>
-                                                    </div>
-                                                    <div class="col-md-1">
-                                                        <div data-href="https://bkmusic.github.io/"
-                                                             data-mobile-iframe="true">
-                                                            <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fbkmusic.github.io%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">
-                                                                <i class="glyphicon glyphicon-share"></i> 
-                                                            </a>
-                                                        </div>
-                                                    </div>
+                                                <div class="casi">
+                                                    <p>Sơn Tùng M-TP</p>
                                                 </div>
                                             </div>
-                                        </a>
-                                    </li>
-                                }
-                            }
-
+                                        </div>
+                                        <div class="taive">
+                                            <div class="col-md-1">
+                                                <a href="#"><i class="glyphicon glyphicon-save"></i></a>
+                                            </div>
+                                            <div class="col-md-1">
+                                                <a href="#"><i class="glyphicon glyphicon-share"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="fb-comments" data-href="@Url.Content("https://bkmusic.github.id/"+Model.MaBaiHat)" data-width="100%" data-numposts="5"></div>
-    </div>
+        <div class="fb-comments" data-href="@Url.Content("https://bkmusic.github.io/"+Model.MaBaiHat)" data-width="100%" data-numposts="5"></div>
+    </div>    
 </body>
 <script type="text/javascript">
     var music = document.getElementById('music');
