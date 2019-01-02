@@ -10,7 +10,7 @@
 }
 <head>
     <meta charset="utf-8">
-    <title>Tên Bài Hát</title>
+    <title>@Model.TenBaiHat</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="~/Content/bootstrap.min.css">
     <script src="~/Scripts/jquery.min.js"></script>
@@ -70,7 +70,7 @@
                         <h2>@Model.TenBaiHat</h2>
                         @Html.ActionLink(@Model.CaSi.TenCaSi, "Details", "CaSi", new { id = Model.CaSi.MaCaSi }, null) <br>
                         <div class="theloai">
-                            <a href="/BaiHat/BaiHatKhuVuc">@Html.DisplayFor(model => model.KhuVuc.TenKhuVuc)</a>
+                            <a href="@Url.Action("Details","KhuVuc", new { id = Model.KhuVuc.MaKhuVuc })">@Html.DisplayFor(model => model.KhuVuc.TenKhuVuc)</a>
                         </div>
                     </div>
                 </div>
