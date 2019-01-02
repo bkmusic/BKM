@@ -14,6 +14,25 @@
     <link href="~/Content/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+    <div id="fb-root"></div>
+    <script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.2&appId=361275194654790&autoLogAppEvents=1';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <div id="fb-root"></div>
+    <script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.2&appId=361275194654790&autoLogAppEvents=1';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -22,7 +41,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/Home">
+                <a class="navbar-brand" href="#">
                     <img id="WPht1-k91imgimage" data-type="image" src="https://static.wixstatic.com/media/b2c0a7_61190110c8a269fa6b62cbab21950181.png/v1/fill/w_95,h_99,al_c,lg_1,q_80/b2c0a7_61190110c8a269fa6b62cbab21950181.webp">
                 </a>
             </div>
@@ -30,21 +49,12 @@
                 <ul class="nav navbar-nav">
                     <li id="bk">@Html.ActionLink("BÁCH KHOA MUSIC", "Index", "Home")</li>
                     <li>@Html.ActionLink("Trang Chủ", "Index", "Home")</li>
-                    <li dropdown="" class="">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="@Url.Action("Index","KhuVuc ")" aria-expanded="false">Khu vực<span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="@Url.Action("Index","KhuVuc")">Việt Nam</a></li>
-                            <li><a href="@Url.Action("Index","KhuVuc")">Âu Mỹ</a></li>
-                            <li><a href="@Url.Action("Index","KhuVuc")">Hàn Quốc</a></li>
-                        </ul>
-                    </li>
+                    <li>@Html.ActionLink("Khu Vực", "Index", "KhuVuc")</li>
+                    <li>@Html.ActionLink("Thể loại", "Index", "TheLoai")</li>
                     <li>@Html.ActionLink("Nhạc Cá Nhân", "Index", "NhacCaNhan")</li>
                     <li>@Html.ActionLink("Liên hệ", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Thể loại", "Index", "TheLoai")</li>
-
                 </ul>
-                <button class="btn btn-danger navbar-btn">UPLOAD</button>
-
+                <a href="@Url.Action("Upload","BaiHat")"><button class="btn btn-danger navbar-btn">UPLOAD</button></a>
                 <form class="nav navbar-nav navbar-right">
                     <div class="glyphicon glyphicon-log-out">
                         @Html.ActionLink("LogOut", "DangXuat", "NguoiDung")
@@ -72,11 +82,10 @@
     </div>
     <div id="footer">
         <div id="footerMenu">
-            <a href="/Home/Index">TRANG CHỦ</a>
-            <a href="/Home/Contact">LIÊN HỆ</a>
-            <a href="/Home/Beta">QUẢNG CÁO</a>
-            <a href="/Home/GopY">GÓP Ý</a>
-            <a href="/Home/Contact">GIỚI THIỆU</a>
+            <a href="/Home/Index">TRANG CHỦ</a> |
+            <a href="/Home/Contact">LIÊN HỆ</a> |
+            <a href="/Home/Beta">QUẢNG CÁO</a> |
+            <a href="/Home/GopY">GÓP Ý</a> |
             <a href="/Home/Beta">BKM VIP</a>
         </div>
         <div class="rights">
