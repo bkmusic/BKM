@@ -1,4 +1,5 @@
-﻿@model  List<BKM.Models.CaSi>
+﻿@using BKM.Models
+@model  List<BKM.Models.CaSi>
 @{ViewBag.Title = "Home Page";
     if (Session["nguoiDung"] == null)
     {
@@ -6,6 +7,8 @@
     }
     else
     { Layout = "~/Views/Shared/_UserLayout.cshtml"; }
+    List<BaiHat> baiHat = ViewBag.BaiHat;
+   
 }
 
 <html>
@@ -114,283 +117,87 @@
         </div>
     </div>
     <!--Bài Hát Mói-->
-    <div class="container">
+    <div class="container"  id="like">
         <div class="row">
             <div class="bai-hat-moi">
                 <div class="tile">
-                    <a href="#">BÀI HÁT MỚI <i class="glyphicon glyphicon-music"></i></a>
+                    <a href="#like">CÓ THỂ BẠN SẼ THÍCH <i class="glyphicon glyphicon-music"></i></a>
                 </div>
                 <div class="Hotsong">
                     <div class="col-md-6">
                         <div class="Hotsong-left">
                             <ul class="list-group">
-                                <li class="list-group-item">
-                                    <a href="#">
-                                        <div class="row">
-                                            <div class="col-md-1">
-                                                <div class="numb">
-                                                    <span>1</span>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="col-md-2">
-                                                <div class="icon">
-                                                    <img src="/IMAGE/anhdangodaudayanh5050.jpg">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="info">
-                                                    <div class="song">
-                                                        <h4>@Html.ActionLink("Anh Đang Ở Đâu Đấy Anh","NgheNhac","NgheNhac", new {id = 28}, null ) </h4>
+                                @{
+                                    for (int i = 0; i < baiHat.Count / 2; i++)
+                                    {
+                                        <li class="list-group-item">
+                                            <a href="#">
+                                                <div class="row">
+                                                    <div class="col-md-1">
+                                                        <div class="numb">
+                                                            <span>@(i+1)</span>
+                                                        </div>
                                                     </div>
-                                                    <div class="casi">
-                                                        <p>Hương Giang Idol</p>
+
+                                                    <div class="col-md-2">
+                                                        <div class="icon">
+                                                            <img src="@Url.Content("~/IMAGE/"+baiHat[i].HinhAnh)">
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li><!--Anh Đang Ở Đâu Đấy Anh-->
-                                <li class="list-group-item">
-                                    <a href="#">
-                                        <div class="row">
-                                            <div class="col-md-1">
-                                                <div class="numb">
-                                                    <span>2</span>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <div class="icon">
-                                                    <img src="/IMAGE/Icon-Contraicung.jpg">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="info">
-                                                    <div class="song">
-                                                        <h4>Con Trai Cưng</h4>
-                                                    </div>
-                                                    <div class="casi">
-                                                        <p>B Ray</p>
+                                                    <div class="col-md-6">
+                                                        <div class="info">
+                                                            <div class="song">
+                                                                <h4>@Html.ActionLink(baiHat[i].TenBaiHat, "NgheNhac", "NgheNhac", new { id = baiHat[i].MaBaiHat }, null) </h4>
+                                                            </div>
+                                                            <div class="casi">
+                                                                <p>@baiHat[i].CaSi.TenCaSi</p>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li><!--Con Trai Cưng-->
-                                <li class="list-group-item">
-                                    <a href="#">
-                                        <div class="row">
-                                            <div class="col-md-1">
-                                                <div class="numb">
-                                                    <span>3</span>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <div class="icon">
-                                                    <img src="/IMAGE/Icon-Emkhongthe.jpg">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="info">
-                                                    <div class="song">
-                                                        <h4>Em Không Thể</h4>
-                                                    </div>
-                                                    <div class="casi">
-                                                        <p>Tiên Tiên</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li><!--Em Không Thể-->
-                                <li class="list-group-item">
-                                    <a href="#">
-                                        <div class="row">
-                                            <div class="col-md-1">
-                                                <div class="numb">
-                                                    <span>4</span>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <div class="icon">
-                                                    <img src="/IMAGE/Icon-Votinh.jpg">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="info">
-                                                    <div class="song">
-                                                        <h4>Vô Tình</h4>
-                                                    </div>
-                                                    <div class="casi">
-                                                        <p>Xesi, Hoaprox</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li><!--Vô Tình-->
-                                <li class="list-group-item">
-                                    <a href="#">
-                                        <div class="row">
-                                            <div class="col-md-1">
-                                                <div class="numb">
-                                                    <span>5</span>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <div class="icon">
-                                                    <img src="/IMAGE/Icon-Hongkong1.jpg">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="info">
-                                                    <div class="song">
-                                                        <h4>Hongkong1</h4>
-                                                    </div>
-                                                    <div class="casi">
-                                                        <p>Nguyễn Tọng Tài</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li><!--Hongkong1-->
+                                            </a>
+                                        </li>
+                                    }
+                                }
                             </ul>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="Hotsong-right">
                             <ul class="list-group">
-                                <li class="list-group-item">
-                                    <a href="#">
-                                        <div class="row">
-                                            <div class="col-md-1">
-                                                <div class="numb">
-                                                    <span>6</span>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <div class="icon">
-                                                    <img src="/IMAGE/Icon-tyn.jpg">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="info">
-                                                    <div class="song">
-                                                        <h4>Thank U, Next</h4>
+                                @{
+                                    for (int i = baiHat.Count/2  ; i < baiHat.Count; i++)
+                                    {
+                                        <li class="list-group-item">
+                                            <a href="#">
+                                                <div class="row">
+                                                    <div class="col-md-1">
+                                                        <div class="numb">
+                                                            <span>@(i+1)</span>
+                                                        </div>
                                                     </div>
-                                                    <div class="casi">
-                                                        <p>Ariana Grande</p>
+                                                    <div class="col-md-2">
+                                                        <div class="icon">
+                                                            <img src="@Url.Content("~/IMAGE/"+baiHat[i].HinhAnh)" />
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li><!--Thank U, Next-->
-                                <li class="list-group-item">
-                                    <a href="#">
-                                        <div class="row">
-                                            <div class="col-md-1">
-                                                <div class="numb">
-                                                    <span>7</span>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <div class="icon">
-                                                    <img src="/IMAGE/Icon-Ve.jpg">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="info">
-                                                    <div class="song">
-                                                        <h4>Về</h4>
-                                                    </div>
-                                                    <div class="casi">
-                                                        <p>Đạt G</p>
+                                                    <div class="col-md-6">
+                                                        <div class="info">
+                                                            <div class="song">
+                                                                <h4>@Html.ActionLink(baiHat[i].TenBaiHat, "NgheNhac", "NgheNhac", new { id = baiHat[i].MaBaiHat },null)</h4>
+                                                            </div>
+                                                            <div class="casi">
+                                                                <p>@baiHat[i].CaSi.TenCaSi</p>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li><!--Về-->
-                                <li class="list-group-item">
-                                    <a href="#">
-                                        <div class="row">
-                                            <div class="col-md-1">
-                                                <div class="numb">
-                                                    <span>8</span>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <div class="icon">
-                                                    <img src="/IMAGE/Icon-Thangdien.jpg">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="info">
-                                                    <div class="song">
-                                                        <h4>Thằng Điên</h4>
-                                                    </div>
-                                                    <div class="casi">
-                                                        <p>JustaTee, Phương Ly</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li><!--Thằng Điên-->
-                                <li class="list-group-item">
-                                    <a href="#">
-                                        <div class="row">
-                                            <div class="col-md-1">
-                                                <div class="numb">
-                                                    <span>9</span>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <div class="icon">
-                                                    <img src="/IMAGE/Icon-Cangniucangdemat.jpg">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="info">
-                                                    <div class="song">
-                                                        <h4>Càng Níu Càng Dễ Mất</h4>
-                                                    </div>
-                                                    <div class="casi">
-                                                        <p>Mr Siro</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li><!--Càng Níu Càng Dễ Mất-->
-                                <li class="list-group-item">
-                                    <a href="#">
-                                        <div class="row">
-                                            <div class="col-md-1">
-                                                <div class="numb">
-                                                    <span>10</span>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <div class="icon">
-                                                    <img src="/IMAGE/Icon-solo.jpg">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="info">
-                                                    <div class="song">
-                                                        <h4>SOLO</h4>
-                                                    </div>
-                                                    <div class="casi">
-                                                        <p>JENNIE</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li><!--SOLO-->
+                                            </a>
+                                        </li><!--Thank U, Next-->
+                                    }
+                                }
+
+                                
                             </ul>
                         </div>
                     </div>
@@ -400,11 +207,11 @@
         <hr>
     </div>
     <!--BK Chart Tuần-->
-    <div class="container">
+    <div class="container"  id="hot">
         <div class="row">
             <div class="bai-hat-tuan">
                 <div class="tile">
-                    <div><a href="#">BKCHART TUẦN <i class="glyphicon glyphicon-chevron-right"></i></a></div>
+                    <div><a href="#hot">BKHOT <i class="glyphicon glyphicon-chevron-right"></i></a></div>
                 </div>
                 <br>
                 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
@@ -415,8 +222,8 @@
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                     <div class="hovereffect">
-                        <a href="#"><img class="img-responsive" src="/IMAGE/mvVN.jpg"></a>
-                        <div class="overlay">MV Việt Nam Hót Nhất</div>
+                        <a href="@Url.Action("BeTa","Home")"><img class="img-responsive" src="/IMAGE/mvVN.jpg"></a>
+                        <div class="overlay">MV Việt Nam Hot Nhất</div>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
@@ -437,11 +244,11 @@
         <hr>
     </div>
     <!---MV Hot-->
-    <div class="container">
+    <div class="container" id="mvhot">
         <div class="row">
             <div class="videohot">
                 <div class="tile">
-                    <a href="#">MV HOT <i class="glyphicon glyphicon-film"></i></a>
+                    <a href="#mvhot">MV HOT <i class="glyphicon glyphicon-film"></i></a>
                 </div>
                 <br>
                 <div class="row">
@@ -494,10 +301,10 @@
         <br>
     </div>
     <!--Nghệ Sĩ Nổi Bật-->
-    <div class="container">
+    <div class="container" id="artist">
         <div class="Nghe-si-hot">
             <div class="tile">
-                <a href="#">NGHỆ SĨ NỔI BẬT <i class="glyphicon glyphicon-star-empty"></i></a>
+                <a href="#artist">NGHỆ SĨ NỔI BẬT <i class="glyphicon glyphicon-star-empty"></i></a>
             </div>
             <div class="row">
                 <!--carousel-->

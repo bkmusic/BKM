@@ -25,108 +25,134 @@
 </head>
 
 
-    <div class="container">
-        <hr>
-        <div class="nghesi-menu">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="col-md-2">
-                        <li><a href="#">TẤT CẢ</a></li>
+<div class="container">
+    <hr>
+    <div class="nghesi-menu">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-3">
+                    <button class="tablink" id="defaultOpen" onclick="openPage('vietnam', this, 'black')" style="width:100%">VIỆT NAM</button>
+                        </div>
+                <div class="col-md-3">
+                        <button class="tablink" onclick="openPage('aumi', this, 'black')" style="width:100%">HÀN QUỐC</button>
                     </div>
-                    <div class="col-md-2">
-                        <li><a href="#VN">VIỆT NAM</a></li>
+                <div class="col-md-3">
+                        <button class="tablink" onclick="openPage('hanquoc', this, 'black')" style="width:100%">ÂU MỸ</button>
                     </div>
-                    <div class="col-md-2">
-                        <li><a href="#HQ">HÀN QUỐC</a></li>
-                    </div>
-                    <div class="col-md-2">
-                        <li><a href="#USUK">ÂU MỸ</a></li>
-                    </div>
-                </div>
             </div>
         </div>
-        <div class="nghesi-VN" id="VN">
-            <div class="row">
-                <div class="tile">
-                    <a href="#">VIỆT NAM <i class="glyphicon glyphicon-chevron-right"></i></a>
+    </div>
+    <div class="nghesi-VN tancontent1" id="vietnam">
+        @{for (int i = 0; i < baiHatVN.Count/4 + 1; i++)
+            {
+                int j = 4 * i;
+                int cnt = 0;
+        <div class="row">
+            @while (j!=baiHatVN.Count-1 && cnt < 4)
+            {
+                j++;
+            <div class="col-md-3 col-lg-3 col-xs-6">
+                <div class="fff">
+                    <div class="nghesi-icon">
+                        <div class="hovereffect-nghesi">
+                            <a href="@Url.Action("NgheNhac", "NgheNhac", new { id = baiHatVN[j].MaBaiHat })">
+                                <img src="@Url.Content("~/IMAGE/" + baiHatVN[j].HinhAnh)">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="nghesi-name">
+                        <a href="@Url.Action("NgheNhac", "NgheNhac", new { id = baiHatVN[j].MaBaiHat })">
+                            <h4>@baiHatVN[j].TenBaiHat</h4>
+                        </a>
+                    </div>
                 </div>
-                @{foreach (var item in baiHatVN)
+            </div><!--Bài hát VN-->
+                cnt++;
+            }
+        </div>
+                }
+            }
+</div>
+
+    <div class="nghesi-HQ tancontent1" id="hanquoc">
+        @{for (int i = 0; i < baiHatHQ.Count / 4 + 1; i++)
+            {
+                int j = 4 * i;
+                int cnt = 0;
+                <div class="row">
+                    @while (j != baiHatHQ.Count - 1 && cnt < 4)
                     {
+                        j++;
                         <div class="col-md-3 col-lg-3 col-xs-6">
                             <div class="fff">
                                 <div class="nghesi-icon">
                                     <div class="hovereffect-nghesi">
-                                        <a href="@Url.Action("NgheNhac","NgheNhac",new {id = item.MaBaiHat })">
-                                        <img src="@Url.Content("~/IMAGE/"+item.HinhAnh)"></a>
+                                        <a href="@Url.Action("NgheNhac", "NgheNhac", new { id = baiHatHQ[j].MaBaiHat })">
+                                            <img src="@Url.Content("~/IMAGE/" + baiHatHQ[j].HinhAnh)">
+                                        </a>
                                     </div>
                                 </div>
                                 <div class="nghesi-name">
-                                    <a href="@Url.Action("NgheNhac","NgheNhac",new {id = item.MaBaiHat })">
-                                    <h4>@item.TenBaiHat</h4></a>
+                                    <a href="@Url.Action("NgheNhac", "NgheNhac", new { id = baiHatHQ[j].MaBaiHat })">
+                                        <h4>@baiHatHQ[j].TenBaiHat</h4>
+                                    </a>
                                 </div>
                             </div>
                         </div><!--Bài hát VN-->
-                    }              
-                }              
-            </div>
-        </div>
-
-        <div class="nghesi-HQ" id="HQ">
-            <div class="row">
-                <div class="tile">
-                    <a href="#">HÀN QUỐC <i class="glyphicon glyphicon-chevron-right"></i></a>
+                        cnt++;
+                    }
                 </div>
-                @{foreach (var item in baiHatHQ)
+            }
+        }
+    </div>
+
+    <div class="nghesi-USUK tancontent1" id="aumi">
+        @{for (int i = 0; i < baiHatUS.Count / 4 + 1; i++)
+            {
+                int j = 4 * i;
+                int cnt = 0;
+                <div class="row">
+                    @while (j != baiHatUS.Count - 1 && cnt < 4)
                     {
+                        j++;
                         <div class="col-md-3 col-lg-3 col-xs-6">
                             <div class="fff">
                                 <div class="nghesi-icon">
                                     <div class="hovereffect-nghesi">
-                                        <a href="@Url.Action("NgheNhac","NgheNhac",new {id = item.MaBaiHat })">
-                                            <img src="@Url.Content("~/IMAGE/"+item.HinhAnh)">
+                                        <a href="@Url.Action("NgheNhac", "NgheNhac", new { id = baiHatUS[j].MaBaiHat })">
+                                            <img src="@Url.Content("~/IMAGE/" + baiHatUS[j].HinhAnh)">
                                         </a>
                                     </div>
                                 </div>
                                 <div class="nghesi-name">
-                                    <a href="@Url.Action("NgheNhac","NgheNhac",new {id = item.MaBaiHat })">
-                                        <h4>@item.TenBaiHat</h4>
+                                    <a href="@Url.Action("NgheNhac", "NgheNhac", new { id = baiHatUS[j].MaBaiHat })">
+                                        <h4>@baiHatUS[j].TenBaiHat</h4>
                                     </a>
                                 </div>
                             </div>
-                        </div><!--Bài hát HQ-->
+                        </div><!--Bài hát VN-->
+                        cnt++;
                     }
-                }               
-            </div>
-        </div>
-
-        <div class="nghesi-USUK" id="USUK">
-            <div class="row">
-                <div class="tile">
-                    <a href="#">ÂU MỸ <i class="glyphicon glyphicon-chevron-right"></i></a>
                 </div>
-                @{foreach (var item in baiHatUS)
-                    {
-                        <div class="col-md-3 col-lg-3 col-xs-6">
-                            <div class="fff">
-                                <div class="nghesi-icon">
-                                    <div class="hovereffect-nghesi">
-                                        <a href="@Url.Action("NgheNhac","NgheNhac",new {id = item.MaBaiHat })">
-                                            <img src="@Url.Content("~/IMAGE/"+item.HinhAnh)">
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="nghesi-name">
-                                    <a href="@Url.Action("NgheNhac","NgheNhac",new {id = item.MaBaiHat })">
-                                        <h4>@item.TenBaiHat</h4>
-                                    </a>
-                                </div>
-                            </div>
-                        </div><!--Bài hát US-->
-                    }
-                }             
-            </div>
-        </div>
-
+            }
+        }
+    </div>
+    <script>
+            function openPage(pageName, elmnt, color) {
+                var i, tancontent1, tablinks;
+                tancontent1 = document.getElementsByClassName("tancontent1");
+                for (i = 0; i < tancontent1.length; i++) {
+                    tancontent1[i].style.display = "none";
+                }
+                tablinks = document.getElementsByClassName("tablink");
+                for (i = 0; i < tablinks.length; i++) {
+                    tablinks[i].style.backgroundColor = "";
+                }
+                document.getElementById(pageName).style.display = "block";
+                elmnt.style.backgroundColor = color;
+        }
+        document.getElementById("defaultOpen").click();
+        </script>
     </div>
 
 

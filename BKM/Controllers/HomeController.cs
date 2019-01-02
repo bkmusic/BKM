@@ -13,6 +13,7 @@ namespace BKM.Controllers
         public ActionResult Index()
         {
             var caSi = db.CaSies.Take(8).ToList();
+            ViewBag.BaiHat = db.BaiHats.OrderBy(x => Guid.NewGuid()).Take(10).ToList();
             return View(caSi);
         }
 

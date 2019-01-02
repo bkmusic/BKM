@@ -14,7 +14,7 @@ namespace BKM.dal
         {
             var caSies = new List<CaSi>
             {
-                
+               
             };
             caSies.ForEach(s => context.CaSies.Add(s));
             context.SaveChanges();
@@ -28,13 +28,14 @@ namespace BKM.dal
 
             var KhuVucs = new List<KhuVuc>
             {
+                
             };
             KhuVucs.ForEach(s => context.KhuVucs.Add(s));
             context.SaveChanges();
 
             var BaiHats = new List<BaiHat>
             {
-                
+               
             };
             BaiHats.ForEach(s => context.BaiHats.Add(s));
             context.SaveChanges();
