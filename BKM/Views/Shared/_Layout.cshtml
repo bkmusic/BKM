@@ -10,6 +10,25 @@
     <link href="~/Content/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+    <div id="fb-root"></div>
+    <script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.2&appId=361275194654790&autoLogAppEvents=1';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <div id="fb-root"></div>
+    <script>
+    (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.2&appId=361275194654790&autoLogAppEvents=1';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -26,27 +45,20 @@
                 <ul class="nav navbar-nav">
                     <li id="bk">@Html.ActionLink("BÁCH KHOA MUSIC", "Index", "Home")</li>
                     <li>@Html.ActionLink("Trang Chủ", "Index", "Home")</li>
-                    <li dropdown="" class="">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="@Url.Action("Index","KhuVuc")" aria-expanded="false">Khu vực<span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="@Url.Action("Index","KhuVuc")">Việt Nam</a></li>
-                            <li><a href="@Url.Action("Index","KhuVuc")">Âu Mỹ</a></li>
-                            <li><a href="@Url.Action("Index","KhuVuc")">Hàn Quốc</a></li>
-                        </ul>
-                    </li>
+                    <li>@Html.ActionLink("Khu Vực", "Index", "KhuVuc")</li>
+                    <li>@Html.ActionLink("Thể loại", "Index", "TheLoai")</li>
                     <li>@Html.ActionLink("Nhạc Cá Nhân", "Index", "NhacCaNhan")</li>
                     <li>@Html.ActionLink("Liên hệ", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Thể loại","Index","TheLoai")</li>
                 </ul>
                 <a href="@Url.Action("Upload","BaiHat")"><button class="btn btn-danger navbar-btn">UPLOAD</button></a>
                 <!--Đăng kí và đăng nhập-->
                 <ul class="nav navbar-nav navbar-right">
-                        <li><span class="glyphicon glyphicon-user">@Html.ActionLink("Signup", "DangKy", "NguoiDung")</span></li>
-                        <li><span class="glyphicon glyphicon-log-in">@Html.ActionLink("Login", "DangNhap", "NguoiDung")</span></li>                 
+                    <li><span class="glyphicon glyphicon-user">@Html.ActionLink("Signup", "DangKy", "NguoiDung")</span></li>
+                    <li><span class="glyphicon glyphicon-log-in">@Html.ActionLink("Login", "DangNhap", "NguoiDung")</span></li>
                 </ul>
                 <!--Thanh công cụ tìm kiếm-->
                 @using (Html.BeginForm("TimKiem", "TimKiem", FormMethod.Post, new { @class = "navbar-form navbar-right" }))
-                {                
+                {
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Nhập tên bài hát hoặc ca sĩ" name="search">
                         <div class="input-group-btn">
@@ -54,8 +66,8 @@
                                 <i class="glyphicon glyphicon-search"></i>
                             </button>
                         </div>
-                    </div>               
-               }
+                    </div>
+                }
             </div>
         </div>
     </nav>
@@ -65,11 +77,10 @@
     </div>
     <div id="footer">
         <div id="footerMenu">
-            <a href="/Home/Index">TRANG CHỦ</a>
-            <a href="/Home/Contact">LIÊN HỆ</a>
-            <a href="/Home/Beta">QUẢNG CÁO</a>
-            <a href="/Home/GopY">GÓP Ý</a>
-            <a href="/Home/Contact">GIỚI THIỆU</a>
+            <a href="/Home/Index">TRANG CHỦ</a> |
+            <a href="/Home/Contact">LIÊN HỆ</a> |
+            <a href="/Home/Beta">QUẢNG CÁO</a> |
+            <a href="/Home/GopY">GÓP Ý</a> |
             <a href="/Home/Beta">BKM VIP</a>
         </div>
         <div class="rights">

@@ -308,7 +308,7 @@ namespace BKM.Controllers
         //GET: BaiHatKP
         public ActionResult BaiHatKP()
         {
-            var baiHatKP = db.BaiHats.Where(x => x.MaKhuVuc == 2).ToList();
+            var baiHatKP = db.BaiHats.Where(x => x.MaKhuVuc == 3).ToList();
             return View(baiHatKP);
         }
 

@@ -26,7 +26,7 @@
         <div class="baihat-head">
             <div class="row">
                 <div class="col-md-4">
-                    <audio id="music" preload="auto">
+                    <audio id="music" preload="auto" autoplay>
                         <source src="@Url.Content("~/SONG/"+Model.File)" />
                     </audio>
 
@@ -68,7 +68,7 @@
                 <div class="baihat-info">
                     <div class="col-md-8">
                         <h2>@Model.TenBaiHat</h2>
-                        @Html.ActionLink(@Model.CaSi.TenCaSi,"Details","CaSi",new {id = Model.CaSi.MaCaSi },null) <br>
+                        @Html.ActionLink(@Model.CaSi.TenCaSi, "Details", "CaSi", new { id = Model.CaSi.MaCaSi }, null) <br>
                         <div class="theloai">
                             <a href="/BaiHat/BaiHatKhuVuc">@Html.DisplayFor(model => model.KhuVuc.TenKhuVuc)</a>
                         </div>
@@ -86,10 +86,16 @@
                     <a href="#"><i class="glyphicon glyphicon-plus"></i> Thêm vào</a>
                 </div>
                 <div class="col-md-2">
-                    <a href="#"><i class="glyphicon glyphicon-download-alt"></i> Tải nhạc</a>
+                    <a href="@Url.Content("~/SONG/"+Model.File)" download="@Url.Content(Model.File).ToString()"><i class="glyphicon glyphicon-download-alt"></i> Tải nhạc</a>
                 </div>
                 <div class="col-md-2">
-                    <a href="#"><i class="glyphicon glyphicon-share"></i> Chia sẻ</a>
+                    <div 
+                         data-href="https://bkmusic.github.io/"
+                         data-mobile-iframe="true">
+                        <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fbkmusic.github.io%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">
+                            <i class="glyphicon glyphicon-share"></i> Chia sẻ
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -103,7 +109,8 @@
                 @Model.MoTa
             </p>
         </div>
-    </div>
+        <div class="fb-comments" data-href="https://bkmusic.github.io/" data-width="100%" data-numposts="5"></div>
+    </div>    
 </body>
 <script type="text/javascript">
     var music = document.getElementById('music');
