@@ -46,11 +46,11 @@
                 </ul>
                 <button class="btn btn-danger navbar-btn">UPLOAD</button>
 
-                <form class="nav navbar-nav navbar-right">
-                    <div class="glyphicon glyphicon-log-out">
-                        @Html.ActionLink("LogOut", "DangXuat", "NguoiDung")
-                    </div>
-                </form>
+                
+                <ul class="nav navbar-nav navbar-right">
+                    <li ><a style="color:white;" href="@Url.Action("Index","NhacCaNhan")">@nguoiDung.TenHienThi</a></li>
+                    <li><a href="@Url.Action("DangXuat","NguoiDung")"><span class="glyphicon glyphicon-log-out"></span> Đăng xuất</a></li>
+                </ul>
 
                 <!--Thanh công cụ tìm kiếm-->
                 @using (Html.BeginForm("TimKiem", "TimKiem", FormMethod.Post, new { @class = "navbar-form navbar-right" }))
