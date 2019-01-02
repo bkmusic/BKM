@@ -32,29 +32,7 @@
         </div>
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="row">
-            <div class="col-md-3"></div>
-            <div class="col-md-6">
-                <form method="post" action="#">
-                    <div class="form-group files">
-                        @Html.EditorFor(model => model.File, new { htmlAttributes = new { @class = "form-control", type = "File", id = "file", name = "file" } })
-
-                        <div class="button-tailen-click">
-                            <label for="file" class="btn btn-primary btn-lg">Hoặc ấn vào nút này để chọn File bài hát</label>
-                        </div>
-
-                    </div>
-                </form>
-            </div>
-            @*<div class="col-md-3"></div>
-            <div class="row">
-                <div class="col-md-5"></div>
-                <div class="col-md-2">
-                    <div class="button-nap">
-                        <button id="nap" class="tablink" onclick="openPage('up-main', this, 'purple')">Nạp</button>
-                    </div>
-                </div>
-                <div class="col-md-5"></div>
-            </div>*@
+  
 
         </div><!--upload zone-->
 
@@ -85,7 +63,7 @@
                         <div class="col-md-4">
                             <div class="up-casi">
                                 <div class="form-group">
-                                    @Html.DropDownList("MaCaSi", null, htmlAttributes: new { @class = "combobox form-control" })
+                                    @Html.DropDownList("MaCaSi", null, htmlAttributes: new { @class = "form-control combobox" })
                                     @Html.ValidationMessageFor(model => model.MaCaSi, "", new { @class = "text-danger" })
                                 </div>
                             </div>
@@ -97,7 +75,19 @@
                     </div>
 
                 </form>
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <form method="post" action="#">
+                        <div class="form-group files">
+                            @Html.EditorFor(model => model.File, new { htmlAttributes = new { @class = "form-control", type = "File", id = "file", name = "file" } })
+                            @Html.ValidationMessageFor(model => model.TenBaiHat, "", new { @class = "text-danger" })
+                            <div class="button-tailen-click">
+                                <label for="file" class="btn btn-primary btn-lg">Hoặc ấn vào nút này để chọn File bài hát</label>
+                            </div>
 
+                        </div>
+                    </form>
+                </div>
                 <div class="row">
 
                     <div class="col-md-2">
