@@ -20,7 +20,23 @@
     <script src="~/Scripts/jquery.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
     <link href="~/Content/style.css" rel="stylesheet" type="text/css">
+    <style>
+        .intro pre {
+            background-color: black;
+            font-size: 16px;
+            color: white;
+            border-color: black;
+            font-family: Roboto, sans-serif
+        }
 
+        #goiy h4 {
+            margin-left: 20px;
+        }
+
+        #goiy p {
+            margin-left: 20px;
+        }
+    </style>
 </head>
 
 <body>
@@ -87,9 +103,9 @@
             <div class="tile">
                 <h1>@Model.TenCaSi</h1>
             </div>
-            <p>
+            <pre>
                 @Model.MoTa
-            </p>
+            </pre>
         </div>
     </div>
 

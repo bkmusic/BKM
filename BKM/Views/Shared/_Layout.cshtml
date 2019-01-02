@@ -53,8 +53,8 @@
                 <a href="@Url.Action("Upload","BaiHat")"><button class="btn btn-danger navbar-btn">UPLOAD</button></a>
                 <!--Đăng kí và đăng nhập-->
                 <ul class="nav navbar-nav navbar-right">
-                    <li><span class="glyphicon glyphicon-user">@Html.ActionLink("Signup", "DangKy", "NguoiDung")</span></li>
-                    <li><span class="glyphicon glyphicon-log-in">@Html.ActionLink("Login", "DangNhap", "NguoiDung")</span></li>
+                    <li><a href="@Url.Action("DangKy","NguoiDung")"><span class="glyphicon glyphicon-user"></span> Đăng ký</a></li>
+                    <li><a href="@Url.Action("DangNhap","NguoiDung")"><span class="glyphicon glyphicon-log-in"></span> Đăng nhập</a></li>
                 </ul>
                 <!--Thanh công cụ tìm kiếm-->
                 @using (Html.BeginForm("TimKiem", "TimKiem", FormMethod.Post, new { @class = "navbar-form navbar-right" }))

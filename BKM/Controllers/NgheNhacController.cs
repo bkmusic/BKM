@@ -29,6 +29,7 @@ namespace BKM.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.BaiHat = db.BaiHats.OrderBy(x => Guid.NewGuid()).Take(3).Where(x=>x.MaBaiHat!=baiHat.MaBaiHat).ToList();
             return View(baiHat);
         }
         public ActionResult tempView()
